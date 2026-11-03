@@ -1,0 +1,4 @@
+source,frame,class,det_conf,verifier_p,score,x1,y1,x2,y2,threat_score,flags
+dom_099-Copy_jpeg_jpg.rf.858a920b9b146ed83ab7cd2f5bcf7eed.jpg,0,gun,0.3874,0.2805,0.1086,63.9,13.3,430.3,579.0,50.0,GUN_DETECTED
+dom_099-Copy_jpeg_jpg.rf.b23a9514cf91ef48a87eabd0dfd06d0b.jpg,0,gun,0.5768,0.3749,0.2162,214.0,19.2,565.6,571.9,50.0,GUN_DETECTED
+dom_099-Copy_jpeg_jpg.rf.ec6faad9d19b4c9d71b8b69a1a6c9471.jpg,0,gun,0.6733,0.3241,0.2182,213.2,19.1,558.8,571.0,50.0,GUN_DETECTED

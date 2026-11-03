@@ -1,0 +1,7 @@
+# Temp yaml for smoke tests on the original dataset (absolute paths)
+path: /home/shiva/Desktop/projects/akriti/weapon-detection/work/raw/IntProj_Weapon_Dataset_annot
+train: train/images
+val: valid/images
+test: test/images
+nc: 3
+names: ['armed person', 'gun', 'knife']

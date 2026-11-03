@@ -1,0 +1,19 @@
+# Large data, models, downloads and runs
+*.zip
+*.pt
+*.onnx
+*.weights
+*.bin
+*.tar*
+work/data/
+work/downloads/
+work/raw/
+work/runs/
+work/weights/
+work/.venv/
+work/**/_cache/
+work/**/__pycache__/
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+.env
