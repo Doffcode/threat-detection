@@ -119,13 +119,13 @@ class BehaviorVisualizer:
         background_img_bgr: Optional[np.ndarray] = None,
     ) -> str:
         """Exports 2D trajectory plot for all tracks in a sequence."""
-        fig, ax = plt.subplots(figsize=(10, 8), dpi=150)
+        fig, ax = plt.subplots(figsize=(10, 8), dpi=150, facecolor="#0b0f19")
 
         if background_img_bgr is not None:
             bg_rgb = cv2.cvtColor(background_img_bgr, cv2.COLOR_BGR2RGB)
             ax.imshow(bg_rgb)
         else:
-            ax.set_facecolor("#1e1e1e")
+            ax.set_facecolor("#111827")
             ax.set_xlim(0, img_w)
             ax.set_ylim(img_h, 0)  # Inverted Y for image coordinates
 
@@ -134,8 +134,8 @@ class BehaviorVisualizer:
             poly_px = [(pt[0] * img_w, pt[1] * img_h) for pt in z["polygon_normalized"]]
             poly_px.append(poly_px[0])
             xs, ys = zip(*poly_px)
-            ax.plot(xs, ys, color="cyan", linestyle="--", linewidth=2, label=f"Zone: {z['name']}")
-            ax.fill(xs, ys, color="cyan", alpha=0.15)
+            ax.plot(xs, ys, color="#38bdf8", linestyle="--", linewidth=2, label=f"Zone: {z['name']}")
+            ax.fill(xs, ys, color="#38bdf8", alpha=0.15)
 
         # Draw Tracks
         cmap = plt.get_cmap("tab10")
@@ -146,17 +146,24 @@ class BehaviorVisualizer:
             ys = [h_pt["pos"][1] for h_pt in hist]
             color = cmap(idx % 10)
             ax.plot(xs, ys, "-o", markersize=4, linewidth=2, color=color, label=f"Track #{tid} ({len(hist)} frames)")
-            ax.scatter(xs[0], ys[0], color="green", marker="^", s=60, zorder=5)  # Start
-            ax.scatter(xs[-1], ys[-1], color="red", marker="s", s=60, zorder=5)   # End
+            ax.scatter(xs[0], ys[0], color="#22c55e", marker="^", s=60, zorder=5)  # Start
+            ax.scatter(xs[-1], ys[-1], color="#ef4444", marker="s", s=60, zorder=5)   # End
 
-        ax.set_title(f"Person Kinematic Trajectories — {sequence_id}", fontsize=14, pad=12)
-        ax.set_xlabel("X (pixels)")
-        ax.set_ylabel("Y (pixels)")
-        ax.legend(loc="upper right", fontsize=9, framealpha=0.8)
-        ax.grid(True, linestyle=":", alpha=0.4)
+        ax.set_title(f"Person Kinematic Trajectories — {sequence_id}", fontsize=13, color="#f1f5f9", pad=10)
+        ax.axis("off")
+        ax.legend(
+            loc="upper center",
+            bbox_to_anchor=(0.5, -0.03),
+            ncol=3,
+            fontsize=8,
+            framealpha=0.85,
+            facecolor="#1e293b",
+            edgecolor="#475569",
+            labelcolor="#e2e8f0",
+        )
 
         save_p = self.traj_dir / f"{sequence_id}_trajectories.png"
         fig.tight_layout()
-        fig.savefig(str(save_p))
+        fig.savefig(str(save_p), facecolor="#0b0f19", edgecolor="none", bbox_inches="tight")
         plt.close(fig)
         return str(save_p)

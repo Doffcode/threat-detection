@@ -266,15 +266,29 @@ class Stage1PipelineEngine:
             )
         else:
             # Info overlay
-            cv2.putText(
-                vis,
-                f"Seq: {sequence_id} | Frame {int(frame_number)} | Weapons: {len(weapons)} | Persons: {len(tracks)}",
-                (10, 22),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.55,
-                (255, 255, 255),
-                1,
-                cv2.LINE_AA,
-            )
+            if sequence_id == "stream_preview":
+                # Clean bottom HUD with dark translucent backing to eliminate collision with burnt-in demo header
+                cv2.rectangle(vis, (8, h - 30), (min(w - 8, 450), h - 6), (15, 23, 42), -1)
+                cv2.putText(
+                    vis,
+                    f"Live Inspector | Frame {int(frame_number):03d} | Persons: {len(tracks)} | Weapons: {len(weapons)}",
+                    (14, h - 12),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.45,
+                    (226, 232, 240),
+                    1,
+                    cv2.LINE_AA,
+                )
+            else:
+                cv2.putText(
+                    vis,
+                    f"Seq: {sequence_id} | Frame {int(frame_number)} | Weapons: {len(weapons)} | Persons: {len(tracks)}",
+                    (10, 22),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.55,
+                    (255, 255, 255),
+                    1,
+                    cv2.LINE_AA,
+                )
 
         return vis
