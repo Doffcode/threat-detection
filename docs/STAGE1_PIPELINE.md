@@ -68,6 +68,7 @@ Implemented in [`tests/test_pipeline_association.py`](file:///home/shiva/Desktop
 - **Test 4 (`test_two_weapons_one_person`):** Two weapons (handgun + knife) held by one person -> **PASSED** (both linked to Track 1).
 - **Test 5 (`test_occluded_wrist_fallback_to_containment`):** No wrist keypoints detected -> **PASSED** (graceful containment fallback).
 - **Test 6 (`test_track_gap`):** 1-frame tracking gap followed by hit 3 triggers alert; 10-frame gap resets track and finalizes alert -> **PASSED**.
+- **Test 7 (`test_identical_input_determinism`):** Bit-for-bit identical association outputs given identical inputs across passes -> **PASSED**.
 
 ### 3.2 Oracle Association Benchmark (Independent of Detector)
 Evaluates the association engine when fed ground-truth weapon boxes directly:

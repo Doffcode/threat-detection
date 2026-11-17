@@ -1,7 +1,7 @@
 # Stage 1 Person-Weapon Tracking Pipeline — Sign-Off & Review Package
 
 **Date:** November 17, 2026  
-**Pipeline Status:** COMPLETE & VERIFIED (Unit Tests: 6/6 Passed; E2E & Oracle Benchmarks Completed)  
+**Pipeline Status:** COMPLETE & VERIFIED (Unit Tests: 7/7 Passed; E2E & Oracle Benchmarks Completed)  
 **Locked Weapon Detector:** `baseline_m960_v2` (`outputs/runs/baseline_m960_v2/weights/best.pt`)
 
 ---
@@ -18,7 +18,7 @@
 - [`src/pipeline/engine.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/src/pipeline/engine.py): Master runner coordinating stream inference, visualization, and JSON output.
 
 ### Tests & Verification Scripts
-- [`tests/test_pipeline_association.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/tests/test_pipeline_association.py): Synthetic unit tests for all 6 core behaviors (all 6 pass in 0.90s).
+- [`tests/test_pipeline_association.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/tests/test_pipeline_association.py): Synthetic unit tests for all 7 core behaviors (all 7 pass in 0.92s).
 - [`scripts/pipeline/evaluate_pipeline_full.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/scripts/pipeline/evaluate_pipeline_full.py): Complete harness executing the Oracle test, E2E benchmarks, audit sheet generation, and gallery curation.
 
 ### Output Artifacts (`outputs/pipeline/`)
@@ -68,7 +68,7 @@
    - Check the low-link-score cases and missed weapon false negatives.
 4. **Run Unit Tests (3 mins):**
    - Execute: `work/.venv/bin/pytest tests/test_pipeline_association.py -v`
-   - Confirm all 6 unit tests pass cleanly.
+   - Confirm all 7 unit tests pass cleanly.
 
 ---
 
