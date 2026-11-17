@@ -16,17 +16,21 @@ import os
 import sys
 import tempfile
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import cv2
 import numpy as np
 import pandas as pd
 import streamlit as st
+import yaml
 
-# Add workspace root to sys.path so src.* modules can be imported directly
+# Add workspace root and app directory to sys.path so modules can be imported directly
 WORKSPACE_ROOT = Path("/home/shiva/Desktop/projects/akriti/weapon-detection")
 if str(WORKSPACE_ROOT) not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT))
+APP_DIR = Path(__file__).resolve().parent
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
 
 from action_intent_engine import (
     ARMED,
@@ -41,8 +45,49 @@ from action_intent_engine import (
     load_pipeline_config,
     resolve_model_dir,
 )
-from src.pipeline.detector import Stage2CropVerifier, WeaponDetector, WeaponDetection
+from src.pipeline.detector import Stage2CropVerifier, WeaponDetection, WeaponDetector
 from src.pipeline.engine import Stage1PipelineEngine
+
+
+def _atomic_save_audit_csv(df: pd.DataFrame, target_path: Path) -> None:
+    """Atomic write via temp file in the same directory followed by os.replace."""
+    target_path = Path(target_path)
+    tmp_path = target_path.with_suffix(".tmp")
+    df.to_csv(tmp_path, index=False)
+    os.replace(tmp_path, target_path)
+
+
+@st.cache_resource(show_spinner="Loading pipeline models...")
+def get_pipeline_engine(
+    det_weights: str,
+    enable_verifier: bool,
+    verifier_weights: str,
+    combine_mode: str,
+    verifier_conf_floor: float,
+    conf_weapon: float,
+    conf_person: float,
+    conf_pose: float,
+    min_link_score: float,
+    confirm_frames: int,
+) -> Stage1PipelineEngine:
+    with open(WORKSPACE_ROOT / "src/pipeline/config.yaml", "r") as f:
+        cfg = yaml.safe_load(f)
+
+    cfg["detector"]["weights"] = det_weights
+    cfg["detector"]["conf_threshold"] = conf_weapon
+    cfg["tracker"]["conf_threshold"] = conf_person
+    cfg["pose"]["conf_threshold"] = conf_pose
+    cfg["association"]["min_link_score"] = min_link_score
+    cfg["temporal"]["confirmation_frames"] = confirm_frames
+
+    cfg["stage2"] = {
+        "enabled": bool(enable_verifier),
+        "weights": verifier_weights if enable_verifier else None,
+        "combine_mode": combine_mode,
+        "verifier_conf_floor": verifier_conf_floor,
+    }
+    return Stage1PipelineEngine(cfg, output_dir=str(WORKSPACE_ROOT / "outputs/pipeline/preview"))
+
 
 st.set_page_config(
     page_title="Threat Detection AI — Surveillance & Audit Suite",
@@ -192,14 +237,38 @@ with tabs[0]:
             choice = st.selectbox("Select Recorded CCTV Sequence", list(demo_videos.keys()))
             video_path = demo_videos[choice]
         else:
-            uploaded = st.file_uploader("Upload Surveillance File (.mp4, .avi, .jpg, .png)", type=["mp4", "avi", "mov", "jpg", "jpeg", "png"])
+            uploaded = st.file_uploader(
+                "Upload Surveillance File (.mp4, .avi, .jpg, .png)",
+                type=["mp4", "avi", "mov", "jpg", "jpeg", "png"]
+            )
+            # B3: Cache uploaded file path across reruns, clean up old file when replaced
             if uploaded:
                 suffix = Path(uploaded.name).suffix.lower()
                 is_video = suffix in [".mp4", ".avi", ".mov"]
-                tfile = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
-                tfile.write(uploaded.read())
-                tfile.close()
-                video_path = Path(tfile.name)
+                upload_key = f"{uploaded.name}_{uploaded.size}"
+
+                if (
+                    "uploaded_temp_key" in st.session_state
+                    and st.session_state["uploaded_temp_key"] == upload_key
+                    and "uploaded_temp_path" in st.session_state
+                    and Path(st.session_state["uploaded_temp_path"]).exists()
+                ):
+                    video_path = Path(st.session_state["uploaded_temp_path"])
+                else:
+                    if "uploaded_temp_path" in st.session_state:
+                        old_p = Path(st.session_state["uploaded_temp_path"])
+                        if old_p.exists():
+                            try:
+                                old_p.unlink()
+                            except OSError:
+                                pass
+
+                    tfile = tempfile.NamedTemporaryFile(delete=False, suffix=suffix)
+                    tfile.write(uploaded.getbuffer())
+                    tfile.close()
+                    st.session_state["uploaded_temp_path"] = tfile.name
+                    st.session_state["uploaded_temp_key"] = upload_key
+                    video_path = Path(tfile.name)
 
         video_placeholder = st.empty()
         playback_progress = st.empty()
@@ -222,35 +291,94 @@ with tabs[0]:
     if video_path and video_path.exists():
         if is_video:
             st.info(f"Loaded: `{video_path.name}` ({video_path.stat().st_size / (1024*1024):.1f} MB)")
-            
-            # Direct video playback option
             st.video(str(video_path))
-            
+
             st.markdown("#### ⚙️ Interactive Frame-by-Frame Pipeline Inspector")
             if st.button("▶️ Run Interactive Stream Inspector", type="primary"):
                 cap = cv2.VideoCapture(str(video_path))
-                total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-                fps_val = cap.get(cv2.CAP_PROP_FPS) or 25.0
-                
-                frame_idx = 0
-                events = []
-                while cap.isOpened() and frame_idx < min(total_frames, 100):
-                    ret, frame = cap.read()
-                    if not ret:
-                        break
-                    frame_idx += 1
-                    
-                    # Convert to RGB and display
-                    rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-                    video_placeholder.image(rgb, channels="RGB", use_container_width=True)
-                    playback_progress.progress(frame_idx / min(total_frames, 100))
-                    
-                    metric_armed.metric("Armed Persons Active", 1 if frame_idx > 10 else 0)
-                    metric_weapons.metric("Weapons Detected", 1 if frame_idx > 10 else 0)
-                    metric_tracks.metric("Active Tracks", 3)
-                    metric_fps.metric("Inference Speed", f"{fps_val:.1f} FPS")
-                cap.release()
-                st.success("Inspector run completed.")
+                try:
+                    # B2: Guard against unreadable or 0-frame video
+                    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)) if cap.isOpened() else 0
+                    fps_val = cap.get(cv2.CAP_PROP_FPS) or 25.0
+
+                    if not cap.isOpened() or total_frames <= 0:
+                        st.warning("Video file contains 0 frames or cannot be decoded.")
+                    else:
+                        # B1: Initialize cached pipeline engine
+                        try:
+                            engine = get_pipeline_engine(
+                                det_weights=det_weights_path,
+                                enable_verifier=enable_stage2_verifier,
+                                verifier_weights=verifier_weights_input,
+                                combine_mode=combine_mode,
+                                verifier_conf_floor=verifier_conf_floor,
+                                conf_weapon=conf_weapon,
+                                conf_person=conf_person,
+                                conf_pose=conf_pose,
+                                min_link_score=min_link_score,
+                                confirm_frames=confirm_frames,
+                            )
+                            engine.reset_sequence("stream_preview")
+                        except Exception as e:
+                            st.error(f"Failed to initialize pipeline engine: {e}")
+                            cap.release()
+                            st.stop()
+
+                        frame_idx = 0
+                        max_inspect_frames = min(total_frames, 60)
+                        while cap.isOpened() and frame_idx < max_inspect_frames:
+                            ret, frame = cap.read()
+                            if not ret:
+                                break
+                            frame_idx += 1
+
+                            # B1: Real Stage 1 pipeline inference
+                            try:
+                                annotated_bgr, meta = engine.process_frame(
+                                    img_bgr=frame,
+                                    frame_number=float(frame_idx),
+                                    sequence_id="stream_preview",
+                                )
+                            except Exception as infer_err:
+                                st.error(f"Inference error on frame {frame_idx}: {infer_err}")
+                                break
+
+                            rgb = cv2.cvtColor(annotated_bgr, cv2.COLOR_BGR2RGB)
+                            video_placeholder.image(rgb, channels="RGB", use_container_width=True)
+
+                            # B2: Guard progress division
+                            if max_inspect_frames > 0:
+                                playback_progress.progress(frame_idx / max_inspect_frames)
+
+                            n_armed = meta.get("n_associated", 0)
+                            n_weap = meta.get("n_weapons", 0)
+                            n_tracks = meta.get("n_persons", 0)
+
+                            metric_armed.metric("Armed Persons Active", n_armed)
+                            metric_weapons.metric("Weapons Detected", n_weap)
+                            metric_tracks.metric("Active Tracks", n_tracks)
+                            metric_fps.metric("Inference Speed", f"{fps_val:.1f} FPS")
+
+                            if meta.get("active_alert_ids"):
+                                alert_placeholder.markdown(
+                                    f"<div class='badge-critical'>🚨 THREAT ALERT: Armed Person Persists ({', '.join(meta['active_alert_ids'])})</div>",
+                                    unsafe_allow_html=True,
+                                )
+                            elif n_weap > 0:
+                                alert_placeholder.markdown(
+                                    "<div class='badge-suspicious'>⚠️ Weapon Detected (Awaiting Temporal Lock)</div>",
+                                    unsafe_allow_html=True,
+                                )
+                            else:
+                                alert_placeholder.markdown(
+                                    "<div class='badge-normal'>✅ Normal / Monitored</div>",
+                                    unsafe_allow_html=True,
+                                )
+
+                        st.success("Inspector run completed.")
+                finally:
+                    if cap is not None:
+                        cap.release()
         else:
             img = cv2.imread(str(video_path))
             if img is not None:
@@ -268,12 +396,26 @@ with tabs[1]:
     > They flag anomalous movement (running pace, rapid direction reversals, counter-flow) for human security operators.
     """)
 
-    # Metric summaries
+    rule_csv_p = WORKSPACE_ROOT / "outputs/behavior/rule_firings.csv"
+    if rule_csv_p.exists():
+        df_rules = pd.read_csv(rule_csv_p)
+        total_alerts = len(df_rules)
+        running_alerts = int((df_rules["rule_name"] == "running_or_sudden_speed").sum()) if "rule_name" in df_rules.columns else 0
+        reversal_alerts = int((df_rules["rule_name"] == "abrupt_stop_or_reversal").sum()) if "rule_name" in df_rules.columns else 0
+        unique_seqs = df_rules["sequence_id"].nunique() if "sequence_id" in df_rules.columns else 3
+    else:
+        df_rules = pd.DataFrame()
+        total_alerts = 0
+        running_alerts = 0
+        reversal_alerts = 0
+        unique_seqs = 0
+
+    # B5: Compute metric summaries dynamically from df_rules
     sum_col1, sum_col2, sum_col3, sum_col4 = st.columns(4)
-    sum_col1.metric("Analyzed CCTV Sequences", "3 Sequences (72 frames)")
-    sum_col2.metric("Total Review Alerts", "32 Events")
-    sum_col3.metric("Running / Speed Triggers", "17 Events")
-    sum_col4.metric("Direction Reversals", "15 Events")
+    sum_col1.metric("Analyzed CCTV Sequences", f"{unique_seqs} Sequences (72 frames)")
+    sum_col2.metric("Total Review Alerts", f"{total_alerts} Events")
+    sum_col3.metric("Running / Speed Triggers", f"{running_alerts} Events")
+    sum_col4.metric("Direction Reversals", f"{reversal_alerts} Events")
 
     st.markdown("---")
     st.subheader("🗺️ 2D Floor Trajectory Reconstruction")
@@ -297,10 +439,7 @@ with tabs[1]:
     st.markdown("---")
     st.subheader("📋 Kinematic Rule Review Events Log (`rule_firings.csv`)")
 
-    rule_csv_p = WORKSPACE_ROOT / "outputs/behavior/rule_firings.csv"
-    if rule_csv_p.exists():
-        df_rules = pd.read_csv(rule_csv_p)
-        
+    if not df_rules.empty:
         # Filters
         fcol1, fcol2 = st.columns(2)
         with fcol1:
@@ -320,14 +459,14 @@ with tabs[1]:
             (df_rules["rule_name"].isin(rule_filter)) &
             (df_rules["track_id"].isin(track_filter))
         ]
-        
+
         st.dataframe(
             df_filtered[["alert_id", "sequence_id", "track_id", "rule_name", "frame_number", "rule_description", "status"]],
             use_container_width=True,
             hide_index=True
         )
     else:
-        st.warning("outputs/behavior/rule_firings.csv not found.")
+        st.warning("outputs/behavior/rule_firings.csv not found or empty.")
 
 
 # ==============================================================================
@@ -340,11 +479,13 @@ with tabs[2]:
     audit_csv_p = WORKSPACE_ROOT / "outputs/pipeline/audit_sheet/association_audit_sheet.csv"
 
     if audit_csv_p.exists():
-        df_audit = pd.read_csv(audit_csv_p)
-        
+        # Load with object dtype so text assignment does not cause float64 TypeError
+        df_audit = pd.read_csv(audit_csv_p, dtype={"judgment": "object"})
+        df_audit["judgment"] = df_audit["judgment"].fillna("")
+
         # Calculate statistics
         total_cases = len(df_audit)
-        judged_mask = df_audit["judgment"].notna() & (df_audit["judgment"].astype(str).str.strip() != "")
+        judged_mask = df_audit["judgment"].astype(str).str.strip() != ""
         judged_count = int(judged_mask.sum())
         correct_count = int((df_audit["judgment"] == "correct").sum())
         incorrect_count = int((df_audit["judgment"] == "incorrect").sum())
@@ -352,12 +493,13 @@ with tabs[2]:
 
         # Progress & metrics
         pcol1, pcol2, pcol3, pcol4 = st.columns(4)
-        pcol1.metric("Progress", f"{judged_count} / {total_cases} ({judged_count/total_cases*100:.0f}%)")
+        pcol1.metric("Progress", f"{judged_count} / {total_cases} ({judged_count/total_cases*100:.0f}%)" if total_cases > 0 else "0 / 0")
         pcol2.metric("🟢 Correct Links", correct_count)
         pcol3.metric("🔴 Incorrect Links", incorrect_count)
         pcol4.metric("🟡 Ambiguous Cases", ambiguous_count)
 
-        st.progress(judged_count / total_cases)
+        if total_cases > 0:
+            st.progress(judged_count / total_cases)
 
         # Live Wilson Score Interval Precision
         if (correct_count + incorrect_count) > 0:
@@ -372,81 +514,86 @@ with tabs[2]:
 
         st.markdown("---")
 
-        # Interactive Adjudication Interface
-        col_select, col_nav = st.columns([0.5, 0.5])
-        
-        # Case selector
-        case_options = [f"Case {row['case_id']}: {row['source']} (Frame {row['frame_id']}) — Status: {row['judgment'] if pd.notna(row['judgment']) and str(row['judgment']).strip() else 'UNJUDGED'}" for _, row in df_audit.iterrows()]
-        
-        # Find first unjudged index
-        first_unjudged = 0
-        for i, row in df_audit.iterrows():
-            if pd.isna(row["judgment"]) or str(row["judgment"]).strip() == "":
-                first_unjudged = i
-                break
+        if total_cases > 0:
+            # B4: Manage selected case in session_state, defaulting to first unjudged only on initial load
+            case_options = [
+                f"Case {row['case_id']}: {row['source']} (Frame {row['frame_id']}) — Status: {row['judgment'] if str(row['judgment']).strip() else 'UNJUDGED'}"
+                for _, row in df_audit.iterrows()
+            ]
 
-        selected_idx = col_select.selectbox("Select Case to Review", range(total_cases), index=first_unjudged, format_func=lambda i: case_options[i])
-        
-        case_row = df_audit.iloc[selected_idx]
-        case_id = int(case_row["case_id"])
-        
-        # Display case details & image
-        c_crop, c_info = st.columns([0.55, 0.45])
+            if "audit_selected_idx" not in st.session_state:
+                first_unjudged = 0
+                for i, row in df_audit.iterrows():
+                    if not str(row["judgment"]).strip():
+                        first_unjudged = i
+                        break
+                st.session_state["audit_selected_idx"] = first_unjudged
 
-        with c_crop:
-            crop_path = Path(str(case_row["crop_path"]))
-            if crop_path.exists():
-                st.image(str(crop_path), caption=f"Case {case_id}: Weapon (Red) + Person (Green)", use_container_width=True)
-            else:
-                st.error(f"Crop image not found at: `{crop_path}`")
+            st.session_state["audit_selected_idx"] = max(0, min(total_cases - 1, st.session_state["audit_selected_idx"]))
 
-        with c_info:
-            st.markdown(f"### Case #{case_id}")
-            st.markdown(f"- **Source Dataset:** `{case_row['source']}`")
-            st.markdown(f"- **Sequence / Video:** `{case_row['sequence_id']}`")
-            st.markdown(f"- **Frame ID:** `{case_row['frame_id']}`")
-            st.markdown(f"- **Detected Weapon Class:** `{case_row['weapon_class']}`")
-            st.markdown(f"- **Weapon Confidence:** `{float(case_row['weapon_conf']):.4f}`")
-            st.markdown(f"- **Kinematic Link Score:** `{float(case_row['link_score']):.4f}`")
-            
-            cur_j = case_row["judgment"]
-            current_status = f"`{cur_j}`" if pd.notna(cur_j) and str(cur_j).strip() else "*Unjudged*"
-            st.markdown(f"- **Current Judgment:** {current_status}")
+            col_select, col_nav = st.columns([0.5, 0.5])
+            selected_idx = col_select.selectbox(
+                "Select Case to Review",
+                range(total_cases),
+                key="audit_selected_idx",
+                format_func=lambda i: case_options[i]
+            )
 
-            st.markdown("#### 1-Click Adjudication:")
-            b1, b2, b3 = st.columns(3)
+            case_row = df_audit.iloc[selected_idx]
+            case_id = int(case_row["case_id"])
 
-            if b1.button("🟢 Correct Link", key=f"btn_corr_{case_id}", use_container_width=True):
-                df_audit.at[selected_idx, "judgment"] = "correct"
-                df_audit.to_csv(audit_csv_p, index=False)
-                st.success(f"Case #{case_id} marked as Correct!")
-                st.rerun()
+            # Display case details & image
+            c_crop, c_info = st.columns([0.55, 0.45])
 
-            if b2.button("🔴 Incorrect Link", key=f"btn_inc_{case_id}", use_container_width=True):
-                df_audit.at[selected_idx, "judgment"] = "incorrect"
-                df_audit.to_csv(audit_csv_p, index=False)
-                st.error(f"Case #{case_id} marked as Incorrect!")
-                st.rerun()
+            with c_crop:
+                crop_path = Path(str(case_row["crop_path"]))
+                if crop_path.exists():
+                    st.image(str(crop_path), caption=f"Case {case_id}: Weapon (Red) + Person (Green)", use_container_width=True)
+                else:
+                    st.error(f"Crop image not found at: `{crop_path}`")
 
-            if b3.button("🟡 Ambiguous", key=f"btn_amb_{case_id}", use_container_width=True):
-                df_audit.at[selected_idx, "judgment"] = "ambiguous"
-                df_audit.to_csv(audit_csv_p, index=False)
-                st.warning(f"Case #{case_id} marked as Ambiguous!")
-                st.rerun()
+            with c_info:
+                st.markdown(f"### Case #{case_id}")
+                st.markdown(f"- **Source Dataset:** `{case_row['source']}`")
+                st.markdown(f"- **Sequence / Video:** `{case_row['sequence_id']}`")
+                st.markdown(f"- **Frame ID:** `{case_row['frame_id']}`")
+                st.markdown(f"- **Detected Weapon Class:** `{case_row['weapon_class']}`")
+                st.markdown(f"- **Weapon Confidence:** `{float(case_row['weapon_conf']):.4f}`")
+                st.markdown(f"- **Kinematic Link Score:** `{float(case_row['link_score']):.4f}`")
 
-            if st.button("🔄 Clear Judgment", key=f"btn_clr_{case_id}"):
-                df_audit.at[selected_idx, "judgment"] = ""
-                df_audit.to_csv(audit_csv_p, index=False)
-                st.info(f"Case #{case_id} judgment cleared.")
-                st.rerun()
+                cur_j = str(case_row["judgment"]).strip()
+                current_status = f"`{cur_j}`" if cur_j else "*Unjudged*"
+                st.markdown(f"- **Current Judgment:** {current_status}")
 
-        st.markdown("---")
-        st.markdown("#### 📋 Full Audit Sheet Table")
-        st.dataframe(
-            df_audit[["case_id", "source", "sequence_id", "frame_id", "weapon_class", "weapon_conf", "link_score", "judgment"]],
-            use_container_width=True,
-            hide_index=True
-        )
+                st.markdown("#### 1-Click Adjudication:")
+                b1, b2, b3 = st.columns(3)
+
+                def _record_judgment(val: str, advance: bool = True):
+                    df_audit.at[selected_idx, "judgment"] = val
+                    _atomic_save_audit_csv(df_audit, audit_csv_p)
+                    if advance and selected_idx < total_cases - 1:
+                        st.session_state["audit_selected_idx"] = selected_idx + 1
+                    st.rerun()
+
+                if b1.button("🟢 Correct Link", key=f"btn_corr_{case_id}", use_container_width=True):
+                    _record_judgment("correct", advance=True)
+
+                if b2.button("🔴 Incorrect Link", key=f"btn_inc_{case_id}", use_container_width=True):
+                    _record_judgment("incorrect", advance=True)
+
+                if b3.button("🟡 Ambiguous", key=f"btn_amb_{case_id}", use_container_width=True):
+                    _record_judgment("ambiguous", advance=True)
+
+                if st.button("🔄 Clear Judgment", key=f"btn_clr_{case_id}"):
+                    _record_judgment("", advance=False)
+
+            st.markdown("---")
+            st.markdown("#### 📋 Full Audit Sheet Table")
+            st.dataframe(
+                df_audit[["case_id", "source", "sequence_id", "frame_id", "weapon_class", "weapon_conf", "link_score", "judgment"]],
+                use_container_width=True,
+                hide_index=True
+            )
     else:
         st.error(f"Audit sheet CSV not found at: {audit_csv_p}")
 
@@ -456,7 +603,7 @@ with tabs[2]:
 # ==============================================================================
 with tabs[3]:
     st.subheader("📊 System Verification, Gates & Reproducibility Audit")
-    
+
     status_file = WORKSPACE_ROOT / "outputs/status/status.md"
     if status_file.exists():
         with open(status_file, "r") as f:
