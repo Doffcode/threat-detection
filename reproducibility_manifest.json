@@ -1,0 +1,25 @@
+{
+  "frozen_pipeline_config": "src/pipeline/config.yaml",
+  "config_sha256": "038f84695b2c347720aa1060f759672e1fe349d27e7c017db65fd1f004cc13ef",
+  "frozen_detector_weights": "outputs/runs/baseline_m960_v2/weights/best.pt",
+  "detector_conf_star_source": "valid (argmax F1 = 0.300)",
+  "threshold_tuning_policy": "Chosen strictly from synthetic unit tests and dev set (valid and cinema_domain_train frames showing armed persons). NEVER tuned or fitted to test_cctv_v2, test_domain, or test_public.",
+  "frozen_parameters": {
+    "detector_conf": 0.3,
+    "detector_iou": 0.5,
+    "detector_imgsz": 960,
+    "tracker_conf": 0.35,
+    "tracker_track_buffer": 30,
+    "pose_conf": 0.25,
+    "pose_kpt_conf": 0.25,
+    "wrist_distance_rel_max": 0.4,
+    "association_min_link_score": 0.25,
+    "association_min_containment_ioa": 0.2,
+    "association_weight_wrist": 0.45,
+    "association_weight_containment": 0.4,
+    "association_weight_center_in_box": 0.15,
+    "temporal_confirmation_frames": 3,
+    "temporal_max_gap_frames": 2,
+    "temporal_cooldown_frames": 20
+  }
+}

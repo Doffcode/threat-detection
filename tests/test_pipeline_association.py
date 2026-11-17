@@ -212,3 +212,33 @@ def test_track_gap(tmp_path):
     all_final = mgr.finalize_all()
     assert len(all_final) == 1
     assert all_final[0]["alert_id"] == "ALERT-0001"
+
+
+def test_identical_input_determinism(associator):
+    """GATE 1: Identical inputs must yield bit-for-bit identical association outputs."""
+    p1 = PersonTrack(track_id=1, box=[100.0, 100.0, 300.0, 500.0], conf=0.92)
+    p2 = PersonTrack(track_id=2, box=[350.0, 120.0, 550.0, 520.0], conf=0.88)
+    w1 = WeaponDetection(box=[220.0, 250.0, 260.0, 290.0], conf=0.83, cls_id=0, cls_name="handgun", det_conf=0.83)
+    w2 = WeaponDetection(box=[400.0, 240.0, 440.0, 280.0], conf=0.79, cls_id=2, cls_name="knife", det_conf=0.79)
+    wrists = {
+        1: [WristKeypoint("right_wrist", 230.0, 260.0, 0.85)],
+        2: [WristKeypoint("left_wrist", 390.0, 250.0, 0.81)],
+    }
+
+    # Run pass 1
+    res1 = associator.associate([w1, w2], [p1, p2], wrists)
+    # Run pass 2
+    res2 = associator.associate([w1, w2], [p1, p2], wrists)
+
+    assert len(res1) == len(res2) == 2
+    for r1, r2 in zip(res1, res2):
+        assert r1.is_associated == r2.is_associated
+        assert r1.track_id == r2.track_id
+        assert r1.link_score == pytest.approx(r2.link_score, abs=1e-7)
+        assert r1.containment_ioa == pytest.approx(r2.containment_ioa, abs=1e-7)
+        assert r1.center_inside == r2.center_inside
+        if r1.wrist_dist_px is not None:
+            assert r1.wrist_dist_px == pytest.approx(r2.wrist_dist_px, abs=1e-7)
+        else:
+            assert r2.wrist_dist_px is None
+
