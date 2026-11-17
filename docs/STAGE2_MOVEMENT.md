@@ -2,7 +2,7 @@
 
 **Date:** November 17, 2026  
 **Module:** `src/behavior/`  
-**Status:** COMPLETE & VERIFIED (Synthetic Unit Tests: 8/8 Passed; Innovatus CCTV Benchmarked)
+**Status:** COMPLETE & VERIFIED (Synthetic Unit Tests: 8/8 Passed; Run on Innovatus CCTV)
 
 ---
 
@@ -109,9 +109,13 @@ To ensure deterministic rule behavior, a comprehensive unit test suite was built
 
 ---
 
-## 5. Innovatus CCTV Benchmark Findings
+## 5. Innovatus CCTV Execution & Observations
 
-The behavior analysis engine was benchmarked across the 3 continuous Innovatus CCTV stretches (`innovatus_cam_b_seq02`, `seq07`, `seq08`, 72 total frames):
+The behavior analysis engine was run on the 3 continuous Innovatus CCTV stretches (`innovatus_cam_b_seq02`, `seq07`, `seq08`, 72 total frames):
+
+> [!WARNING]
+> **Rule Firings Unverified Against Ground Truth:**
+> The behavioral rule firings below are **completely unverified against ground truth**. Innovatus CCTV labels provide bounding boxes exclusively for weapons; **there is no ground truth for human behaviors, speeds, running states, or movement intentions.** These firings represent algorithmic heuristic triggers intended solely to flag candidate events for human operator inspection (`FOR_HUMAN_REVIEW_ONLY`).
 
 - **Total Behavioral Events Flagged:** 32 events (across 72 frames).
   - `running_or_sudden_speed`: 17 firings (actors rapidly entering or fleeing scene).

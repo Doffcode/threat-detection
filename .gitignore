@@ -1,37 +1,63 @@
-# Large data, models, downloads and runs
-*.zip
-*.pt
-*.onnx
-*.weights
-*.bin
-*.tar*
-*.npy
+# ==============================================================
+# Threat Detection — Git Ignore Rules for Data, Weights & Media
+# ==============================================================
+
+# Python environments and caches
+work/.venv/
+.venv/
+.env
+__pycache__/
+work/**/__pycache__/
+work/**/_cache/
+.ipynb_checkpoints/
+
+# 1. Datasets, labels, raw downloads and archives
+data/
 work/data/
 work/downloads/
 work/raw/
-work/runs/
-work/weights/
-work/.venv/
-work/**/_cache/
-work/**/__pycache__/
-__pycache__/
-.ipynb_checkpoints/
-.venv/
-.env
+*.zip
+*.tar*
+*.npy
 
-# Pipeline runs and intermediate heavy caches
+# 2. Model weights and checkpoints
+*.pt
+*.pth
+*.onnx
+*.weights
+*.bin
+work/weights/
+work/runs/
 outputs/runs/
-outputs/debug/
-outputs/queue/
+
+# 3. Media: video and image streams / crops / frames / face results
+*.mp4
+*.avi
+*.mkv
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.avif
+outputs/pipeline/stage1_cctv_demo.mp4
+outputs/behavior/behavior_cctv_demo.mp4
+outputs/pipeline/audit_sheet/crops/
+outputs/pipeline/crops/
+outputs/pipeline/galleries/
+outputs/pipeline/oracle_unlinked_gallery/
+outputs/pipeline/annotated_frames/
+outputs/behavior/trajectories/
+outputs/eval/cctv_test_v2/*.jpg
+outputs/eval/**/error_galleries/
 outputs/eval/cctv_audit_overlays/
 outputs/eval/cctv_bits_fp_overlays/
 outputs/eval/domain_rifle_fa_overlays/
 outputs/eval/hard_neg_new_v2_overlays/
 outputs/eval/large_box_overlays/
-outputs/eval/error_galleries/
-outputs/eval/**/error_galleries/
 outputs/eval/cctv_test_v2/overlays_*/
-outputs/pipeline/annotated_frames/
-data/processed/
-data/cctv_test_v2_candidates/images/
-data/cctv_test_v2_with_draft_labels/
+work/app/_final_smoke/
+work/app/_smoke/
+
+# 4. Pipeline caches and debug output
+outputs/debug/
+outputs/queue/

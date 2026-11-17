@@ -1,4 +1,0 @@
-source,frame,class,det_conf,verifier_p,score,x1,y1,x2,y2,threat_score,flags
-dom_099-Copy_jpeg_jpg.rf.858a920b9b146ed83ab7cd2f5bcf7eed.jpg,0,knife,0.5064,0.4636,0.2348,64.3,60.5,400.1,552.9,45.0,KNIFE_DETECTED
-dom_Screenshot-2026-07-01-at-12-49-49-PM_png_jpg.rf.e888062abd2eabf370268c4ef42ad4fb.jpg,0,gun,0.5546,0.4097,0.2272,1.2,36.9,555.1,412.5,70.0,GUN_DETECTED;ARMED_PERSON
-dom_Screenshot-2026-07-01-at-12-49-49-PM_png_jpg.rf.e888062abd2eabf370268c4ef42ad4fb.jpg,0,armed person,,,,96.9,98.9,508.6,591.2,70.0,GUN_DETECTED;ARMED_PERSON
