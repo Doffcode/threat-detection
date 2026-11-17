@@ -25,13 +25,15 @@ from .tracker import PersonTrack, PersonTracker
 
 
 class Stage1PipelineEngine:
-    def __init__(self, config_path: str, output_dir: str = "outputs/pipeline"):
-        cfg_p = Path(config_path)
-        if not cfg_p.is_absolute():
-            cfg_p = Path("/home/shiva/Desktop/projects/akriti/weapon-detection") / cfg_p
-        
-        with open(cfg_p, "r") as f:
-            self.raw_config = yaml.safe_load(f)
+    def __init__(self, config_path: Union[str, Path, Dict[str, Any]], output_dir: str = "outputs/pipeline"):
+        if isinstance(config_path, dict):
+            self.raw_config = config_path
+        else:
+            cfg_p = Path(config_path)
+            if not cfg_p.is_absolute():
+                cfg_p = Path("/home/shiva/Desktop/projects/akriti/weapon-detection") / cfg_p
+            with open(cfg_p, "r") as f:
+                self.raw_config = yaml.safe_load(f)
 
         self.device = self.raw_config.get("pipeline", {}).get("device", "cuda:0")
         self.output_dir = Path(output_dir)
@@ -43,7 +45,11 @@ class Stage1PipelineEngine:
         self.annotated_frames_dir.mkdir(parents=True, exist_ok=True)
 
         # Initialize sub-modules
-        self.detector = WeaponDetector(self.raw_config["detector"], device=self.device)
+        self.detector = WeaponDetector(
+            self.raw_config["detector"],
+            device=self.device,
+            verifier_cfg=self.raw_config.get("stage2"),
+        )
         self.tracker = PersonTracker(self.raw_config["tracker"], device=self.device)
         self.pose = PoseEstimator(self.raw_config["pose"], device=self.device)
         self.associator = WeaponPersonAssociator(self.raw_config["association"])

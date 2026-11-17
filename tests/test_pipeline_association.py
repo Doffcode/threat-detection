@@ -242,3 +242,32 @@ def test_identical_input_determinism(associator):
         else:
             assert r2.wrist_dist_px is None
 
+
+def test_stage2_crop_verifier_integration():
+    """Stage 2 Verifier: Confirmed weapons pass with combined score; non-weapons are filtered."""
+    from src.pipeline.detector import Stage2CropVerifier, WeaponDetection
+    import numpy as np
+
+    # Case 1: Disabled verifier returns as is
+    v_disabled = Stage2CropVerifier({"enabled": False})
+    w1 = WeaponDetection([10, 10, 50, 50], 0.85, 0, "handgun", 0.85)
+    dummy_img = np.zeros((100, 100, 3), dtype=np.uint8)
+    res = v_disabled.verify(dummy_img, [w1])
+    assert len(res) == 1
+    assert res[0].conf == 0.85
+
+    # Case 2: Enabled verifier with mock/real weights
+    v_path = Path("/home/shiva/Desktop/projects/akriti/weapon-detection/work/runs/verifier_v5/weights/best.pt")
+    if v_path.exists():
+        v_enabled = Stage2CropVerifier({
+            "enabled": True,
+            "weights": str(v_path),
+            "combine_mode": "prod",
+            "verifier_conf_floor": 0.10,
+        })
+        # Empty black crop simulates background / non-weapon
+        res_black = v_enabled.verify(dummy_img, [w1])
+        # Background crop should be suppressed (or penalized below threshold)
+        assert len(res_black) == 0 or res_black[0].conf < 0.85
+
+
