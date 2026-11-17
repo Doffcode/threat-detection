@@ -1,0 +1,3481 @@
+{
+  "total_frames_processed": 72,
+  "total_alerts_generated": 2,
+  "alerts": [
+    {
+      "alert_id": "ALERT-0001",
+      "track_id": 2,
+      "sequence_id": "innovatus_cam_b_seq02",
+      "weapon_class": "knife",
+      "start_frame_idx": 5,
+      "end_frame_idx": 15,
+      "start_frame_num": 229.0,
+      "end_frame_num": 262.0,
+      "frame_range": [
+        229.0,
+        262.0
+      ],
+      "max_confidence": 0.691747784614563,
+      "mean_confidence": 0.5670604507128397,
+      "max_link_score": 0.9817240238189697,
+      "mean_link_score": 0.8114359726508459,
+      "consecutive_hits": 4,
+      "weapon_crop_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0001_weapon_t2_knife.jpg",
+      "person_crop_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0001_person_t2.jpg",
+      "crop_image_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0001_weapon_t2_knife.jpg",
+      "annotated_frame_path": null
+    },
+    {
+      "alert_id": "ALERT-0002",
+      "track_id": 1,
+      "sequence_id": "innovatus_cam_b_seq07",
+      "weapon_class": "handgun",
+      "start_frame_idx": 1,
+      "end_frame_idx": 17,
+      "start_frame_num": 440.0,
+      "end_frame_num": 491.0,
+      "frame_range": [
+        440.0,
+        491.0
+      ],
+      "max_confidence": 0.7374991178512573,
+      "mean_confidence": 0.5986374203975384,
+      "max_link_score": 0.9511830806732178,
+      "mean_link_score": 0.7941779356736404,
+      "consecutive_hits": 13,
+      "weapon_crop_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0002_weapon_t1_handgun.jpg",
+      "person_crop_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0002_person_t1.jpg",
+      "crop_image_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0002_weapon_t1_handgun.jpg",
+      "annotated_frame_path": null
+    }
+  ],
+  "frame_records": [
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 1,
+      "frame_number": 213.0,
+      "image_name": "cctv_v2_000_213_jpg.rf.967d325a0b7cbec520ae9700e743a187.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0213_cctv_v2_000_213_jpg.rf.967d325a0b7cbec520ae9700e743a187.jpg",
+      "n_weapons": 1,
+      "n_persons": 3,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            169.3087615966797,
+            162.29750061035156,
+            208.84542846679688,
+            195.19522094726562
+          ],
+          "conf": 0.907846212387085,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            8.274018287658691,
+            220.34231567382812,
+            187.5003662109375,
+            511.7652893066406
+          ],
+          "track_id": 1,
+          "conf": 0.9411474466323853
+        },
+        {
+          "box": [
+            129.34280395507812,
+            205.8284912109375,
+            293.5700378417969,
+            511.93023681640625
+          ],
+          "track_id": 2,
+          "conf": 0.9231477975845337
+        },
+        {
+          "box": [
+            187.5029754638672,
+            94.67324829101562,
+            394.29559326171875,
+            472.5196838378906
+          ],
+          "track_id": 3,
+          "conf": 0.8145315051078796
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            169.3087615966797,
+            162.29750061035156,
+            208.84542846679688,
+            195.19522094726562
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.907846212387085,
+          "track_id": 3,
+          "is_associated": true,
+          "link_score": 0.7158668041229248,
+          "containment_ioa": 0.5398141697943903,
+          "center_inside": true,
+          "wrist_dist_px": 33.60612463307771,
+          "wrist_dist_rel": 0.08894122445389217
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 2,
+      "frame_number": 217.0,
+      "image_name": "cctv_v2_001_217_jpg.rf.26475add7c3c6919b3122348ee747ce4.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0217_cctv_v2_001_217_jpg.rf.26475add7c3c6919b3122348ee747ce4.jpg",
+      "n_weapons": 1,
+      "n_persons": 3,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            111.92616271972656,
+            134.8232421875,
+            155.2257080078125,
+            178.00978088378906
+          ],
+          "conf": 0.6967129111289978,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            8.445969581604004,
+            209.13980102539062,
+            193.5287628173828,
+            510.9039306640625
+          ],
+          "track_id": 1,
+          "conf": 0.6375799179077148
+        },
+        {
+          "box": [
+            92.32444763183594,
+            191.3235626220703,
+            265.0978088378906,
+            511.99078369140625
+          ],
+          "track_id": 2,
+          "conf": 0.9002282023429871
+        },
+        {
+          "box": [
+            158.4610137939453,
+            56.260345458984375,
+            323.82855224609375,
+            356.23565673828125
+          ],
+          "track_id": 3,
+          "conf": 0.902789294719696
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            111.92616271972656,
+            134.8232421875,
+            155.2257080078125,
+            178.00978088378906
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.6967129111289978,
+          "track_id": 3,
+          "is_associated": true,
+          "link_score": 0.3555850088596344,
+          "containment_ioa": 0.0,
+          "center_inside": false,
+          "wrist_dist_px": 25.175262251103767,
+          "wrist_dist_rel": 0.08392444746115767
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 3,
+      "frame_number": 224.0,
+      "image_name": "cctv_v2_002_224_jpg.rf.d209f3cbf93bce0629d7f49c2d690c57.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0224_cctv_v2_002_224_jpg.rf.d209f3cbf93bce0629d7f49c2d690c57.jpg",
+      "n_weapons": 1,
+      "n_persons": 1,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            255.50254821777344,
+            279.27606201171875,
+            289.95367431640625,
+            310.67767333984375
+          ],
+          "conf": 0.8645144104957581,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            106.07402038574219,
+            228.6393585205078,
+            244.53976440429688,
+            485.27825927734375
+          ],
+          "track_id": 2,
+          "conf": 0.8311159610748291
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            255.50254821777344,
+            279.27606201171875,
+            289.95367431640625,
+            310.67767333984375
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.8645144104957581,
+          "track_id": null,
+          "is_associated": false,
+          "link_score": 0.0,
+          "containment_ioa": 0.0,
+          "center_inside": false,
+          "wrist_dist_px": null,
+          "wrist_dist_rel": null
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 4,
+      "frame_number": 226.0,
+      "image_name": "cctv_v2_003_226_jpg.rf.371f86ea96c2010119c0bf9990189dd2.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0226_cctv_v2_003_226_jpg.rf.371f86ea96c2010119c0bf9990189dd2.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            248.14962768554688,
+            281.27691650390625,
+            281.8343200683594,
+            314.4309387207031
+          ],
+          "conf": 0.8841835856437683,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            105.90097045898438,
+            243.46563720703125,
+            233.97183227539062,
+            480.5684814453125
+          ],
+          "track_id": 2,
+          "conf": 0.8462399840354919
+        },
+        {
+          "box": [
+            266.1539611816406,
+            199.3240203857422,
+            414.4849853515625,
+            476.9756164550781
+          ],
+          "track_id": 4,
+          "conf": 0.9131425619125366
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            248.14962768554688,
+            281.27691650390625,
+            281.8343200683594,
+            314.4309387207031
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.8841835856437683,
+          "track_id": 4,
+          "is_associated": true,
+          "link_score": 0.5297112464904785,
+          "containment_ioa": 0.4655039953613945,
+          "center_inside": false,
+          "wrist_dist_px": 26.28197448778914,
+          "wrist_dist_rel": 0.09465810699401105
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 5,
+      "frame_number": 229.0,
+      "image_name": "cctv_v2_004_229_jpg.rf.b634dc2f29a32df093cc2d751a917f4d.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0229_cctv_v2_004_229_jpg.rf.b634dc2f29a32df093cc2d751a917f4d.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            204.87091064453125,
+            234.4700927734375,
+            240.69558715820312,
+            265.02655029296875
+          ],
+          "conf": 0.4572843909263611,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            113.55062103271484,
+            248.25,
+            238.7655792236328,
+            479.3754577636719
+          ],
+          "track_id": 2,
+          "conf": 0.8914084434509277
+        },
+        {
+          "box": [
+            247.55337524414062,
+            159.60336303710938,
+            367.6098327636719,
+            382.8255920410156
+          ],
+          "track_id": 4,
+          "conf": 0.9031490087509155
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            204.87091064453125,
+            234.4700927734375,
+            240.69558715820312,
+            265.02655029296875
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.4572843909263611,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.43061181902885437,
+          "containment_ioa": 0.5194560075379347,
+          "center_inside": true,
+          "wrist_dist_px": 77.48775576829897,
+          "wrist_dist_rel": 0.3352627465535665
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 6,
+      "frame_number": 236.0,
+      "image_name": "cctv_v2_005_236_jpg.rf.cc72fffd2204da3d45d2622aaa383b3e.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0236_cctv_v2_005_236_jpg.rf.cc72fffd2204da3d45d2622aaa383b3e.jpg",
+      "n_weapons": 0,
+      "n_persons": 1,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            119.85023498535156,
+            226.93359375,
+            248.3502655029297,
+            463.3359680175781
+          ],
+          "track_id": 2,
+          "conf": 0.8583325743675232
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 7,
+      "frame_number": 238.0,
+      "image_name": "cctv_v2_006_238_jpg.rf.da7aee4627c8a93a9175946f64900f8e.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0238_cctv_v2_006_238_jpg.rf.da7aee4627c8a93a9175946f64900f8e.jpg",
+      "n_weapons": 1,
+      "n_persons": 3,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            184.79884338378906,
+            226.20216369628906,
+            240.9790496826172,
+            270.5673522949219
+          ],
+          "conf": 0.45619019865989685,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            121.89537048339844,
+            217.1846923828125,
+            252.75013732910156,
+            457.2796630859375
+          ],
+          "track_id": 2,
+          "conf": 0.8530813455581665
+        },
+        {
+          "box": [
+            0.0,
+            459.4042663574219,
+            77.08283996582031,
+            511.7540588378906
+          ],
+          "track_id": 8,
+          "conf": 0.4481637477874756
+        },
+        {
+          "box": [
+            247.73121643066406,
+            105.94546508789062,
+            389.9188537597656,
+            364.6989440917969
+          ],
+          "track_id": 4,
+          "conf": 0.715281069278717
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            184.79884338378906,
+            226.20216369628906,
+            240.9790496826172,
+            270.5673522949219
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.45619019865989685,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.8657916188240051,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 28.642453344142915,
+          "wrist_dist_rel": 0.11929634869178088
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 8,
+      "frame_number": 241.0,
+      "image_name": "cctv_v2_007_241_jpg.rf.d93e0864d40b002e28b0c6dda6699e65.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0241_cctv_v2_007_241_jpg.rf.d93e0864d40b002e28b0c6dda6699e65.jpg",
+      "n_weapons": 0,
+      "n_persons": 3,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            122.92462921142578,
+            211.1073760986328,
+            256.35296630859375,
+            455.6575927734375
+          ],
+          "track_id": 2,
+          "conf": 0.8795665502548218
+        },
+        {
+          "box": [
+            0.0,
+            456.076171875,
+            80.3313980102539,
+            511.7453918457031
+          ],
+          "track_id": 8,
+          "conf": 0.7663947343826294
+        },
+        {
+          "box": [
+            233.5801239013672,
+            94.36300659179688,
+            417.5923156738281,
+            427.4748840332031
+          ],
+          "track_id": 4,
+          "conf": 0.6389204859733582
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 9,
+      "frame_number": 246.0,
+      "image_name": "cctv_v2_008_246_jpg.rf.66f90a84fbfc4f544f328aa84b2ee6f2.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0246_cctv_v2_008_246_jpg.rf.66f90a84fbfc4f544f328aa84b2ee6f2.jpg",
+      "n_weapons": 0,
+      "n_persons": 3,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            118.09796905517578,
+            207.1410369873047,
+            250.4039306640625,
+            448.2625427246094
+          ],
+          "track_id": 2,
+          "conf": 0.8836727142333984
+        },
+        {
+          "box": [
+            0.0,
+            456.0933837890625,
+            78.26789855957031,
+            511.767333984375
+          ],
+          "track_id": 8,
+          "conf": 0.5876122117042542
+        },
+        {
+          "box": [
+            245.07347106933594,
+            141.84567260742188,
+            416.61236572265625,
+            445.744384765625
+          ],
+          "track_id": 4,
+          "conf": 0.6873331069946289
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 10,
+      "frame_number": 249.0,
+      "image_name": "cctv_v2_009_249_jpg.rf.638b53e9fb64abe51c3b9126d5797441.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0249_cctv_v2_009_249_jpg.rf.638b53e9fb64abe51c3b9126d5797441.jpg",
+      "n_weapons": 0,
+      "n_persons": 3,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            118.5146255493164,
+            193.5236053466797,
+            252.2266845703125,
+            435.68609619140625
+          ],
+          "track_id": 2,
+          "conf": 0.866364598274231
+        },
+        {
+          "box": [
+            0.0,
+            442.861572265625,
+            88.5392837524414,
+            511.7129821777344
+          ],
+          "track_id": 8,
+          "conf": 0.8090054392814636
+        },
+        {
+          "box": [
+            254.52598571777344,
+            171.08505249023438,
+            414.849853515625,
+            446.1302185058594
+          ],
+          "track_id": 4,
+          "conf": 0.8810945749282837
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 11,
+      "frame_number": 251.0,
+      "image_name": "cctv_v2_010_251_jpg.rf.3a05b6c9f7bb7aa8daaa4b1f44a20c27.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0251_cctv_v2_010_251_jpg.rf.3a05b6c9f7bb7aa8daaa4b1f44a20c27.jpg",
+      "n_weapons": 0,
+      "n_persons": 3,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            112.4215087890625,
+            195.91409301757812,
+            247.36801147460938,
+            438.8614501953125
+          ],
+          "track_id": 2,
+          "conf": 0.8821383118629456
+        },
+        {
+          "box": [
+            0.0,
+            448.2212829589844,
+            81.60004425048828,
+            511.77008056640625
+          ],
+          "track_id": 8,
+          "conf": 0.7560523748397827
+        },
+        {
+          "box": [
+            246.42941284179688,
+            190.788818359375,
+            404.2828063964844,
+            452.7875061035156
+          ],
+          "track_id": 4,
+          "conf": 0.9206757545471191
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 12,
+      "frame_number": 253.0,
+      "image_name": "cctv_v2_011_253_jpg.rf.278b80e85bb3447b81b96967f8ef9d6b.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0253_cctv_v2_011_253_jpg.rf.278b80e85bb3447b81b96967f8ef9d6b.jpg",
+      "n_weapons": 1,
+      "n_persons": 3,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            187.7694091796875,
+            251.4473114013672,
+            230.7821807861328,
+            280.5550537109375
+          ],
+          "conf": 0.47526857256889343,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            107.2010498046875,
+            199.7844696044922,
+            243.9239044189453,
+            444.76904296875
+          ],
+          "track_id": 2,
+          "conf": 0.8991090059280396
+        },
+        {
+          "box": [
+            0.0,
+            453.0408630371094,
+            74.17692565917969,
+            511.6967468261719
+          ],
+          "track_id": 8,
+          "conf": 0.5945367813110352
+        },
+        {
+          "box": [
+            237.2141571044922,
+            185.23106384277344,
+            405.2496337890625,
+            459.03204345703125
+          ],
+          "track_id": 4,
+          "conf": 0.9174954891204834
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            187.7694091796875,
+            251.4473114013672,
+            230.7821807861328,
+            280.5550537109375
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.47526857256889343,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.9817240238189697,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 3.9798549741973575,
+          "wrist_dist_rel": 0.016245328918241188
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 13,
+      "frame_number": 258.0,
+      "image_name": "cctv_v2_012_258_jpg.rf.c7654e310d9ee3f25cfc3ef4af5bc976.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0258_cctv_v2_012_258_jpg.rf.c7654e310d9ee3f25cfc3ef4af5bc976.jpg",
+      "n_weapons": 1,
+      "n_persons": 3,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            194.77468872070312,
+            183.56198120117188,
+            239.2714385986328,
+            272.7547607421875
+          ],
+          "conf": 0.6915349364280701,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            105.95061492919922,
+            201.2964324951172,
+            243.4580078125,
+            446.5522155761719
+          ],
+          "track_id": 2,
+          "conf": 0.9011076092720032
+        },
+        {
+          "box": [
+            0.0,
+            457.8657531738281,
+            69.9300308227539,
+            511.6413879394531
+          ],
+          "track_id": 8,
+          "conf": 0.5992850661277771
+        },
+        {
+          "box": [
+            227.1460418701172,
+            149.0650634765625,
+            420.3526916503906,
+            462.6659240722656
+          ],
+          "track_id": 4,
+          "conf": 0.928933322429657
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            194.77468872070312,
+            183.56198120117188,
+            239.2714385986328,
+            272.7547607421875
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.6915349364280701,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.7371446490287781,
+          "containment_ioa": 0.8011671865681677,
+          "center_inside": true,
+          "wrist_dist_px": 39.96518447231307,
+          "wrist_dist_rel": 0.16295307686630556
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 14,
+      "frame_number": 260.0,
+      "image_name": "cctv_v2_013_260_jpg.rf.382db55216618d075d04790fffd616d4.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0260_cctv_v2_013_260_jpg.rf.382db55216618d075d04790fffd616d4.jpg",
+      "n_weapons": 1,
+      "n_persons": 3,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0001"
+      ],
+      "weapons": [
+        {
+          "box": [
+            162.18356323242188,
+            203.324462890625,
+            225.37432861328125,
+            282.0391540527344
+          ],
+          "conf": 0.691747784614563,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            105.20030975341797,
+            198.73379516601562,
+            242.45068359375,
+            441.89093017578125
+          ],
+          "track_id": 2,
+          "conf": 0.8645488023757935
+        },
+        {
+          "box": [
+            0.0,
+            454.091796875,
+            71.27902221679688,
+            511.698974609375
+          ],
+          "track_id": 8,
+          "conf": 0.7020182013511658
+        },
+        {
+          "box": [
+            217.06454467773438,
+            127.83634948730469,
+            421.6640319824219,
+            458.0565185546875
+          ],
+          "track_id": 4,
+          "conf": 0.9201844930648804
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            162.18356323242188,
+            203.324462890625,
+            225.37432861328125,
+            282.0391540527344
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.691747784614563,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.9377619624137878,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 13.452107524818265,
+          "wrist_dist_rel": 0.055322692974968654
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 15,
+      "frame_number": 262.0,
+      "image_name": "cctv_v2_014_262_jpg.rf.dc7dcba7152d285b828de10a2f1f8d3b.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0262_cctv_v2_014_262_jpg.rf.dc7dcba7152d285b828de10a2f1f8d3b.jpg",
+      "n_weapons": 1,
+      "n_persons": 3,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0001"
+      ],
+      "weapons": [
+        {
+          "box": [
+            150.95277404785156,
+            275.89031982421875,
+            241.0489959716797,
+            322.3340148925781
+          ],
+          "conf": 0.6303368210792542,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            105.89513397216797,
+            201.4159393310547,
+            243.65867614746094,
+            443.909912109375
+          ],
+          "track_id": 2,
+          "conf": 0.8490515351295471
+        },
+        {
+          "box": [
+            0.0,
+            452.4336242675781,
+            72.30770874023438,
+            511.7494812011719
+          ],
+          "track_id": 8,
+          "conf": 0.7570307850837708
+        },
+        {
+          "box": [
+            215.33106994628906,
+            120.39293670654297,
+            424.3468933105469,
+            456.80487060546875
+          ],
+          "track_id": 4,
+          "conf": 0.9203589558601379
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            150.95277404785156,
+            275.89031982421875,
+            241.0489959716797,
+            322.3340148925781
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.6303368210792542,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.9155817627906799,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 18.196371791146934,
+          "wrist_dist_rel": 0.07503844975059003
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 16,
+      "frame_number": 266.0,
+      "image_name": "cctv_v2_015_266_jpg.rf.d6602499dbaf31737510769ab4427519.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0266_cctv_v2_015_266_jpg.rf.d6602499dbaf31737510769ab4427519.jpg",
+      "n_weapons": 0,
+      "n_persons": 3,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            132.85736083984375,
+            230.09616088867188,
+            249.27734375,
+            431.99261474609375
+          ],
+          "track_id": 2,
+          "conf": 0.6503275036811829
+        },
+        {
+          "box": [
+            14.774707794189453,
+            472.7113952636719,
+            75.13792419433594,
+            511.7826843261719
+          ],
+          "track_id": 8,
+          "conf": 0.7785509824752808
+        },
+        {
+          "box": [
+            229.1928253173828,
+            176.73126220703125,
+            422.9734191894531,
+            493.24652099609375
+          ],
+          "track_id": 4,
+          "conf": 0.9117803573608398
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 17,
+      "frame_number": 268.0,
+      "image_name": "cctv_v2_016_268_jpg.rf.5b9485d84b4b025f3c9fa23e36a48502.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0268_cctv_v2_016_268_jpg.rf.5b9485d84b4b025f3c9fa23e36a48502.jpg",
+      "n_weapons": 0,
+      "n_persons": 3,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            133.30697631835938,
+            204.40377807617188,
+            258.2695007324219,
+            417.9954833984375
+          ],
+          "track_id": 2,
+          "conf": 0.8903712034225464
+        },
+        {
+          "box": [
+            0.0,
+            446.6109313964844,
+            98.56736755371094,
+            511.774169921875
+          ],
+          "track_id": 8,
+          "conf": 0.8706305623054504
+        },
+        {
+          "box": [
+            225.81259155273438,
+            202.30760192871094,
+            412.4425048828125,
+            507.9715270996094
+          ],
+          "track_id": 4,
+          "conf": 0.8758590221405029
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 18,
+      "frame_number": 270.0,
+      "image_name": "cctv_v2_017_270_jpg.rf.ba21c9dc4c7f7d91ea513322e5c07ed1.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0270_cctv_v2_017_270_jpg.rf.ba21c9dc4c7f7d91ea513322e5c07ed1.jpg",
+      "n_weapons": 0,
+      "n_persons": 3,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            130.23036193847656,
+            190.1469268798828,
+            259.26507568359375,
+            408.2572937011719
+          ],
+          "track_id": 2,
+          "conf": 0.8340002298355103
+        },
+        {
+          "box": [
+            0.0,
+            435.35333251953125,
+            106.05986022949219,
+            511.8028869628906
+          ],
+          "track_id": 8,
+          "conf": 0.8426225781440735
+        },
+        {
+          "box": [
+            216.98031616210938,
+            208.5142364501953,
+            403.4684753417969,
+            512.0
+          ],
+          "track_id": 4,
+          "conf": 0.9120938181877136
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 19,
+      "frame_number": 274.0,
+      "image_name": "cctv_v2_018_274_jpg.rf.3e36a47326e8d2f68791d6c2ff605b12.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0274_cctv_v2_018_274_jpg.rf.3e36a47326e8d2f68791d6c2ff605b12.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            147.03012084960938,
+            340.51947021484375,
+            205.13246154785156,
+            470.39215087890625
+          ],
+          "conf": 0.34987673163414,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            103.32402801513672,
+            198.5624237060547,
+            235.6427764892578,
+            418.2829284667969
+          ],
+          "track_id": 2,
+          "conf": 0.8232883214950562
+        },
+        {
+          "box": [
+            197.81143188476562,
+            218.73477172851562,
+            380.7506103515625,
+            512.0
+          ],
+          "track_id": 4,
+          "conf": 0.9254286289215088
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            147.03012084960938,
+            340.51947021484375,
+            205.13246154785156,
+            470.39215087890625
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.34987673163414,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.3983529210090637,
+          "containment_ioa": 0.5987668680921538,
+          "center_inside": true,
+          "wrist_dist_px": 86.16048035046148,
+          "wrist_dist_rel": 0.3921367304534607
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq02",
+      "frame_idx": 20,
+      "frame_number": 276.0,
+      "image_name": "cctv_v2_019_276_jpg.rf.cd2e07d152733b40739b8f9c1293b1a5.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq02_f0276_cctv_v2_019_276_jpg.rf.cd2e07d152733b40739b8f9c1293b1a5.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            138.4147491455078,
+            338.4020080566406,
+            203.2960662841797,
+            460.5083923339844
+          ],
+          "conf": 0.3810189366340637,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            89.0481185913086,
+            200.03897094726562,
+            223.4409637451172,
+            418.7580871582031
+          ],
+          "track_id": 2,
+          "conf": 0.8404413461685181
+        },
+        {
+          "box": [
+            192.42930603027344,
+            220.571533203125,
+            372.300048828125,
+            504.6083679199219
+          ],
+          "track_id": 4,
+          "conf": 0.9311500787734985
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            138.4147491455078,
+            338.4020080566406,
+            203.2960662841797,
+            460.5083923339844
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.3810189366340637,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.4132330119609833,
+          "containment_ioa": 0.6580825366104316,
+          "center_inside": true,
+          "wrist_dist_px": 147.88979042629504,
+          "wrist_dist_rel": 0.6761630761330751
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 1,
+      "frame_number": 440.0,
+      "image_name": "cctv_v2_020_440_jpg.rf.9d16ca9b47081f58a854065d5f3cb470.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0440_cctv_v2_020_440_jpg.rf.9d16ca9b47081f58a854065d5f3cb470.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            233.2449951171875,
+            254.3647003173828,
+            268.2991027832031,
+            287.44970703125
+          ],
+          "conf": 0.6276116371154785,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            88.93280029296875,
+            158.50013732910156,
+            253.408935546875,
+            511.4326171875
+          ],
+          "track_id": 1,
+          "conf": 0.9352371692657471
+        },
+        {
+          "box": [
+            241.61146545410156,
+            226.16595458984375,
+            356.5077819824219,
+            455.78741455078125
+          ],
+          "track_id": 2,
+          "conf": 0.7933971881866455
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            233.2449951171875,
+            254.3647003173828,
+            268.2991027832031,
+            287.44970703125
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.6276116371154785,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.7638543844223022,
+          "containment_ioa": 0.5752233268010444,
+          "center_inside": true,
+          "wrist_dist_px": 20.77908520866971,
+          "wrist_dist_rel": 0.058875525474466325
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 2,
+      "frame_number": 443.0,
+      "image_name": "cctv_v2_021_443_jpg.rf.61329151338d6ee0ef6fcc36a5c06b95.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0443_cctv_v2_021_443_jpg.rf.61329151338d6ee0ef6fcc36a5c06b95.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            102.65121459960938,
+            165.28192138671875,
+            264.1332702636719,
+            511.3429870605469
+          ],
+          "track_id": 1,
+          "conf": 0.9163470268249512
+        },
+        {
+          "box": [
+            247.9252166748047,
+            227.8875732421875,
+            352.0505065917969,
+            435.4173583984375
+          ],
+          "track_id": 2,
+          "conf": 0.7591482996940613
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 3,
+      "frame_number": 446.0,
+      "image_name": "cctv_v2_022_446_jpg.rf.24e1f9b87cf0734c5d6bfc445a510870.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0446_cctv_v2_022_446_jpg.rf.24e1f9b87cf0734c5d6bfc445a510870.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            210.74708557128906,
+            264.2658386230469,
+            243.17507934570312,
+            295.6529541015625
+          ],
+          "conf": 0.4267312288284302,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            74.71562194824219,
+            161.721435546875,
+            237.873779296875,
+            511.2517395019531
+          ],
+          "track_id": 1,
+          "conf": 0.9256077408790588
+        },
+        {
+          "box": [
+            242.64918518066406,
+            229.48175048828125,
+            342.9322204589844,
+            429.53839111328125
+          ],
+          "track_id": 2,
+          "conf": 0.808499276638031
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            210.74708557128906,
+            264.2658386230469,
+            243.17507934570312,
+            295.6529541015625
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.4267312288284302,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.8680083751678467,
+          "containment_ioa": 0.8365208749666502,
+          "center_inside": true,
+          "wrist_dist_px": 20.692179733543316,
+          "wrist_dist_rel": 0.05919995920068404
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 4,
+      "frame_number": 449.0,
+      "image_name": "cctv_v2_023_449_jpg.rf.aa145e14582dd995b2f7c26cfda166e9.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0449_cctv_v2_023_449_jpg.rf.aa145e14582dd995b2f7c26cfda166e9.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            60.25295639038086,
+            198.6165008544922,
+            207.80262756347656,
+            511.57562255859375
+          ],
+          "track_id": 1,
+          "conf": 0.9298886060714722
+        },
+        {
+          "box": [
+            243.50965881347656,
+            230.86695861816406,
+            340.7383117675781,
+            424.8608703613281
+          ],
+          "track_id": 2,
+          "conf": 0.8660435676574707
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 5,
+      "frame_number": 452.0,
+      "image_name": "cctv_v2_024_452_jpg.rf.82a47ff700eacc3cef0e67c4a88f7449.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0452_cctv_v2_024_452_jpg.rf.82a47ff700eacc3cef0e67c4a88f7449.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            49.88878631591797,
+            213.90589904785156,
+            189.24363708496094,
+            511.6942443847656
+          ],
+          "track_id": 1,
+          "conf": 0.8789961934089661
+        },
+        {
+          "box": [
+            225.00177001953125,
+            243.55307006835938,
+            328.94195556640625,
+            450.6482238769531
+          ],
+          "track_id": 2,
+          "conf": 0.7652031183242798
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 6,
+      "frame_number": 455.0,
+      "image_name": "cctv_v2_025_455_jpg.rf.8a7e6a36b842f10f594bdb7992ea7b0f.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0455_cctv_v2_025_455_jpg.rf.8a7e6a36b842f10f594bdb7992ea7b0f.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            111.7864990234375,
+            402.145263671875,
+            147.9539794921875,
+            438.9297790527344
+          ],
+          "conf": 0.585043728351593,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            17.734561920166016,
+            207.15135192871094,
+            157.82467651367188,
+            511.769287109375
+          ],
+          "track_id": 1,
+          "conf": 0.8515344262123108
+        },
+        {
+          "box": [
+            230.75857543945312,
+            255.67665100097656,
+            325.8992919921875,
+            443.16925048828125
+          ],
+          "track_id": 2,
+          "conf": 0.8389297723770142
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            111.7864990234375,
+            402.145263671875,
+            147.9539794921875,
+            438.9297790527344
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.585043728351593,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.897070050239563,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 27.870500525160878,
+          "wrist_dist_rel": 0.09149330130096026
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 7,
+      "frame_number": 458.0,
+      "image_name": "cctv_v2_026_458_jpg.rf.22ca2d0cf8e514f71b3a889fa29aad09.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0458_cctv_v2_026_458_jpg.rf.22ca2d0cf8e514f71b3a889fa29aad09.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            32.01847457885742,
+            211.76756286621094,
+            168.337890625,
+            511.4579162597656
+          ],
+          "track_id": 1,
+          "conf": 0.9258942008018494
+        },
+        {
+          "box": [
+            234.23231506347656,
+            260.583740234375,
+            327.7459411621094,
+            443.0048828125
+          ],
+          "track_id": 2,
+          "conf": 0.8664024472236633
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 8,
+      "frame_number": 462.0,
+      "image_name": "cctv_v2_027_462_jpg.rf.a3000a8a2bd55fc41c3368ed5054737c.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0462_cctv_v2_027_462_jpg.rf.a3000a8a2bd55fc41c3368ed5054737c.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            174.52748107910156,
+            459.49456787109375,
+            202.71270751953125,
+            505.7047119140625
+          ],
+          "conf": 0.7186052203178406,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            57.389705657958984,
+            211.74205017089844,
+            192.17529296875,
+            511.263671875
+          ],
+          "track_id": 1,
+          "conf": 0.8624638319015503
+        },
+        {
+          "box": [
+            227.88638305664062,
+            250.3817901611328,
+            314.7280578613281,
+            415.79052734375
+          ],
+          "track_id": 2,
+          "conf": 0.8501644134521484
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            174.52748107910156,
+            459.49456787109375,
+            202.71270751953125,
+            505.7047119140625
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.7186052203178406,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.7423520088195801,
+          "containment_ioa": 0.6261369560733391,
+          "center_inside": true,
+          "wrist_dist_px": 28.78143907055532,
+          "wrist_dist_rel": 0.09609135696717282
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 9,
+      "frame_number": 465.0,
+      "image_name": "cctv_v2_028_465_jpg.rf.62b4f3ea29e4998880953208cec025e1.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0465_cctv_v2_028_465_jpg.rf.62b4f3ea29e4998880953208cec025e1.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            209.90713500976562,
+            446.2967529296875,
+            238.7181396484375,
+            499.83746337890625
+          ],
+          "conf": 0.6806581020355225,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            75.32654571533203,
+            216.5489959716797,
+            209.9757843017578,
+            511.59356689453125
+          ],
+          "track_id": 1,
+          "conf": 0.9075021743774414
+        },
+        {
+          "box": [
+            219.2014617919922,
+            250.76547241210938,
+            312.32110595703125,
+            426.4237060546875
+          ],
+          "track_id": 2,
+          "conf": 0.8587855100631714
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            209.90713500976562,
+            446.2967529296875,
+            238.7181396484375,
+            499.83746337890625
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.6806581020355225,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.31659987568855286,
+          "containment_ioa": 0.0023827455117633165,
+          "center_inside": false,
+          "wrist_dist_px": 35.23571955538983,
+          "wrist_dist_rel": 0.11942507345645512
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 10,
+      "frame_number": 468.0,
+      "image_name": "cctv_v2_029_468_jpg.rf.117c4b5df8507a6255f9ab3498d92041.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0468_cctv_v2_029_468_jpg.rf.117c4b5df8507a6255f9ab3498d92041.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            188.3040771484375,
+            394.6676025390625,
+            231.92745971679688,
+            435.17266845703125
+          ],
+          "conf": 0.6711224913597107,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            60.952674865722656,
+            214.7717742919922,
+            198.89524841308594,
+            511.85443115234375
+          ],
+          "track_id": 1,
+          "conf": 0.9305205345153809
+        },
+        {
+          "box": [
+            210.1398162841797,
+            246.45028686523438,
+            296.5621032714844,
+            405.2467346191406
+          ],
+          "track_id": 2,
+          "conf": 0.835826575756073
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            188.3040771484375,
+            394.6676025390625,
+            231.92745971679688,
+            435.17266845703125
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.6711224913597107,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.44232526421546936,
+          "containment_ioa": 0.24278656631112225,
+          "center_inside": false,
+          "wrist_dist_px": 27.672087895482882,
+          "wrist_dist_rel": 0.09314609000716789
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 11,
+      "frame_number": 471.0,
+      "image_name": "cctv_v2_030_471_jpg.rf.cbd4ce235c52281f2ac753631636d97b.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0471_cctv_v2_030_471_jpg.rf.cbd4ce235c52281f2ac753631636d97b.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            169.48385620117188,
+            348.3655700683594,
+            209.10792541503906,
+            388.9884338378906
+          ],
+          "conf": 0.6726664900779724,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            50.07350158691406,
+            196.633056640625,
+            195.78182983398438,
+            511.51165771484375
+          ],
+          "track_id": 1,
+          "conf": 0.9194392561912537
+        },
+        {
+          "box": [
+            210.5283966064453,
+            233.8462371826172,
+            303.527099609375,
+            402.72625732421875
+          ],
+          "track_id": 2,
+          "conf": 0.8495195508003235
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            169.48385620117188,
+            348.3655700683594,
+            209.10792541503906,
+            388.9884338378906
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.6726664900779724,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.7778611779212952,
+          "containment_ioa": 0.663686848790609,
+          "center_inside": true,
+          "wrist_dist_px": 24.52233739741923,
+          "wrist_dist_rel": 0.07787870409027627
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 12,
+      "frame_number": 474.0,
+      "image_name": "cctv_v2_031_474_jpg.rf.c90e8e011b03baa55a6195908401ddac.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0474_cctv_v2_031_474_jpg.rf.c90e8e011b03baa55a6195908401ddac.jpg",
+      "n_weapons": 2,
+      "n_persons": 2,
+      "n_associated": 2,
+      "active_alert_ids": [
+        "ALERT-0002",
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            113.1195068359375,
+            342.6648864746094,
+            152.15672302246094,
+            380.60479736328125
+          ],
+          "conf": 0.6083046197891235,
+          "cls": "handgun"
+        },
+        {
+          "box": [
+            114.47486114501953,
+            343.07452392578125,
+            151.7648468017578,
+            362.7358703613281
+          ],
+          "conf": 0.33885523676872253,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            11.717041969299316,
+            189.93885803222656,
+            159.28163146972656,
+            511.4853210449219
+          ],
+          "track_id": 1,
+          "conf": 0.9225007891654968
+        },
+        {
+          "box": [
+            188.19802856445312,
+            236.21978759765625,
+            273.8896179199219,
+            387.2376403808594
+          ],
+          "track_id": 2,
+          "conf": 0.8531090021133423
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            113.1195068359375,
+            342.6648864746094,
+            152.15672302246094,
+            380.60479736328125
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.6083046197891235,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.9163013696670532,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 23.92267078543797,
+          "wrist_dist_rel": 0.07439879935638867
+        },
+        {
+          "weapon_box": [
+            114.47486114501953,
+            343.07452392578125,
+            151.7648468017578,
+            362.7358703613281
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.33885523676872253,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.8925054669380188,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 30.723988008141426,
+          "wrist_dist_rel": 0.09555069497663353
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 13,
+      "frame_number": 477.0,
+      "image_name": "cctv_v2_032_477_jpg.rf.ad7d0e5ef819bdc2b5fb15e62879c39a.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0477_cctv_v2_032_477_jpg.rf.ad7d0e5ef819bdc2b5fb15e62879c39a.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            8.345793724060059,
+            202.8046875,
+            152.10780334472656,
+            511.67083740234375
+          ],
+          "track_id": 1,
+          "conf": 0.9259679913520813
+        },
+        {
+          "box": [
+            172.53065490722656,
+            241.18746948242188,
+            260.034912109375,
+            391.75250244140625
+          ],
+          "track_id": 2,
+          "conf": 0.8524588942527771
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 14,
+      "frame_number": 480.0,
+      "image_name": "cctv_v2_033_480_jpg.rf.33ed822bb46c909eaaf3c6ab89a4e272.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0480_cctv_v2_033_480_jpg.rf.33ed822bb46c909eaaf3c6ab89a4e272.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            0.8113836646080017,
+            207.3338623046875,
+            142.5636749267578,
+            511.64019775390625
+          ],
+          "track_id": 1,
+          "conf": 0.9272323250770569
+        },
+        {
+          "box": [
+            158.78953552246094,
+            241.1930389404297,
+            248.4251708984375,
+            392.1846008300781
+          ],
+          "track_id": 2,
+          "conf": 0.8470056653022766
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 15,
+      "frame_number": 485.0,
+      "image_name": "cctv_v2_034_485_jpg.rf.053377a1b3ee574977c16e65cc9cb0f4.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0485_cctv_v2_034_485_jpg.rf.053377a1b3ee574977c16e65cc9cb0f4.jpg",
+      "n_weapons": 2,
+      "n_persons": 2,
+      "n_associated": 2,
+      "active_alert_ids": [
+        "ALERT-0002",
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            82.02532958984375,
+            328.88800048828125,
+            116.99153900146484,
+            360.37640380859375
+          ],
+          "conf": 0.7228178977966309,
+          "cls": "handgun"
+        },
+        {
+          "box": [
+            54.960533142089844,
+            327.6688232421875,
+            117.42863464355469,
+            379.1939697265625
+          ],
+          "conf": 0.596479058265686,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            0.0,
+            207.8995361328125,
+            125.46515655517578,
+            511.0025634765625
+          ],
+          "track_id": 1,
+          "conf": 0.7565836906433105
+        },
+        {
+          "box": [
+            146.96725463867188,
+            241.39283752441406,
+            238.53225708007812,
+            392.72802734375
+          ],
+          "track_id": 2,
+          "conf": 0.8821824789047241
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            82.02532958984375,
+            328.88800048828125,
+            116.99153900146484,
+            360.37640380859375
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.7228178977966309,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.9035432934761047,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 25.987835789917877,
+          "wrist_dist_rel": 0.08573928151646272
+        },
+        {
+          "weapon_box": [
+            54.960533142089844,
+            327.6688232421875,
+            117.42863464355469,
+            379.1939697265625
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.596479058265686,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.9511830806732178,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 13.152494587031573,
+          "wrist_dist_rel": 0.043392818284573885
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 16,
+      "frame_number": 488.0,
+      "image_name": "cctv_v2_035_488_jpg.rf.b5efe7d269b7904cb6d35e12dbb29abc.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0488_cctv_v2_035_488_jpg.rf.b5efe7d269b7904cb6d35e12dbb29abc.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            63.49108123779297,
+            343.8184509277344,
+            98.11367797851562,
+            368.9510498046875
+          ],
+          "conf": 0.39589163661003113,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            0.0,
+            199.2559814453125,
+            115.3521728515625,
+            511.15966796875
+          ],
+          "track_id": 1,
+          "conf": 0.8874120116233826
+        },
+        {
+          "box": [
+            140.85775756835938,
+            241.1460418701172,
+            231.8504638671875,
+            387.4890441894531
+          ],
+          "track_id": 2,
+          "conf": 0.8174782395362854
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            63.49108123779297,
+            343.8184509277344,
+            98.11367797851562,
+            368.9510498046875
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.39589163661003113,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.9275025129318237,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 20.09977092102378,
+          "wrist_dist_rel": 0.06444223582305564
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 17,
+      "frame_number": 491.0,
+      "image_name": "cctv_v2_036_491_jpg.rf.b8823699f231c74c25b5c626d8b9f1c8.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0491_cctv_v2_036_491_jpg.rf.b8823699f231c74c25b5c626d8b9f1c8.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [
+        "ALERT-0002"
+      ],
+      "weapons": [
+        {
+          "box": [
+            65.84236145019531,
+            348.8282165527344,
+            99.75154113769531,
+            389.2864074707031
+          ],
+          "conf": 0.7374991178512573,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            0.0,
+            202.33274841308594,
+            109.85933685302734,
+            511.4154968261719
+          ],
+          "track_id": 1,
+          "conf": 0.7489649057388306
+        },
+        {
+          "box": [
+            139.5612030029297,
+            243.06259155273438,
+            234.41696166992188,
+            393.3538513183594
+          ],
+          "track_id": 2,
+          "conf": 0.8284926414489746
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            65.84236145019531,
+            348.8282165527344,
+            99.75154113769531,
+            389.2864074707031
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.7374991178512573,
+          "track_id": 1,
+          "is_associated": true,
+          "link_score": 0.9252063035964966,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 20.548828836612934,
+          "wrist_dist_rel": 0.06648326036349862
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 18,
+      "frame_number": 495.0,
+      "image_name": "cctv_v2_037_495_jpg.rf.adc28dd399d444e580c34849b12cebf4.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0495_cctv_v2_037_495_jpg.rf.adc28dd399d444e580c34849b12cebf4.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            0.0,
+            226.6060028076172,
+            118.369873046875,
+            511.4504089355469
+          ],
+          "track_id": 1,
+          "conf": 0.7868931889533997
+        },
+        {
+          "box": [
+            141.05410766601562,
+            246.31533813476562,
+            236.98765563964844,
+            396.2153625488281
+          ],
+          "track_id": 2,
+          "conf": 0.8774498105049133
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 19,
+      "frame_number": 498.0,
+      "image_name": "cctv_v2_038_498_jpg.rf.fed177cca1702bd86661f25f1eaf98f1.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0498_cctv_v2_038_498_jpg.rf.fed177cca1702bd86661f25f1eaf98f1.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            7.201218605041504,
+            237.17169189453125,
+            129.28553771972656,
+            511.4122009277344
+          ],
+          "track_id": 1,
+          "conf": 0.5437135100364685
+        },
+        {
+          "box": [
+            138.7133026123047,
+            247.60134887695312,
+            242.7196044921875,
+            409.9100341796875
+          ],
+          "track_id": 2,
+          "conf": 0.853875458240509
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 20,
+      "frame_number": 503.0,
+      "image_name": "cctv_v2_039_503_jpg.rf.da709e1db8c5a382422fe79e8eaa53a1.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0503_cctv_v2_039_503_jpg.rf.da709e1db8c5a382422fe79e8eaa53a1.jpg",
+      "n_weapons": 0,
+      "n_persons": 1,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            29.632755279541016,
+            167.73448181152344,
+            172.86305236816406,
+            497.08575439453125
+          ],
+          "track_id": 1,
+          "conf": 0.8579197525978088
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 21,
+      "frame_number": 506.0,
+      "image_name": "cctv_v2_040_506_jpg.rf.2932606328b844abdfb5a83930d635e4.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0506_cctv_v2_040_506_jpg.rf.2932606328b844abdfb5a83930d635e4.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            45.40730667114258,
+            135.07127380371094,
+            193.13050842285156,
+            480.2763977050781
+          ],
+          "track_id": 1,
+          "conf": 0.8641359806060791
+        },
+        {
+          "box": [
+            174.46542358398438,
+            138.74964904785156,
+            277.30169677734375,
+            278.94287109375
+          ],
+          "track_id": 4,
+          "conf": 0.9021890759468079
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 22,
+      "frame_number": 509.0,
+      "image_name": "cctv_v2_041_509_jpg.rf.0b7b74f75012231c43760650d85551ba.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0509_cctv_v2_041_509_jpg.rf.0b7b74f75012231c43760650d85551ba.jpg",
+      "n_weapons": 0,
+      "n_persons": 0,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 23,
+      "frame_number": 513.0,
+      "image_name": "cctv_v2_042_513_jpg.rf.1bf7785a59f0cd76623fa99ec8cd71b3.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0513_cctv_v2_042_513_jpg.rf.1bf7785a59f0cd76623fa99ec8cd71b3.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            282.449951171875,
+            135.31163024902344,
+            398.968505859375,
+            302.7420349121094
+          ],
+          "track_id": 6,
+          "conf": 0.8582236170768738
+        },
+        {
+          "box": [
+            117.14738464355469,
+            119.2609634399414,
+            380.2276306152344,
+            482.2619934082031
+          ],
+          "track_id": 4,
+          "conf": 0.9080034494400024
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 24,
+      "frame_number": 516.0,
+      "image_name": "cctv_v2_043_516_jpg.rf.e6c98ca9c3864d3ea678c0b8b6885354.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0516_cctv_v2_043_516_jpg.rf.e6c98ca9c3864d3ea678c0b8b6885354.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            283.5191650390625,
+            136.0216064453125,
+            389.7596435546875,
+            288.22320556640625
+          ],
+          "track_id": 6,
+          "conf": 0.7943492531776428
+        },
+        {
+          "box": [
+            112.7952651977539,
+            116.44184875488281,
+            410.4819641113281,
+            512.0
+          ],
+          "track_id": 4,
+          "conf": 0.9368852376937866
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 25,
+      "frame_number": 519.0,
+      "image_name": "cctv_v2_044_519_jpg.rf.1d77eb1c6527feb3fb94b2fe92f6ad4c.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0519_cctv_v2_044_519_jpg.rf.1d77eb1c6527feb3fb94b2fe92f6ad4c.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            279.92596435546875,
+            137.74452209472656,
+            380.1706848144531,
+            280.63470458984375
+          ],
+          "track_id": 6,
+          "conf": 0.6760053634643555
+        },
+        {
+          "box": [
+            114.84125518798828,
+            119.15525817871094,
+            420.69488525390625,
+            512.0
+          ],
+          "track_id": 4,
+          "conf": 0.9322630167007446
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq07",
+      "frame_idx": 26,
+      "frame_number": 522.0,
+      "image_name": "cctv_v2_045_522_jpg.rf.cfe430be2abb21a9b2fe110e1380a87b.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq07_f0522_cctv_v2_045_522_jpg.rf.cfe430be2abb21a9b2fe110e1380a87b.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            271.5728759765625,
+            131.95858764648438,
+            385.5948181152344,
+            294.55291748046875
+          ],
+          "track_id": 6,
+          "conf": 0.7890392541885376
+        },
+        {
+          "box": [
+            113.62980651855469,
+            118.00377655029297,
+            416.559326171875,
+            512.0
+          ],
+          "track_id": 4,
+          "conf": 0.9244229793548584
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 1,
+      "frame_number": 542.0,
+      "image_name": "cctv_v2_046_542_jpg.rf.4f281b4f5087d016bf99958a18563679.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0542_cctv_v2_046_542_jpg.rf.4f281b4f5087d016bf99958a18563679.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            102.74715423583984,
+            96.36952209472656,
+            357.4943542480469,
+            512.0
+          ],
+          "track_id": 1,
+          "conf": 0.9237054586410522
+        },
+        {
+          "box": [
+            266.55120849609375,
+            114.02597045898438,
+            382.80316162109375,
+            291.260009765625
+          ],
+          "track_id": 2,
+          "conf": 0.8502556681632996
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 2,
+      "frame_number": 546.0,
+      "image_name": "cctv_v2_047_546_jpg.rf.85bc98f04c9d493a365ebd312997d565.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0546_cctv_v2_047_546_jpg.rf.85bc98f04c9d493a365ebd312997d565.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            102.85137939453125,
+            98.82982635498047,
+            355.8802185058594,
+            512.0
+          ],
+          "track_id": 1,
+          "conf": 0.8993779420852661
+        },
+        {
+          "box": [
+            266.4294738769531,
+            118.24344635009766,
+            379.8762512207031,
+            291.1668701171875
+          ],
+          "track_id": 2,
+          "conf": 0.7949961423873901
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 3,
+      "frame_number": 550.0,
+      "image_name": "cctv_v2_048_550_jpg.rf.1ebfed0f74215ca71f14d1fe1aeed5da.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0550_cctv_v2_048_550_jpg.rf.1ebfed0f74215ca71f14d1fe1aeed5da.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            87.40672302246094,
+            97.86842346191406,
+            339.35992431640625,
+            511.0546569824219
+          ],
+          "track_id": 1,
+          "conf": 0.8955583572387695
+        },
+        {
+          "box": [
+            266.472900390625,
+            116.19146728515625,
+            377.2330017089844,
+            284.7846374511719
+          ],
+          "track_id": 2,
+          "conf": 0.8889158368110657
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 4,
+      "frame_number": 563.0,
+      "image_name": "cctv_v2_049_563_jpg.rf.2f747cd505d8392f92540e448c2bf18d.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0563_cctv_v2_049_563_jpg.rf.2f747cd505d8392f92540e448c2bf18d.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            79.94878387451172,
+            105.25527954101562,
+            325.8158874511719,
+            511.37451171875
+          ],
+          "track_id": 1,
+          "conf": 0.9088574647903442
+        },
+        {
+          "box": [
+            263.0696716308594,
+            108.13400268554688,
+            372.1775207519531,
+            274.69873046875
+          ],
+          "track_id": 2,
+          "conf": 0.7750110626220703
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 5,
+      "frame_number": 567.0,
+      "image_name": "cctv_v2_050_567_jpg.rf.20d55b5366a14547a4cd8452a38240e8.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0567_cctv_v2_050_567_jpg.rf.20d55b5366a14547a4cd8452a38240e8.jpg",
+      "n_weapons": 0,
+      "n_persons": 0,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 6,
+      "frame_number": 573.0,
+      "image_name": "cctv_v2_051_573_jpg.rf.2b9513f4dfafa3e4d02922f3a93c09aa.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0573_cctv_v2_051_573_jpg.rf.2b9513f4dfafa3e4d02922f3a93c09aa.jpg",
+      "n_weapons": 0,
+      "n_persons": 1,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            187.31275939941406,
+            111.76329803466797,
+            424.3248596191406,
+            504.8559265136719
+          ],
+          "track_id": 1,
+          "conf": 0.9150747060775757
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 7,
+      "frame_number": 577.0,
+      "image_name": "cctv_v2_052_577_jpg.rf.d27659f10a034172ca64cbc4fb793ee7.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0577_cctv_v2_052_577_jpg.rf.d27659f10a034172ca64cbc4fb793ee7.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            176.21282958984375,
+            110.98252868652344,
+            257.2252197265625,
+            372.54052734375
+          ],
+          "track_id": 6,
+          "conf": 0.571929931640625
+        },
+        {
+          "box": [
+            213.55775451660156,
+            111.27429962158203,
+            447.1126708984375,
+            501.4905090332031
+          ],
+          "track_id": 1,
+          "conf": 0.9350973963737488
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 8,
+      "frame_number": 581.0,
+      "image_name": "cctv_v2_053_581_jpg.rf.75dc07fb5e4b784aab45b8d62730f2ef.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0581_cctv_v2_053_581_jpg.rf.75dc07fb5e4b784aab45b8d62730f2ef.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            166.8616485595703,
+            100.54283905029297,
+            249.58145141601562,
+            366.7943115234375
+          ],
+          "track_id": 6,
+          "conf": 0.6806918978691101
+        },
+        {
+          "box": [
+            222.8955535888672,
+            99.9568862915039,
+            458.2535095214844,
+            497.7380676269531
+          ],
+          "track_id": 1,
+          "conf": 0.9190820455551147
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 9,
+      "frame_number": 585.0,
+      "image_name": "cctv_v2_054_585_jpg.rf.aae80c90e0e6e22a15d918d436367a9f.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0585_cctv_v2_054_585_jpg.rf.aae80c90e0e6e22a15d918d436367a9f.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            163.68255615234375,
+            95.22959899902344,
+            247.7577667236328,
+            364.1717224121094
+          ],
+          "track_id": 6,
+          "conf": 0.572848379611969
+        },
+        {
+          "box": [
+            224.83755493164062,
+            93.30545806884766,
+            459.5058898925781,
+            495.3632507324219
+          ],
+          "track_id": 1,
+          "conf": 0.9185519814491272
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 10,
+      "frame_number": 589.0,
+      "image_name": "cctv_v2_055_589_jpg.rf.6bf1d64b296a5379a6f7c7ad52e02098.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0589_cctv_v2_055_589_jpg.rf.6bf1d64b296a5379a6f7c7ad52e02098.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            163.5384521484375,
+            94.20539855957031,
+            248.17433166503906,
+            362.5450439453125
+          ],
+          "track_id": 6,
+          "conf": 0.5882723331451416
+        },
+        {
+          "box": [
+            226.33282470703125,
+            90.42298126220703,
+            458.6849060058594,
+            494.3042907714844
+          ],
+          "track_id": 1,
+          "conf": 0.9046733379364014
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 11,
+      "frame_number": 594.0,
+      "image_name": "cctv_v2_056_594_jpg.rf.4715c727d568b98bda1fad8950d813fb.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0594_cctv_v2_056_594_jpg.rf.4715c727d568b98bda1fad8950d813fb.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            164.73492431640625,
+            94.6749038696289,
+            249.19384765625,
+            361.1736755371094
+          ],
+          "track_id": 6,
+          "conf": 0.5836353898048401
+        },
+        {
+          "box": [
+            230.27926635742188,
+            91.8094253540039,
+            458.1390075683594,
+            494.28424072265625
+          ],
+          "track_id": 1,
+          "conf": 0.9151524901390076
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 12,
+      "frame_number": 599.0,
+      "image_name": "cctv_v2_057_599_jpg.rf.252c7194b5090c07a3c17a1331e05cb2.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0599_cctv_v2_057_599_jpg.rf.252c7194b5090c07a3c17a1331e05cb2.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            170.77386474609375,
+            88.98655700683594,
+            257.7060546875,
+            358.3009948730469
+          ],
+          "track_id": 6,
+          "conf": 0.5504999756813049
+        },
+        {
+          "box": [
+            270.0530700683594,
+            47.005550384521484,
+            484.6825866699219,
+            440.6169738769531
+          ],
+          "track_id": 1,
+          "conf": 0.9071756601333618
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 13,
+      "frame_number": 603.0,
+      "image_name": "cctv_v2_058_603_jpg.rf.3bddca979d2da7e6a101006147e3bdc7.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0603_cctv_v2_058_603_jpg.rf.3bddca979d2da7e6a101006147e3bdc7.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            174.4268035888672,
+            90.48413848876953,
+            262.4538269042969,
+            357.7147216796875
+          ],
+          "track_id": 6,
+          "conf": 0.7580459713935852
+        },
+        {
+          "box": [
+            252.3113555908203,
+            1.0837379693984985,
+            397.93170166015625,
+            229.98159790039062
+          ],
+          "track_id": 2,
+          "conf": 0.9205048680305481
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 14,
+      "frame_number": 608.0,
+      "image_name": "cctv_v2_059_608_jpg.rf.456282b1b9401d955f299c78fe8a7c49.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0608_cctv_v2_059_608_jpg.rf.456282b1b9401d955f299c78fe8a7c49.jpg",
+      "n_weapons": 2,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            303.2816467285156,
+            40.990692138671875,
+            511.9759521484375,
+            481.4581604003906
+          ],
+          "conf": 0.5616846680641174,
+          "cls": "knife"
+        },
+        {
+          "box": [
+            218.76107788085938,
+            140.8932647705078,
+            247.62924194335938,
+            166.0055694580078
+          ],
+          "conf": 0.5409151315689087,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            170.4000701904297,
+            93.85253143310547,
+            258.3604736328125,
+            357.19061279296875
+          ],
+          "track_id": 6,
+          "conf": 0.5878361463546753
+        },
+        {
+          "box": [
+            210.1758575439453,
+            10.990837097167969,
+            347.2355651855469,
+            219.09588623046875
+          ],
+          "track_id": 2,
+          "conf": 0.8776491284370422
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            303.2816467285156,
+            40.990692138671875,
+            511.9759521484375,
+            481.4581604003906
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.5616846680641174,
+          "track_id": null,
+          "is_associated": false,
+          "link_score": 0.0,
+          "containment_ioa": 0.0,
+          "center_inside": false,
+          "wrist_dist_px": null,
+          "wrist_dist_rel": null
+        },
+        {
+          "weapon_box": [
+            218.76107788085938,
+            140.8932647705078,
+            247.62924194335938,
+            166.0055694580078
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.5409151315689087,
+          "track_id": 2,
+          "is_associated": true,
+          "link_score": 0.8687284588813782,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 24.28290373134397,
+          "wrist_dist_rel": 0.1166857980259271
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 15,
+      "frame_number": 612.0,
+      "image_name": "cctv_v2_060_612_jpg.rf.b34143a98fb9df59bd9402d3efbbc327.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0612_cctv_v2_060_612_jpg.rf.b34143a98fb9df59bd9402d3efbbc327.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            151.0651397705078,
+            9.841992378234863,
+            512.0,
+            406.4293212890625
+          ],
+          "conf": 0.34410831332206726,
+          "cls": "knife"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            175.83627319335938,
+            92.1714096069336,
+            245.0937042236328,
+            286.3623962402344
+          ],
+          "track_id": 6,
+          "conf": 0.7819269299507141
+        },
+        {
+          "box": [
+            202.1799774169922,
+            34.254844665527344,
+            320.49468994140625,
+            213.0500030517578
+          ],
+          "track_id": 2,
+          "conf": 0.7395877838134766
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            151.0651397705078,
+            9.841992378234863,
+            512.0,
+            406.4293212890625
+          ],
+          "weapon_cls": "knife",
+          "weapon_conf": 0.34410831332206726,
+          "track_id": null,
+          "is_associated": false,
+          "link_score": 0.0,
+          "containment_ioa": 0.0,
+          "center_inside": false,
+          "wrist_dist_px": null,
+          "wrist_dist_rel": null
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 16,
+      "frame_number": 616.0,
+      "image_name": "cctv_v2_061_616_jpg.rf.92400cb102d8968c99c508d0e071495a.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0616_cctv_v2_061_616_jpg.rf.92400cb102d8968c99c508d0e071495a.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            159.767333984375,
+            80.86701202392578,
+            249.20611572265625,
+            327.7411193847656
+          ],
+          "track_id": 6,
+          "conf": 0.7440347671508789
+        },
+        {
+          "box": [
+            203.96823120117188,
+            31.417377471923828,
+            318.3217468261719,
+            204.48260498046875
+          ],
+          "track_id": 2,
+          "conf": 0.8580256700515747
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 17,
+      "frame_number": 620.0,
+      "image_name": "cctv_v2_062_620_jpg.rf.20e3d62e98a0ce0deaaf787cf0d7264b.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0620_cctv_v2_062_620_jpg.rf.20e3d62e98a0ce0deaaf787cf0d7264b.jpg",
+      "n_weapons": 0,
+      "n_persons": 1,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            156.12193298339844,
+            90.12509155273438,
+            239.1167755126953,
+            312.8725891113281
+          ],
+          "track_id": 6,
+          "conf": 0.5391006469726562
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 18,
+      "frame_number": 624.0,
+      "image_name": "cctv_v2_063_624_jpg.rf.f52e7c7160fac64f1b5f6064e25dffeb.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0624_cctv_v2_063_624_jpg.rf.f52e7c7160fac64f1b5f6064e25dffeb.jpg",
+      "n_weapons": 1,
+      "n_persons": 2,
+      "n_associated": 1,
+      "active_alert_ids": [],
+      "weapons": [
+        {
+          "box": [
+            197.5628662109375,
+            283.4857482910156,
+            233.3496551513672,
+            328.6943664550781
+          ],
+          "conf": 0.5401564240455627,
+          "cls": "handgun"
+        }
+      ],
+      "tracks": [
+        {
+          "box": [
+            152.59800720214844,
+            105.34900665283203,
+            232.23419189453125,
+            312.8818664550781
+          ],
+          "track_id": 6,
+          "conf": 0.5643459558486938
+        },
+        {
+          "box": [
+            189.33045959472656,
+            96.09607696533203,
+            420.3442077636719,
+            510.5013122558594
+          ],
+          "track_id": 9,
+          "conf": 0.8999118804931641
+        }
+      ],
+      "associations": [
+        {
+          "weapon_box": [
+            197.5628662109375,
+            283.4857482910156,
+            233.3496551513672,
+            328.6943664550781
+          ],
+          "weapon_cls": "handgun",
+          "weapon_conf": 0.5401564240455627,
+          "track_id": 9,
+          "is_associated": true,
+          "link_score": 0.9473658800125122,
+          "containment_ioa": 1.0,
+          "center_inside": true,
+          "wrist_dist_px": 19.38831297444289,
+          "wrist_dist_rel": 0.04678587846712485
+        }
+      ]
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 19,
+      "frame_number": 628.0,
+      "image_name": "cctv_v2_064_628_jpg.rf.be350512ce157b6e97d19fa59a5a2441.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0628_cctv_v2_064_628_jpg.rf.be350512ce157b6e97d19fa59a5a2441.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            152.072021484375,
+            107.16497802734375,
+            232.37527465820312,
+            311.5134582519531
+          ],
+          "track_id": 6,
+          "conf": 0.507297933101654
+        },
+        {
+          "box": [
+            186.5192108154297,
+            96.49236297607422,
+            417.1988830566406,
+            510.9364013671875
+          ],
+          "track_id": 9,
+          "conf": 0.920010507106781
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 20,
+      "frame_number": 633.0,
+      "image_name": "cctv_v2_065_633_jpg.rf.1f5978da07d899c4341294ec1f5b33a9.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0633_cctv_v2_065_633_jpg.rf.1f5978da07d899c4341294ec1f5b33a9.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            165.01234436035156,
+            101.9140625,
+            248.77117919921875,
+            310.8775939941406
+          ],
+          "track_id": 6,
+          "conf": 0.4748072624206543
+        },
+        {
+          "box": [
+            198.5930938720703,
+            88.42733764648438,
+            432.9898681640625,
+            510.4648132324219
+          ],
+          "track_id": 9,
+          "conf": 0.9268146753311157
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 21,
+      "frame_number": 637.0,
+      "image_name": "cctv_v2_066_637_jpg.rf.b8d5549e5df7ee0be559772f1a85dabe.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0637_cctv_v2_066_637_jpg.rf.b8d5549e5df7ee0be559772f1a85dabe.jpg",
+      "n_weapons": 0,
+      "n_persons": 1,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            255.5604248046875,
+            94.34546661376953,
+            487.41156005859375,
+            511.24078369140625
+          ],
+          "track_id": 9,
+          "conf": 0.8965791463851929
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 22,
+      "frame_number": 641.0,
+      "image_name": "cctv_v2_067_641_jpg.rf.2abe75684b59d9ce216c867c17eee5c3.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0641_cctv_v2_067_641_jpg.rf.2abe75684b59d9ce216c867c17eee5c3.jpg",
+      "n_weapons": 0,
+      "n_persons": 3,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            280.1507263183594,
+            86.37858581542969,
+            512.0,
+            511.5615234375
+          ],
+          "track_id": 9,
+          "conf": 0.9252577424049377
+        },
+        {
+          "box": [
+            237.9954071044922,
+            96.49666595458984,
+            337.0072937011719,
+            257.8406066894531
+          ],
+          "track_id": 10,
+          "conf": 0.6567912697792053
+        },
+        {
+          "box": [
+            234.7554168701172,
+            96.29434967041016,
+            337.7195739746094,
+            357.23919677734375
+          ],
+          "track_id": 11,
+          "conf": 0.46207502484321594
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 23,
+      "frame_number": 653.0,
+      "image_name": "cctv_v2_068_653_jpg.rf.04d80cc1bb49cdd9d6f08495b9601637.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0653_cctv_v2_068_653_jpg.rf.04d80cc1bb49cdd9d6f08495b9601637.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            292.7419128417969,
+            102.20701599121094,
+            512.0,
+            511.37969970703125
+          ],
+          "track_id": 9,
+          "conf": 0.9261791110038757
+        },
+        {
+          "box": [
+            261.19573974609375,
+            106.87244415283203,
+            365.40411376953125,
+            367.89996337890625
+          ],
+          "track_id": 11,
+          "conf": 0.7590264081954956
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 24,
+      "frame_number": 657.0,
+      "image_name": "cctv_v2_069_657_jpg.rf.2763e3bb43e05fa7f97a69cfaf3288d3.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0657_cctv_v2_069_657_jpg.rf.2763e3bb43e05fa7f97a69cfaf3288d3.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            289.07647705078125,
+            105.50984191894531,
+            509.4228210449219,
+            511.4810485839844
+          ],
+          "track_id": 9,
+          "conf": 0.9203085899353027
+        },
+        {
+          "box": [
+            264.6175537109375,
+            106.17185974121094,
+            370.08514404296875,
+            366.60699462890625
+          ],
+          "track_id": 11,
+          "conf": 0.8277508020401001
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 25,
+      "frame_number": 661.0,
+      "image_name": "cctv_v2_070_661_jpg.rf.52c7db3df579a8b43d4273dc25f59567.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0661_cctv_v2_070_661_jpg.rf.52c7db3df579a8b43d4273dc25f59567.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            280.8333740234375,
+            82.96343994140625,
+            508.9072265625,
+            511.7950134277344
+          ],
+          "track_id": 9,
+          "conf": 0.9306098222732544
+        },
+        {
+          "box": [
+            262.6332092285156,
+            105.83959197998047,
+            370.7103576660156,
+            368.3347473144531
+          ],
+          "track_id": 11,
+          "conf": 0.7929244041442871
+        }
+      ],
+      "associations": []
+    },
+    {
+      "sequence_id": "innovatus_cam_b_seq08",
+      "frame_idx": 26,
+      "frame_number": 666.0,
+      "image_name": "cctv_v2_071_666_jpg.rf.a8cdf347169d0b5aa29f4b0d63664fa2.jpg",
+      "annotated_frame_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/annotated_frames/innovatus_cam_b_seq08_f0666_cctv_v2_071_666_jpg.rf.a8cdf347169d0b5aa29f4b0d63664fa2.jpg",
+      "n_weapons": 0,
+      "n_persons": 2,
+      "n_associated": 0,
+      "active_alert_ids": [],
+      "weapons": [],
+      "tracks": [
+        {
+          "box": [
+            276.6960754394531,
+            72.09190368652344,
+            505.6064147949219,
+            511.7964172363281
+          ],
+          "track_id": 9,
+          "conf": 0.9237738847732544
+        },
+        {
+          "box": [
+            253.77951049804688,
+            108.63446807861328,
+            359.90252685546875,
+            363.446044921875
+          ],
+          "track_id": 11,
+          "conf": 0.7215330600738525
+        }
+      ],
+      "associations": []
+    }
+  ]
+}

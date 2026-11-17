@@ -1,0 +1,88 @@
+{
+  "runtime": {
+    "mean_latency_ms_per_frame": 59.56,
+    "mean_fps": 16.8,
+    "gpu": "NVIDIA RTX A2000 12GB"
+  },
+  "innovatus_cctv": {
+    "total_frames": 72,
+    "total_gt_weapons": 75,
+    "detected_gt_weapons": 22,
+    "pct_gt_weapons_detected": 29.33,
+    "linked_gt_weapons": 21,
+    "pct_gt_weapons_linked": 28.0,
+    "pct_detected_weapons_linked": 95.45,
+    "total_alert_events": 2,
+    "alert_events": [
+      {
+        "alert_id": "ALERT-0001",
+        "track_id": 2,
+        "sequence_id": "innovatus_cam_b_seq02",
+        "weapon_class": "knife",
+        "start_frame_idx": 5,
+        "end_frame_idx": 15,
+        "start_frame_num": 229.0,
+        "end_frame_num": 262.0,
+        "frame_range": [
+          229.0,
+          262.0
+        ],
+        "max_confidence": 0.691747784614563,
+        "mean_confidence": 0.5670604507128397,
+        "max_link_score": 0.9817240238189697,
+        "mean_link_score": 0.8114359726508459,
+        "consecutive_hits": 4,
+        "weapon_crop_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0001_weapon_t2_knife.jpg",
+        "person_crop_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0001_person_t2.jpg",
+        "crop_image_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0001_weapon_t2_knife.jpg",
+        "annotated_frame_path": null
+      },
+      {
+        "alert_id": "ALERT-0002",
+        "track_id": 1,
+        "sequence_id": "innovatus_cam_b_seq07",
+        "weapon_class": "handgun",
+        "start_frame_idx": 1,
+        "end_frame_idx": 17,
+        "start_frame_num": 440.0,
+        "end_frame_num": 491.0,
+        "frame_range": [
+          440.0,
+          491.0
+        ],
+        "max_confidence": 0.7374991178512573,
+        "mean_confidence": 0.5986374203975384,
+        "max_link_score": 0.9511830806732178,
+        "mean_link_score": 0.7941779356736404,
+        "consecutive_hits": 13,
+        "weapon_crop_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0002_weapon_t1_handgun.jpg",
+        "person_crop_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0002_person_t1.jpg",
+        "crop_image_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/crops/ALERT-0002_weapon_t1_handgun.jpg",
+        "annotated_frame_path": null
+      }
+    ],
+    "id_switches_per_sequence": {
+      "innovatus_cam_b_seq02": 0,
+      "innovatus_cam_b_seq07": 0,
+      "innovatus_cam_b_seq08": 0
+    },
+    "false_alerts_per_sequence": {
+      "innovatus_cam_b_seq02": 0,
+      "innovatus_cam_b_seq07": 0,
+      "innovatus_cam_b_seq08": 0
+    }
+  },
+  "test_domain": {
+    "total_frames": 144,
+    "total_gt_weapons": 211,
+    "detected_gt_weapons": 126,
+    "pct_gt_weapons_detected": 59.72,
+    "linked_gt_weapons": 78,
+    "pct_gt_weapons_linked": 36.97,
+    "pct_detected_weapons_linked": 61.9
+  },
+  "audit_sheet": {
+    "csv_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/pipeline/audit_sheet/association_audit_sheet.csv",
+    "samples_count": 40
+  }
+}

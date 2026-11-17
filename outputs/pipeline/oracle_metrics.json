@@ -1,0 +1,42 @@
+{
+  "Innovatus CCTV (test_cctv_v2 clean)": {
+    "dataset": "Innovatus CCTV (test_cctv_v2 clean)",
+    "total_gt_weapons": 75,
+    "linked_gt_weapons": 74,
+    "share_gt_weapons_linked_pct": 98.67,
+    "candidates_per_weapon": {
+      "mean": 1.71,
+      "median": 2.0,
+      "min": 0,
+      "max": 3
+    },
+    "link_score_distribution": {
+      "mean": 0.7443,
+      "median": 0.7828,
+      "p10": 0.4914,
+      "p25": 0.6344,
+      "p75": 0.8775,
+      "p90": 0.9162
+    }
+  },
+  "test_domain (Cinema Stills)": {
+    "dataset": "test_domain (Cinema Stills)",
+    "total_gt_weapons": 211,
+    "linked_gt_weapons": 121,
+    "share_gt_weapons_linked_pct": 57.35,
+    "candidates_per_weapon": {
+      "mean": 0.64,
+      "median": 1.0,
+      "min": 0,
+      "max": 2
+    },
+    "link_score_distribution": {
+      "mean": 0.727,
+      "median": 0.7355,
+      "p10": 0.3775,
+      "p25": 0.5881,
+      "p75": 0.9412,
+      "p90": 1.0
+    }
+  }
+}
