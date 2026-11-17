@@ -90,7 +90,7 @@ def test_zero_group_or_scene_leakage_across_splits():
     for r in manifest_rows:
         gid = r["group_id"]
         split = r["split"]
-        if split != "unassigned_negative":
+        if split in SPLITS and gid not in ("-1", "", None):
             group_to_splits[gid].add(split)
             
     leaking_groups = {gid: splits for gid, splits in group_to_splits.items() if len(splits) > 1}
@@ -108,7 +108,7 @@ def test_zero_dhash_leakage_across_splits():
     for r in manifest_rows:
         h = r["dhash"]
         split = r["split"]
-        if split != "unassigned_negative" and h not in ("0x0", "0", ""):
+        if split in SPLITS and h not in ("0x0", "0", ""):
             hash_to_splits[h].add(split)
             
     leaking_hashes = {h: splits for h, splits in hash_to_splits.items() if len(splits) > 1}
