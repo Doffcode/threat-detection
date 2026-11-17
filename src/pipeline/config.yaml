@@ -1,0 +1,64 @@
+# Stage 1 Weapon & Armed Person Tracking Pipeline Configuration
+# ==============================================================
+
+pipeline:
+  name: "stage1_armed_person_pipeline"
+  version: "1.1.0"
+  device: "cuda:0" # or "cpu"
+
+detector:
+  weights: "outputs/runs/baseline_m960_v2/weights/best.pt"
+  imgsz: 960
+  conf_threshold: 0.30 # Tuned strictly on valid (conf*)
+  iou_threshold: 0.50
+  classes: [0, 1, 2] # 0: handgun, 1: rifle, 2: knife
+  class_names:
+    0: "handgun"
+    1: "rifle"
+    2: "knife"
+
+tracker:
+  weights: "work/raw/IntProj_Weapon_Dataset_annot/yolo11m.pt"
+  imgsz: 640
+  conf_threshold: 0.35
+  tracker_type: "bytetrack.yaml"
+  classes: [0] # 0: person
+  track_buffer: 30 # Maintain track across gaps
+  max_frame_gap: 15 # Gap threshold before resetting individual track
+
+pose:
+  enabled: true
+  weights: "work/raw/IntProj_Weapon_Dataset_annot/yolo11n-pose.pt"
+  imgsz: 640
+  conf_threshold: 0.25
+  keypoint_conf_threshold: 0.25
+  wrist_indices: [9, 10] # COCO keypoints: 9 is left_wrist, 10 is right_wrist
+  max_wrist_distance_rel: 0.40 # Distance relative to person height (H = y2 - y1)
+
+association:
+  assignment_method: "max_score" # "max_score" or "hungarian"
+  min_link_score: 0.25 # Minimum score to link weapon to person
+  min_containment_ioa: 0.20 # IoA threshold for containment
+  weight_wrist: 0.45
+  weight_containment: 0.40
+  weight_center_in_box: 0.15
+  unassociated_label: "unattended_weapon"
+
+temporal:
+  confirmation_frames: 3 # Default N=3: alert only if association persists N frames on one track
+  max_gap_frames: 2 # Max allowed missed frames within confirmation window
+  cooldown_frames: 20 # Cooldown frames before duplicate alert trigger
+
+alerting:
+  crop_padding: 0.20 # 20% crop padding
+  min_alert_conf: 0.30
+  save_crops: true
+  save_annotated_frames: true
+  output_dir: "outputs/pipeline"
+
+stage2:
+  # Decoupled interface for future Stage-2 Crop Verifier (e.g. YOLO11s-cls)
+  enabled: false
+  weights: null
+  combine_mode: "prod"
+  verifier_conf_floor: 0.10
