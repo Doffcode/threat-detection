@@ -156,3 +156,57 @@ def test_moving_against_dominant_flow_fires(behavior_system):
     assert al.track_id == 4  # Opposing track
     assert al.status == "FOR_HUMAN_REVIEW_ONLY"
     assert al.trigger_numbers["opposing_angle_deg"] >= 120.0
+
+
+def test_slow_walking_no_alerts(behavior_system):
+    """Edge Case 1: Slow walking (creeping pace, 2px/frame) must NOT trigger any alert."""
+    tracker, engine = behavior_system
+    img_w, img_h = 800, 600
+    p_box = [100.0, 300.0, 160.0, 500.0]  # H=200px
+
+    all_alerts = []
+    for f_idx in range(1, 15):
+        # Move +2px in X each frame (0.01 heights/frame, well below walking threshold)
+        box = [p_box[0] + (f_idx - 1) * 2.0, p_box[1], p_box[2] + (f_idx - 1) * 2.0, p_box[3]]
+        prof = tracker.update_track(track_id=5, box=box, frame_idx=f_idx, frame_number=float(f_idx), img_w=img_w, img_h=img_h)
+        alerts = engine.evaluate_frame([prof], frame_idx=f_idx, frame_number=float(f_idx))
+        all_alerts.extend(alerts)
+
+    assert len(all_alerts) == 0
+
+
+def test_track_starting_mid_frame_no_false_alerts(behavior_system):
+    """Edge Case 2: Track starting mid-sequence (frame 50) must initialize cleanly without spurious alerts."""
+    tracker, engine = behavior_system
+    img_w, img_h = 800, 600
+
+    # First frame of new track at frame 50
+    p_box = [200.0, 250.0, 270.0, 450.0]
+    prof1 = tracker.update_track(track_id=10, box=p_box, frame_idx=50, frame_number=50.0, img_w=img_w, img_h=img_h)
+    alerts1 = engine.evaluate_frame([prof1], frame_idx=50, frame_number=50.0)
+    assert len(alerts1) == 0
+    assert prof1.speed_h_per_frame == 0.0
+    assert prof1.heading_deg is None
+
+    # Second frame: regular step
+    p_box2 = [206.0, 250.0, 276.0, 450.0]
+    prof2 = tracker.update_track(track_id=10, box=p_box2, frame_idx=51, frame_number=51.0, img_w=img_w, img_h=img_h)
+    alerts2 = engine.evaluate_frame([prof2], frame_idx=51, frame_number=51.0)
+    assert len(alerts2) == 0
+
+
+def test_short_tracks_no_spurious_alerts(behavior_system):
+    """Edge Case 3: Transient short track lasting only 1 or 2 frames before disappearing."""
+    tracker, engine = behavior_system
+    img_w, img_h = 800, 600
+
+    # Frame 1
+    prof1 = tracker.update_track(track_id=99, box=[300.0, 200.0, 350.0, 380.0], frame_idx=1, frame_number=1.0, img_w=img_w, img_h=img_h)
+    alerts1 = engine.evaluate_frame([prof1], frame_idx=1, frame_number=1.0)
+    assert len(alerts1) == 0
+
+    # Frame 2
+    prof2 = tracker.update_track(track_id=99, box=[305.0, 202.0, 355.0, 382.0], frame_idx=2, frame_number=2.0, img_w=img_w, img_h=img_h)
+    alerts2 = engine.evaluate_frame([prof2], frame_idx=2, frame_number=2.0)
+    assert len(alerts2) == 0
+

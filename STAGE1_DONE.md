@@ -83,7 +83,7 @@
 - [`src/behavior/visualizer.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/src/behavior/visualizer.py): 2D trajectory plotting and live video rendering with trails, telemetry overlays, and alert banners.
 
 ### Tests & Verification Scripts
-- [`tests/test_behavior_rules.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/tests/test_behavior_rules.py): Deterministic synthetic trajectory test suite (5/5 passed in 0.07s).
+- [`tests/test_behavior_rules.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/tests/test_behavior_rules.py): Deterministic synthetic trajectory test suite (8/8 passed in 0.09s including slow walking, mid-frame track start, and short track edge cases).
 - [`scripts/behavior/run_behavior_analysis.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/scripts/behavior/run_behavior_analysis.py): End-to-end CCTV runner for Innovatus sequences.
 
 ### Behavioral Outputs (`outputs/behavior/`)

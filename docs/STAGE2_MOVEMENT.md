@@ -2,7 +2,7 @@
 
 **Date:** November 17, 2026  
 **Module:** `src/behavior/`  
-**Status:** COMPLETE & VERIFIED (Synthetic Unit Tests: 5/5 Passed; Innovatus CCTV Benchmarked)
+**Status:** COMPLETE & VERIFIED (Synthetic Unit Tests: 8/8 Passed; Innovatus CCTV Benchmarked)
 
 ---
 
@@ -76,7 +76,7 @@ Every alert record emitted contains:
 
 ## 4. Verification & Synthetic Test Results
 
-To ensure deterministic rule behavior, a comprehensive unit test suite was built in [`tests/test_behavior_rules.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/tests/test_behavior_rules.py). All 5 synthetic cases passed in **0.07 seconds**:
+To ensure deterministic rule behavior, a comprehensive unit test suite was built in [`tests/test_behavior_rules.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/tests/test_behavior_rules.py). All 8 synthetic cases passed in **0.09 seconds**:
 
 1. **Test 1: Normal Walking (Negative Control):**
    - Synthetic trajectory: Linear walk at $v_{norm} = 0.5$ heights/sec across 60 frames.
@@ -93,6 +93,19 @@ To ensure deterministic rule behavior, a comprehensive unit test suite was built
 5. **Test 5: Moving Against Dominant Flow:**
    - Synthetic trajectory: Dominant corridor flow defined at $0^\circ$ (East); actor moving at $180^\circ$ (West).
    - Result: `RULE-WRONGWAY` fired with angular deviation $180.0^\circ > 120^\circ$ (`PASSED`).
+6. **Test 6: Slow Walking Edge Case (Creeping Pace):**
+   - Synthetic trajectory: Person creeping forward at $2\text{px/frame}$ ($0.01$ heights/frame).
+   - Result: **0 alerts fired**; noise floor prevents false triggers (`PASSED`).
+7. **Test 7: Track Starting Mid-Frame Edge Case:**
+   - Synthetic trajectory: New track initialized at frame 50.
+   - Result: Clean initialization without spuriously high speed or reversal spikes on frames 50–51 (`PASSED`).
+8. **Test 8: Short Tracks Edge Case (1–2 Frames):**
+   - Synthetic trajectory: Transient track visible for only 1–2 frames before disappearing.
+   - Result: **0 alerts fired** (`PASSED`).
+
+> [!IMPORTANT]
+> **Behavior Evaluation Integrity Disclaimer:**
+> We do NOT claim real-world behavioral detection accuracy on crime/threat behaviors that have not been quantitatively evaluated on a dedicated labeled benchmark. Real surveillance evaluations here are limited to kinematic tracking on the 72 Innovatus CCTV frames. No staged clips were present under `data/staged_clips/`. All rule triggers are explicitly categorized as `FOR_HUMAN_REVIEW_ONLY`.
 
 ---
 
