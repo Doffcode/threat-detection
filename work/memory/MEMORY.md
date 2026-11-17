@@ -1,0 +1,3 @@
+- [Data source policy](data-source-policy.md) — generic/foreign data allowed since 2026-10-14; domain test stays the headline metric
+- [Parallel subagents OK](parallel-subagents-ok.md) — user wants many parallel agents; GPU/RAM are the real limits
+- [Knife project status](knife-project-status.md) — best model big_s1_m640, honest scores, what failed
