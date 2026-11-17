@@ -236,3 +236,79 @@ def test_optional_atomic_csv_write(tmp_path):
     loaded = pd.read_csv(target)
     assert len(loaded) == 2
     assert list(loaded["judgment"]) == ["correct", "incorrect"]
+
+
+def test_apptest_tab3_audit_click_advances_selection_and_saves_csv(tmp_path, monkeypatch):
+    """
+    AppTest Tab 3: Select Case 15, click 'Correct Link', assert row 14 of the
+    temp CSV is saved as 'correct' and the selectbox value advances to Case 16 (index 15).
+    """
+    real_csv = Path("outputs/pipeline/audit_sheet/association_audit_sheet.csv")
+    temp_csv = tmp_path / "temp_audit_sheet.csv"
+    shutil.copy(real_csv, temp_csv)
+
+    monkeypatch.setenv("AUDIT_CSV_PATH", str(temp_csv))
+    monkeypatch.setenv("YOLO_AUTOINSTALL", "False")
+    monkeypatch.setattr("src.pipeline.engine.Stage1PipelineEngine", MagicMock())
+
+    dashboard_script = (Path(__file__).resolve().parent.parent / "work/app/dashboard.py").resolve()
+    at = AppTest.from_file(str(dashboard_script))
+    at.run(timeout=15)
+
+    assert len(at.exception) == 0
+
+    # Select Case 15 (index 14)
+    sb = at.selectbox(key="audit_selected_idx")
+    sb.select_index(14).run()
+    assert len(at.exception) == 0
+    assert at.selectbox(key="audit_selected_idx").value == 14
+
+    # Click '🟢 Correct Link' (key="btn_corr_15")
+    corr_btn = next((b for b in at.button if "Correct Link" in b.label), None)
+    assert corr_btn is not None
+    corr_btn.click().run()
+
+    # Zero exceptions
+    assert len(at.exception) == 0
+
+    # Assert selectbox value is now 15 (Case 16)
+    assert at.selectbox(key="audit_selected_idx").value == 15
+
+    # Assert temp CSV row 14 (Case 15) is saved as 'correct'
+    df_reloaded = pd.read_csv(temp_csv, dtype={"judgment": "object"}).fillna("")
+    assert df_reloaded.at[14, "judgment"] == "correct"
+
+
+def test_apptest_tab1_zero_byte_upload_shows_warning_no_exception(monkeypatch):
+    """
+    AppTest Tab 1: Upload a 0-byte .mp4 and click the inspector button,
+    assert st.warning appears and there is no exception.
+    """
+    monkeypatch.setenv("YOLO_AUTOINSTALL", "False")
+    monkeypatch.setattr("src.pipeline.engine.Stage1PipelineEngine", MagicMock())
+
+    dashboard_script = (Path(__file__).resolve().parent.parent / "work/app/dashboard.py").resolve()
+    at = AppTest.from_file(str(dashboard_script))
+    at.run(timeout=15)
+
+    assert len(at.exception) == 0
+
+    # Switch to 'Upload Custom Video / Image'
+    at.radio[0].set_value("Upload Custom Video / Image").run()
+    assert len(at.exception) == 0
+
+    # Upload 0-byte .mp4
+    at.file_uploader[0].upload("empty.mp4", b"").run()
+    assert len(at.exception) == 0
+
+    # Click the interactive stream inspector button
+    btn = next(b for b in at.button if "Inspector" in b.label)
+    btn.click().run()
+
+    # Assert no exceptions
+    assert len(at.exception) == 0
+
+    # Assert st.warning appears
+    warning_texts = [w.value for w in at.warning]
+    assert any("Video file contains 0 frames or cannot be decoded." in txt for txt in warning_texts)
+

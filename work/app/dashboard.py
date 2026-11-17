@@ -619,6 +619,9 @@ with tabs[2]:
                 for _, row in df_audit.iterrows()
             ]
 
+            if "pending_audit_idx" in st.session_state:
+                st.session_state["audit_selected_idx"] = st.session_state.pop("pending_audit_idx")
+
             if "audit_selected_idx" not in st.session_state:
                 first_unjudged = 0
                 for i, row in df_audit.iterrows():
@@ -668,7 +671,7 @@ with tabs[2]:
 
                 def _record_judgment(val: str, advance: bool = True):
                     _, next_idx = _save_audit_judgment(df_audit, audit_csv_p, selected_idx, val, total_cases, advance=advance)
-                    st.session_state["audit_selected_idx"] = next_idx
+                    st.session_state["pending_audit_idx"] = next_idx
                     st.rerun()
 
                 if b1.button("🟢 Correct Link", key=f"btn_corr_{case_id}", use_container_width=True):
