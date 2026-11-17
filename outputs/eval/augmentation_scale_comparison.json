@@ -1,0 +1,41 @@
+{
+  "innovatus": {
+    "count": 33,
+    "mean_pct": 1.303,
+    "median_pct": 0.897,
+    "p10_pct": 0.564,
+    "p25_pct": 0.778,
+    "p75_pct": 1.678,
+    "p90_pct": 2.328,
+    "bucket_sub1_pct": 57.58,
+    "bucket_1_5_pct": 42.42,
+    "bucket_5_25_pct": 0.0,
+    "bucket_gt25_pct": 0.0
+  },
+  "v2_scale_040": {
+    "count": 2000,
+    "mean_pct": 12.953,
+    "median_pct": 8.359,
+    "p10_pct": 0.66,
+    "p25_pct": 2.832,
+    "p75_pct": 17.352,
+    "p90_pct": 32.47,
+    "bucket_sub1_pct": 13.25,
+    "bucket_1_5_pct": 22.35,
+    "bucket_5_25_pct": 49.2,
+    "bucket_gt25_pct": 15.2
+  },
+  "v3_scale_080": {
+    "count": 2000,
+    "mean_pct": 11.572,
+    "median_pct": 5.605,
+    "p10_pct": 0.439,
+    "p25_pct": 1.544,
+    "p75_pct": 14.884,
+    "p90_pct": 29.745,
+    "bucket_sub1_pct": 18.75,
+    "bucket_1_5_pct": 28.0,
+    "bucket_5_25_pct": 39.35,
+    "bucket_gt25_pct": 13.9
+  }
+}

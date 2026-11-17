@@ -1,0 +1,15 @@
+# Stage 1 Dataset Configuration (3-Class + Hard Negatives)
+path: /home/shiva/Desktop/projects/akriti/weapon-detection/data/processed/stage1_baseline
+train: train/images
+val: valid/images
+test: test_public/images
+
+test_domain: test_domain/images
+test_cctv_v1: test_cctv_v1/images
+test_hard_negatives: test_hard_negatives/images
+
+nc: 3
+names:
+  0: handgun
+  1: rifle
+  2: knife

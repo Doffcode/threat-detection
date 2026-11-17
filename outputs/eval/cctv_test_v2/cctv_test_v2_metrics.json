@@ -1,0 +1,168 @@
+{
+  "v1": {
+    "innovatus_rob": {
+      "split": "innovatus_rob",
+      "n_images": 72,
+      "n_annotations": 75,
+      "mAP50": 0.1965,
+      "mAP50_95": 0.0682,
+      "ap_small": 0.0886,
+      "ap_medium": 0.119,
+      "ap_large": -1.0,
+      "conf_star": 0.28,
+      "pr_at_conf_star": {
+        "precision": 0.5294,
+        "recall": 0.12,
+        "f1": 0.1957,
+        "tp": 9,
+        "fp": 8,
+        "fn": 66
+      },
+      "pr_at_conf_025": {
+        "precision": 0.5,
+        "recall": 0.1333,
+        "f1": 0.2105,
+        "tp": 10,
+        "fp": 10,
+        "fn": 65
+      }
+    },
+    "bits_pilani": {
+      "split": "bits_pilani",
+      "n_images": 20,
+      "n_annotations": 13,
+      "mAP50": 0.198,
+      "mAP50_95": 0.1178,
+      "ap_small": -1.0,
+      "ap_medium": -1.0,
+      "ap_large": 0.1178,
+      "conf_star": 0.28,
+      "pr_at_conf_star": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 10,
+        "fn": 13
+      },
+      "pr_at_conf_025": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 10,
+        "fn": 13
+      }
+    },
+    "test_cctv_v2_all": {
+      "split": "test_cctv_v2_all",
+      "n_images": 92,
+      "n_annotations": 88,
+      "mAP50": 0.1177,
+      "mAP50_95": 0.0395,
+      "ap_small": 0.0886,
+      "ap_medium": 0.119,
+      "ap_large": 0.0084,
+      "conf_star": 0.28,
+      "pr_at_conf_star": {
+        "precision": 0.3333,
+        "recall": 0.1023,
+        "f1": 0.1565,
+        "tp": 9,
+        "fp": 18,
+        "fn": 79
+      },
+      "pr_at_conf_025": {
+        "precision": 0.3333,
+        "recall": 0.1136,
+        "f1": 0.1695,
+        "tp": 10,
+        "fp": 20,
+        "fn": 78
+      }
+    }
+  },
+  "v2": {
+    "innovatus_rob": {
+      "split": "innovatus_rob",
+      "n_images": 72,
+      "n_annotations": 75,
+      "mAP50": 0.252,
+      "mAP50_95": 0.1001,
+      "ap_small": 0.0938,
+      "ap_medium": 0.1274,
+      "ap_large": -1.0,
+      "conf_star": 0.3,
+      "pr_at_conf_star": {
+        "precision": 0.5862,
+        "recall": 0.2267,
+        "f1": 0.3269,
+        "tp": 17,
+        "fp": 12,
+        "fn": 58
+      },
+      "pr_at_conf_025": {
+        "precision": 0.5135,
+        "recall": 0.2533,
+        "f1": 0.3393,
+        "tp": 19,
+        "fp": 18,
+        "fn": 56
+      }
+    },
+    "bits_pilani": {
+      "split": "bits_pilani",
+      "n_images": 20,
+      "n_annotations": 13,
+      "mAP50": 0.147,
+      "mAP50_95": 0.0506,
+      "ap_small": -1.0,
+      "ap_medium": -1.0,
+      "ap_large": 0.0506,
+      "conf_star": 0.3,
+      "pr_at_conf_star": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 7,
+        "fn": 13
+      },
+      "pr_at_conf_025": {
+        "precision": 0.1,
+        "recall": 0.0769,
+        "f1": 0.087,
+        "tp": 1,
+        "fp": 9,
+        "fn": 12
+      }
+    },
+    "test_cctv_v2_all": {
+      "split": "test_cctv_v2_all",
+      "n_images": 92,
+      "n_annotations": 88,
+      "mAP50": 0.2212,
+      "mAP50_95": 0.0851,
+      "ap_small": 0.0938,
+      "ap_medium": 0.1255,
+      "ap_large": 0.0352,
+      "conf_star": 0.3,
+      "pr_at_conf_star": {
+        "precision": 0.4722,
+        "recall": 0.1932,
+        "f1": 0.2742,
+        "tp": 17,
+        "fp": 19,
+        "fn": 71
+      },
+      "pr_at_conf_025": {
+        "precision": 0.4255,
+        "recall": 0.2273,
+        "f1": 0.2963,
+        "tp": 20,
+        "fp": 27,
+        "fn": 68
+      }
+    }
+  }
+}

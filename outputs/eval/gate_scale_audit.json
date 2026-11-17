@@ -1,0 +1,60 @@
+{
+  "innovatus": {
+    "count": 33,
+    "mean_pct": 1.303,
+    "median_pct": 0.897,
+    "p10_pct": 0.564,
+    "p25_pct": 0.778,
+    "p75_pct": 1.678,
+    "p90_pct": 2.328,
+    "bucket_sub1_pct": 57.58,
+    "bucket_1_5_pct": 42.42,
+    "combined_sub5_pct": 100.0,
+    "bucket_5_25_pct": 0.0,
+    "bucket_gt25_pct": 0.0
+  },
+  "scale_040": {
+    "count": 2000,
+    "mean_pct": 14.07,
+    "median_pct": 8.984,
+    "p10_pct": 0.858,
+    "p25_pct": 3.134,
+    "p75_pct": 19.226,
+    "p90_pct": 34.284,
+    "bucket_sub1_pct": 11.2,
+    "bucket_1_5_pct": 22.25,
+    "combined_sub5_pct": 33.45,
+    "bucket_5_25_pct": 48.55,
+    "bucket_gt25_pct": 18.0
+  },
+  "scale_080": {
+    "count": 2000,
+    "mean_pct": 10.877,
+    "median_pct": 4.649,
+    "p10_pct": 0.27,
+    "p25_pct": 1.237,
+    "p75_pct": 14.147,
+    "p90_pct": 30.925,
+    "bucket_sub1_pct": 22.3,
+    "bucket_1_5_pct": 29.4,
+    "combined_sub5_pct": 51.7,
+    "bucket_5_25_pct": 34.85,
+    "bucket_gt25_pct": 13.45
+  },
+  "scale_090": {
+    "count": 2000,
+    "mean_pct": 10.246,
+    "median_pct": 4.088,
+    "p10_pct": 0.23,
+    "p25_pct": 0.904,
+    "p75_pct": 12.635,
+    "p90_pct": 27.759,
+    "bucket_sub1_pct": 26.25,
+    "bucket_1_5_pct": 27.7,
+    "combined_sub5_pct": 53.95,
+    "bucket_5_25_pct": 34.1,
+    "bucket_gt25_pct": 11.95
+  },
+  "selected_scale": 0.9,
+  "gate_status": "PASS"
+}

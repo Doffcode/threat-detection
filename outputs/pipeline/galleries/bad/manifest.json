@@ -1,0 +1,182 @@
+[
+  {
+    "case_id": 1,
+    "filename": "bad_01_innovatus_cam_b_seq02_f0224.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 224.0,
+    "link_score": 0.0,
+    "failure_reason": "Unassociated weapon (no person link)",
+    "assessment": "Unassociated weapon (no person link)"
+  },
+  {
+    "case_id": 2,
+    "filename": "bad_02_innovatus_cam_b_seq02_f0236.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 236.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 3,
+    "filename": "bad_03_innovatus_cam_b_seq02_f0241.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 241.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 4,
+    "filename": "bad_04_innovatus_cam_b_seq02_f0246.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 246.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 5,
+    "filename": "bad_05_innovatus_cam_b_seq02_f0249.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 249.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 6,
+    "filename": "bad_06_innovatus_cam_b_seq02_f0251.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 251.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 7,
+    "filename": "bad_07_innovatus_cam_b_seq02_f0266.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 266.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 8,
+    "filename": "bad_08_innovatus_cam_b_seq02_f0268.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 268.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 9,
+    "filename": "bad_09_innovatus_cam_b_seq02_f0270.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 270.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 10,
+    "filename": "bad_10_innovatus_cam_b_seq07_f0443.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 443.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 11,
+    "filename": "bad_11_innovatus_cam_b_seq07_f0449.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 449.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 12,
+    "filename": "bad_12_innovatus_cam_b_seq07_f0452.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 452.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 13,
+    "filename": "bad_13_innovatus_cam_b_seq07_f0458.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 458.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 14,
+    "filename": "bad_14_innovatus_cam_b_seq07_f0477.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 477.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 15,
+    "filename": "bad_15_innovatus_cam_b_seq07_f0480.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 480.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 16,
+    "filename": "bad_16_innovatus_cam_b_seq07_f0495.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 495.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 17,
+    "filename": "bad_17_innovatus_cam_b_seq07_f0498.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 498.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 18,
+    "filename": "bad_18_innovatus_cam_b_seq07_f0503.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 503.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 19,
+    "filename": "bad_19_innovatus_cam_b_seq07_f0506.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 506.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  },
+  {
+    "case_id": 20,
+    "filename": "bad_20_innovatus_cam_b_seq07_f0509.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 509.0,
+    "link_score": 0.0,
+    "failure_reason": "False negative (missed weapon detection)",
+    "assessment": "False negative (missed weapon detection)"
+  }
+]

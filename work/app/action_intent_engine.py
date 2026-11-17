@@ -529,6 +529,17 @@ def intersection_over_a(a: Sequence[float], b: Sequence[float]) -> float:
     return (iw * ih) / area
 
 
+def box_iou(a: Sequence[float], b: Sequence[float]) -> float:
+    """Standard IoU |a ∩ b| / |a ∪ b|."""
+    iw = min(a[2], b[2]) - max(a[0], b[0])
+    ih = min(a[3], b[3]) - max(a[1], b[1])
+    if iw <= 0 or ih <= 0:
+        return 0.0
+    inter = iw * ih
+    union = box_area(a) + box_area(b) - inter
+    return inter / union if union > 0 else 0.0
+
+
 def derive_armed_persons(person_boxes: Sequence[Sequence[float]], weapon_boxes: Sequence[Sequence[float]],
                          min_ioa: float = DEFAULT_ARMED_IOA) -> List[List[float]]:
     """Person boxes that contain at least `min_ioa` of some weapon box's area."""
@@ -859,6 +870,9 @@ class SuspiciousBehaviorEngine:
         self.smooth_min_hits = max(1, int(smooth_min_hits))
         self.history: deque = deque(maxlen=self.smooth_window)
         self.pose_history: deque = deque(maxlen=self.smooth_window)
+        self.unattended_tracks: List[dict] = []
+        self.unattended_tier1_frames: int = 15
+        self.unattended_tier2_frames: int = 45
 
         self.pose_model = None
         if pose_weights:
@@ -938,6 +952,7 @@ class SuspiciousBehaviorEngine:
     def reset(self):
         self.history.clear()
         self.pose_history.clear()
+        self.unattended_tracks.clear()
 
     def threshold_for(self, name: str) -> float:
         return self.class_conf.get(name, self.conf_thresh)
@@ -1102,7 +1117,8 @@ class SuspiciousBehaviorEngine:
         for d in weapons:
             d["confirmed"] = d["name"] in confirmed
 
-        # Armed person
+        # Armed person and person-association
+        persons = []
         if self.legacy_armed:
             armed_persons = [list(d["box"]) for d in legacy_armed]
         else:
@@ -1112,6 +1128,53 @@ class SuspiciousBehaviorEngine:
             if armed_persons:
                 present.add(ARMED)
                 confirmed.add(ARMED)  # derived from already-confirmed weapons: no second smoothing pass
+
+        # Determine association (HELD vs UNATTENDED) for confirmed weapons
+        for d in weapons:
+            if not d["confirmed"]:
+                d["association"] = "UNCONFIRMED"
+                continue
+            is_held = any(intersection_over_a(d["box"], p) >= self.armed_ioa for p in persons) if (not self.legacy_armed and persons) else bool(armed_persons)
+            d["association"] = "HELD" if is_held else "UNATTENDED"
+
+        # Two-tier unattended weapon tracking
+        unattended_tier1 = False
+        unattended_tier2 = False
+        if video:
+            unattended_boxes = [d["box"] for d in weapons if d["confirmed"] and d.get("association") == "UNATTENDED"]
+            new_tracks = []
+            matched_indices = set()
+            for ub in unattended_boxes:
+                best_iou, best_idx = 0.0, -1
+                for idx, tr in enumerate(self.unattended_tracks):
+                    if idx in matched_indices:
+                        continue
+                    iou = box_iou(ub, tr["box"])
+                    if iou > best_iou:
+                        best_iou, best_idx = iou, idx
+                if best_iou >= 0.3 and best_idx >= 0:
+                    matched_indices.add(best_idx)
+                    tr = self.unattended_tracks[best_idx]
+                    tr["frames"] += 1
+                    tr["missing"] = 0
+                    tr["box"] = ub
+                    new_tracks.append(tr)
+                else:
+                    new_tracks.append({"box": ub, "frames": 1, "missing": 0})
+            for idx, tr in enumerate(self.unattended_tracks):
+                if idx not in matched_indices:
+                    tr["missing"] += 1
+                    if tr["missing"] <= 5:
+                        new_tracks.append(tr)
+            self.unattended_tracks = new_tracks
+            for tr in self.unattended_tracks:
+                if tr["frames"] >= self.unattended_tier2_frames:
+                    unattended_tier2 = True
+                elif tr["frames"] >= self.unattended_tier1_frames:
+                    unattended_tier1 = True
+        else:
+            if any(d["confirmed"] and d.get("association") == "UNATTENDED" for d in weapons):
+                unattended_tier1 = True
 
         raised = self._raised_arm(frame)
         if video:
@@ -1129,6 +1192,12 @@ class SuspiciousBehaviorEngine:
             score += SCORE_GUN
         if ARMED in confirmed:
             score += SCORE_ARMED_PERSON
+        if unattended_tier2:
+            flags.append("UNATTENDED_WEAPON_CONFIRMED")
+            score += 25.0
+        elif unattended_tier1 and video:
+            flags.append("UNATTENDED_WEAPON_DETECTED")
+            score += 15.0
         weapon_confirmed = bool(self.weapon_classes & confirmed)
         if raised_confirmed:
             flags.append("RAISED_ARM")
@@ -1142,7 +1211,7 @@ class SuspiciousBehaviorEngine:
         score = min(100.0, score)
         level = self.level_for(score)
 
-        annotated = self.draw(frame, weapons, score, level, confirmed_list, armed_persons)
+        annotated = self.draw(frame, weapons, score, level, confirmed_list, armed_persons, flags)
         counts: Dict[str, int] = {}
         for d in weapons:
             counts[d["name"]] = counts.get(d["name"], 0) + 1
@@ -1164,9 +1233,11 @@ class SuspiciousBehaviorEngine:
 
     @staticmethod
     def draw(frame, dets: Sequence[dict], score: float, level: str,
-             confirmed: Iterable[str] = (), armed_persons: Sequence[Sequence[float]] = ()) -> np.ndarray:
+             confirmed: Iterable[str] = (), armed_persons: Sequence[Sequence[float]] = (),
+             flags: Iterable[str] = ()) -> np.ndarray:
         out = frame.copy()
         confirmed = set(confirmed)
+        flag_set = set(flags)
         h, w = out.shape[:2]
         th = max(1, int(round(min(h, w) / 400)))
         fs = max(0.4, min(h, w) / 1000)
@@ -1191,7 +1262,15 @@ class SuspiciousBehaviorEngine:
             label = f"{d['name']} {d['conf']:.2f}"
             if d.get("verifier_p") is not None:
                 label += f" (d{d['det_conf']:.2f} v{d['verifier_p']:.2f})"
-            box_label(d["box"], CLASS_COLORS.get(d["name"], (0, 255, 0)), label,
+            color = CLASS_COLORS.get(d["name"], (0, 255, 0))
+            if d.get("association") == "UNATTENDED":
+                if "UNATTENDED_WEAPON_CONFIRMED" in flag_set:
+                    color = (0, 0, 255)
+                    label = f"[ALERT: UNATTENDED] {label}"
+                else:
+                    color = (0, 191, 255)
+                    label = f"[UNATTENDED] {label}"
+            box_label(d["box"], color, label,
                       th + (1 if d["name"] in confirmed else 0))
         bcolor = (0, 0, 255) if score >= LEVEL_CRITICAL else (0, 170, 255) if score >= LEVEL_SUSPICIOUS else (0, 160, 0)
         cv2.rectangle(out, (0, 0), (bw + 12, bh + 12), bcolor, -1)

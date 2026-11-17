@@ -1,0 +1,46 @@
+# Stage 2 Person Movement & Behavioral Kinematics Configuration
+# =============================================================
+
+pipeline:
+  name: "stage2_behavior_kinematics"
+  version: "1.0.0"
+  default_fps: null # null for relative frame timings; or float (e.g. 15.0, 30.0)
+
+zones:
+  - name: "central_hallway_zone"
+    description: "Main corridor monitored by surveillance camera"
+    polygon_normalized:
+      - [0.20, 0.25]
+      - [0.85, 0.25]
+      - [0.85, 0.85]
+      - [0.20, 0.85]
+
+thresholds:
+  loitering:
+    min_dwell_frames: 8 # Stride-adjusted frames inside zone
+    min_dwell_seconds: 4.0 # When FPS is known
+    max_displacement_ratio: 0.25 # displacement / path_length < 0.25 indicates wandering/circling
+    description: "Person resides in zone exceeding dwell limit with low net transit"
+
+  running_or_sudden_speed:
+    speed_h_per_frame: 0.10 # Speed > 0.10 person heights per frame
+    speed_h_per_sec: 1.50 # Speed > 1.50 person heights per second (when FPS known)
+    acceleration_h_per_frame2: 0.06 # Sudden speed change / burst
+    description: "Rapid locomotion or abrupt burst of acceleration exceeding normal walking pace"
+
+  abrupt_stop_or_reversal:
+    min_heading_change_deg: 120.0 # Reversal threshold in degrees
+    window_frames: 3 # Checked across 3 frames
+    min_speed_before_reversal: 0.03 # Person must be actively moving before reversing
+    description: "Sudden direction reversal (>= 120 deg) or rapid stop indicating evasion or agitation"
+
+  against_dominant_flow:
+    min_simultaneous_tracks: 3 # At least 3 active tracks required to establish crowd flow
+    min_opposing_angle_deg: 120.0 # Opposing angle relative to mean crowd heading vector
+    min_consecutive_frames: 3
+    description: "Person movement heading directly counter to dominant crowd vector"
+
+alerting:
+  review_tag: "HUMAN_REVIEW_RECOMMENDED"
+  never_confirmed: true # Explicitly enforce that behavioral alerts are never marked 'threat confirmed'
+  output_dir: "outputs/behavior"

@@ -1,0 +1,202 @@
+[
+  {
+    "case_id": 1,
+    "filename": "good_01_innovatus_cam_b_seq07_f0491.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 491.0,
+    "link_score": 0.9252063035964966,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.7374991178512573,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 2,
+    "filename": "good_02_innovatus_cam_b_seq02_f0260.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 260.0,
+    "link_score": 0.9377619624137878,
+    "weapon_class": "knife",
+    "weapon_conf": 0.691747784614563,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 3,
+    "filename": "good_03_innovatus_cam_b_seq07_f0485.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 485.0,
+    "link_score": 0.9035432934761047,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.7228178977966309,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 4,
+    "filename": "good_04_innovatus_cam_b_seq07_f0485.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 485.0,
+    "link_score": 0.9511830806732178,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.596479058265686,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 5,
+    "filename": "good_05_innovatus_cam_b_seq02_f0262.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 262.0,
+    "link_score": 0.9155817627906799,
+    "weapon_class": "knife",
+    "weapon_conf": 0.6303368210792542,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 6,
+    "filename": "good_06_innovatus_cam_b_seq07_f0474.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 474.0,
+    "link_score": 0.9163013696670532,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.6083046197891235,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 7,
+    "filename": "good_07_innovatus_cam_b_seq07_f0455.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 455.0,
+    "link_score": 0.897070050239563,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.585043728351593,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 8,
+    "filename": "good_08_innovatus_cam_b_seq07_f0462.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 462.0,
+    "link_score": 0.7423520088195801,
+    "weapon_class": "knife",
+    "weapon_conf": 0.7186052203178406,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 9,
+    "filename": "good_09_innovatus_cam_b_seq07_f0471.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 471.0,
+    "link_score": 0.7778611779212952,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.6726664900779724,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 10,
+    "filename": "good_10_innovatus_cam_b_seq07_f0488.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 488.0,
+    "link_score": 0.9275025129318237,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.39589163661003113,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 11,
+    "filename": "good_11_innovatus_cam_b_seq07_f0474.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 474.0,
+    "link_score": 0.8925054669380188,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.33885523676872253,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 12,
+    "filename": "good_12_innovatus_cam_b_seq07_f0468.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 468.0,
+    "link_score": 0.44232526421546936,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.6711224913597107,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 13,
+    "filename": "good_13_innovatus_cam_b_seq07_f0465.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 465.0,
+    "link_score": 0.31659987568855286,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.6806581020355225,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 14,
+    "filename": "good_14_innovatus_cam_b_seq02_f0213.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 213.0,
+    "link_score": 0.7158668041229248,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.907846212387085,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 15,
+    "filename": "good_15_innovatus_cam_b_seq08_f0624.jpg",
+    "sequence_id": "innovatus_cam_b_seq08",
+    "frame_number": 624.0,
+    "link_score": 0.9473658800125122,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.5401564240455627,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 16,
+    "filename": "good_16_innovatus_cam_b_seq02_f0253.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 253.0,
+    "link_score": 0.9817240238189697,
+    "weapon_class": "knife",
+    "weapon_conf": 0.47526857256889343,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 17,
+    "filename": "good_17_innovatus_cam_b_seq02_f0258.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 258.0,
+    "link_score": 0.7371446490287781,
+    "weapon_class": "knife",
+    "weapon_conf": 0.6915349364280701,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 18,
+    "filename": "good_18_innovatus_cam_b_seq02_f0226.jpg",
+    "sequence_id": "innovatus_cam_b_seq02",
+    "frame_number": 226.0,
+    "link_score": 0.5297112464904785,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.8841835856437683,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 19,
+    "filename": "good_19_innovatus_cam_b_seq08_f0608.jpg",
+    "sequence_id": "innovatus_cam_b_seq08",
+    "frame_number": 608.0,
+    "link_score": 0.8687284588813782,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.5409151315689087,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  },
+  {
+    "case_id": 20,
+    "filename": "good_20_innovatus_cam_b_seq07_f0440.jpg",
+    "sequence_id": "innovatus_cam_b_seq07",
+    "frame_number": 440.0,
+    "link_score": 0.7638543844223022,
+    "weapon_class": "handgun",
+    "weapon_conf": 0.6276116371154785,
+    "assessment": "Confirmed armed person with persistent tracking and alert state"
+  }
+]

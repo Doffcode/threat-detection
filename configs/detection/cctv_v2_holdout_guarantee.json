@@ -1,0 +1,46 @@
+{
+  "benchmark": "test_cctv_v2_candidate_pool",
+  "total_candidate_frames": 92,
+  "innovatus_summary": {
+    "total_frames": 72,
+    "camera": "Camera B (single camera, office robbery footage)",
+    "held_out_sequences_for_testing": [
+      {
+        "sequence_id": "innovatus_cam_b_seq02",
+        "frame_range": "213-279",
+        "total_sequence_frames": 43,
+        "sampled_for_v2": 20,
+        "stride": 2
+      },
+      {
+        "sequence_id": "innovatus_cam_b_seq07",
+        "frame_range": "440-523",
+        "total_sequence_frames": 80,
+        "sampled_for_v2": 26,
+        "stride": 3
+      },
+      {
+        "sequence_id": "innovatus_cam_b_seq08",
+        "frame_range": "542-666",
+        "total_sequence_frames": 107,
+        "sampled_for_v2": 26,
+        "stride": 4
+      }
+    ],
+    "fine_tuning_reserve_guarantee": "Sequences seq02, seq07, and seq08 (230 total frames) are strictly held out for evaluation. They will NEVER appear in any future fine-tuning or training pool. Any future fine-tuning is restricted strictly to sequences seq01 (0-172), seq03 (290-308), seq04 (321-335), seq05 (360-366), and seq06 (384-403) \u2014 total 178 frames outside test sets."
+  },
+  "bits_pilani_summary": {
+    "total_frames": 20,
+    "sources": [
+      {
+        "source": "bits-pilani__knives-tkfol__v1",
+        "sampled_frames": 10
+      },
+      {
+        "source": "bits-pilani__threatdetect2__v7",
+        "sampled_frames": 10
+      }
+    ],
+    "overlap_with_test_cctv_v1": 0
+  }
+}

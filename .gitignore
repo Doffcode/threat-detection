@@ -5,6 +5,7 @@
 *.weights
 *.bin
 *.tar*
+*.npy
 work/data/
 work/downloads/
 work/raw/
@@ -17,3 +18,19 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 .env
+
+# Pipeline runs and intermediate heavy caches
+outputs/runs/
+outputs/debug/
+outputs/queue/
+outputs/eval/cctv_audit_overlays/
+outputs/eval/cctv_bits_fp_overlays/
+outputs/eval/domain_rifle_fa_overlays/
+outputs/eval/hard_neg_new_v2_overlays/
+outputs/eval/large_box_overlays/
+outputs/eval/error_galleries/
+outputs/eval/cctv_test_v2/overlays_*/
+outputs/pipeline/annotated_frames/
+data/processed/
+data/cctv_test_v2_candidates/images/
+data/cctv_test_v2_with_draft_labels/

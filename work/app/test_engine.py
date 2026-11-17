@@ -898,6 +898,39 @@ def test_dashboard_syntax():
         assert needle in src, needle
 
 
+def test_unattended_weapon_tracking():
+    # Weapon with no person in video mode -> tracks over frames
+    # Tier 1 at 3 frames, Tier 2 at 6 frames
+    eng, _, _ = new_engine([[N_GUN]] * 10, persons=[], mode="video")
+    eng.unattended_tier1_frames = 3
+    eng.unattended_tier2_frames = 6
+
+    # Frame 1: unconfirmed by k-of-n smoothing (smooth_min_hits=2)
+    _, meta = eng.process_frame(FRAME)
+    assert "UNATTENDED_WEAPON_DETECTED" not in meta["flags"]
+
+    # Frame 2: confirmed weapon, track starts at 1
+    _, meta = eng.process_frame(FRAME)
+    assert meta["weapons"][0]["association"] == "UNATTENDED"
+    assert "UNATTENDED_WEAPON_DETECTED" not in meta["flags"]
+
+    # Frame 3: track at 2
+    _, meta = eng.process_frame(FRAME)
+    assert "UNATTENDED_WEAPON_DETECTED" not in meta["flags"]
+
+    # Frame 4: track reaches 3 -> Tier 1 alert!
+    _, meta = eng.process_frame(FRAME)
+    assert "UNATTENDED_WEAPON_DETECTED" in meta["flags"]
+    assert "UNATTENDED_WEAPON_CONFIRMED" not in meta["flags"]
+
+    # Frames 5-6: track reaches 6 -> Tier 2 alert!
+    _, _ = eng.process_frame(FRAME)
+    _, _ = eng.process_frame(FRAME)
+    _, meta = eng.process_frame(FRAME)
+    assert "UNATTENDED_WEAPON_CONFIRMED" in meta["flags"]
+    assert meta["threat_score"] >= 75  # 50 + 25 = 75 (Critical threat)
+
+
 if __name__ == "__main__":
     failed = 0
     for name, fn in list(globals().items()):

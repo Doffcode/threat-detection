@@ -1,0 +1,42 @@
+# Stage 1 Step 2: Baseline Weapon Detector Training Configuration
+# Model & Resolution
+model: /home/shiva/Desktop/projects/akriti/weapon-detection/work/raw/IntProj_Weapon_Dataset_annot/yolo11m.pt
+data: /home/shiva/Desktop/projects/akriti/weapon-detection/configs/detection/dataset_stage1.yaml
+imgsz: 960
+batch: 8
+epochs: 40
+device: 0
+workers: 4
+seed: 2026
+deterministic: true
+
+# Calibrated Optimizer for Fine-Tuning Pretrained YOLO
+optimizer: AdamW
+lr0: 0.001
+lrf: 0.01
+momentum: 0.937
+weight_decay: 0.0005
+warmup_epochs: 2.0
+
+# Augmentation Strategy (CCTV-Calibrated)
+mosaic: 1.0
+close_mosaic: 10
+mixup: 0.0          # Disabled to preserve tiny 20-60px weapon contrast
+copy_paste: 0.0     # Disabled (requires polygon masks)
+scale: 0.90         # Allows scaling into small CCTV range
+degrees: 0.0        # Preserves blade aspect ratios
+shear: 0.0
+perspective: 0.0
+fliplr: 0.5
+flipud: 0.0
+hsv_h: 0.015
+hsv_s: 0.6
+hsv_v: 0.4
+
+# Output Management
+project: /home/shiva/Desktop/projects/akriti/weapon-detection/outputs/runs
+name: baseline_m960_v3
+save: true
+save_period: 1        # Checkpoint every epoch
+patience: 10          # Early stopping on validation mAP50-95
+plots: true
