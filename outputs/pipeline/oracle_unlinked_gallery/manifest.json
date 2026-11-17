@@ -1,0 +1,1039 @@
+{
+  "total_unlinked_cases": 40,
+  "sequence_person_stats": {
+    "cctv_v2_000_213_jpg.rf.967d325a0b7cbec520ae9700e743a187.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_001_217_jpg.rf.26475add7c3c6919b3122348ee747ce4.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_002_224_jpg.rf.d209f3cbf93bce0629d7f49c2d690c57.jpg": {
+      "frames": 1,
+      "persons_detected": 1,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 1
+    },
+    "cctv_v2_003_226_jpg.rf.371f86ea96c2010119c0bf9990189dd2.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_004_229_jpg.rf.b634dc2f29a32df093cc2d751a917f4d.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_005_236_jpg.rf.cc72fffd2204da3d45d2622aaa383b3e.jpg": {
+      "frames": 1,
+      "persons_detected": 1,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_006_238_jpg.rf.da7aee4627c8a93a9175946f64900f8e.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_007_241_jpg.rf.d93e0864d40b002e28b0c6dda6699e65.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_008_246_jpg.rf.66f90a84fbfc4f544f328aa84b2ee6f2.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_009_249_jpg.rf.638b53e9fb64abe51c3b9126d5797441.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_010_251_jpg.rf.3a05b6c9f7bb7aa8daaa4b1f44a20c27.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_011_253_jpg.rf.278b80e85bb3447b81b96967f8ef9d6b.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_012_258_jpg.rf.c7654e310d9ee3f25cfc3ef4af5bc976.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_013_260_jpg.rf.382db55216618d075d04790fffd616d4.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_014_262_jpg.rf.dc7dcba7152d285b828de10a2f1f8d3b.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_015_266_jpg.rf.d6602499dbaf31737510769ab4427519.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_016_268_jpg.rf.5b9485d84b4b025f3c9fa23e36a48502.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_017_270_jpg.rf.ba21c9dc4c7f7d91ea513322e5c07ed1.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_018_274_jpg.rf.3e36a47326e8d2f68791d6c2ff605b12.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_019_276_jpg.rf.cd2e07d152733b40739b8f9c1293b1a5.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_020_440_jpg.rf.9d16ca9b47081f58a854065d5f3cb470.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_021_443_jpg.rf.61329151338d6ee0ef6fcc36a5c06b95.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_022_446_jpg.rf.24e1f9b87cf0734c5d6bfc445a510870.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_023_449_jpg.rf.aa145e14582dd995b2f7c26cfda166e9.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_024_452_jpg.rf.82a47ff700eacc3cef0e67c4a88f7449.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_025_455_jpg.rf.8a7e6a36b842f10f594bdb7992ea7b0f.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_026_458_jpg.rf.22ca2d0cf8e514f71b3a889fa29aad09.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_027_462_jpg.rf.a3000a8a2bd55fc41c3368ed5054737c.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_028_465_jpg.rf.62b4f3ea29e4998880953208cec025e1.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_029_468_jpg.rf.117c4b5df8507a6255f9ab3498d92041.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_030_471_jpg.rf.cbd4ce235c52281f2ac753631636d97b.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_031_474_jpg.rf.c90e8e011b03baa55a6195908401ddac.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_032_477_jpg.rf.ad7d0e5ef819bdc2b5fb15e62879c39a.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_033_480_jpg.rf.33ed822bb46c909eaaf3c6ab89a4e272.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_034_485_jpg.rf.053377a1b3ee574977c16e65cc9cb0f4.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_035_488_jpg.rf.b5efe7d269b7904cb6d35e12dbb29abc.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_036_491_jpg.rf.b8823699f231c74c25b5c626d8b9f1c8.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_037_495_jpg.rf.adc28dd399d444e580c34849b12cebf4.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_038_498_jpg.rf.fed177cca1702bd86661f25f1eaf98f1.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_039_503_jpg.rf.da709e1db8c5a382422fe79e8eaa53a1.jpg": {
+      "frames": 1,
+      "persons_detected": 1,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_040_506_jpg.rf.2932606328b844abdfb5a83930d635e4.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_041_509_jpg.rf.0b7b74f75012231c43760650d85551ba.jpg": {
+      "frames": 1,
+      "persons_detected": 0,
+      "frames_zero_persons": 1,
+      "unlinked_weapons": 1
+    },
+    "cctv_v2_042_513_jpg.rf.1bf7785a59f0cd76623fa99ec8cd71b3.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_043_516_jpg.rf.e6c98ca9c3864d3ea678c0b8b6885354.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_044_519_jpg.rf.1d77eb1c6527feb3fb94b2fe92f6ad4c.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_045_522_jpg.rf.cfe430be2abb21a9b2fe110e1380a87b.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_046_542_jpg.rf.4f281b4f5087d016bf99958a18563679.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_047_546_jpg.rf.85bc98f04c9d493a365ebd312997d565.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_048_550_jpg.rf.1ebfed0f74215ca71f14d1fe1aeed5da.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_049_563_jpg.rf.2f747cd505d8392f92540e448c2bf18d.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_050_567_jpg.rf.20d55b5366a14547a4cd8452a38240e8.jpg": {
+      "frames": 1,
+      "persons_detected": 0,
+      "frames_zero_persons": 1,
+      "unlinked_weapons": 1
+    },
+    "cctv_v2_051_573_jpg.rf.2b9513f4dfafa3e4d02922f3a93c09aa.jpg": {
+      "frames": 1,
+      "persons_detected": 1,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_052_577_jpg.rf.d27659f10a034172ca64cbc4fb793ee7.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_053_581_jpg.rf.75dc07fb5e4b784aab45b8d62730f2ef.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_054_585_jpg.rf.aae80c90e0e6e22a15d918d436367a9f.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_055_589_jpg.rf.6bf1d64b296a5379a6f7c7ad52e02098.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_056_594_jpg.rf.4715c727d568b98bda1fad8950d813fb.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_057_599_jpg.rf.252c7194b5090c07a3c17a1331e05cb2.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_058_603_jpg.rf.3bddca979d2da7e6a101006147e3bdc7.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_059_608_jpg.rf.456282b1b9401d955f299c78fe8a7c49.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_060_612_jpg.rf.b34143a98fb9df59bd9402d3efbbc327.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_061_616_jpg.rf.92400cb102d8968c99c508d0e071495a.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_062_620_jpg.rf.20e3d62e98a0ce0deaaf787cf0d7264b.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_063_624_jpg.rf.f52e7c7160fac64f1b5f6064e25dffeb.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_064_628_jpg.rf.be350512ce157b6e97d19fa59a5a2441.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_065_633_jpg.rf.1f5978da07d899c4341294ec1f5b33a9.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_066_637_jpg.rf.b8d5549e5df7ee0be559772f1a85dabe.jpg": {
+      "frames": 1,
+      "persons_detected": 1,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_067_641_jpg.rf.2abe75684b59d9ce216c867c17eee5c3.jpg": {
+      "frames": 1,
+      "persons_detected": 3,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_068_653_jpg.rf.04d80cc1bb49cdd9d6f08495b9601637.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_069_657_jpg.rf.2763e3bb43e05fa7f97a69cfaf3288d3.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_070_661_jpg.rf.52c7db3df579a8b43d4273dc25f59567.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    },
+    "cctv_v2_071_666_jpg.rf.a8cdf347169d0b5aa29f4b0d63664fa2.jpg": {
+      "frames": 1,
+      "persons_detected": 2,
+      "frames_zero_persons": 0,
+      "unlinked_weapons": 0
+    }
+  },
+  "cases": [
+    {
+      "source": "innovatus_cctv",
+      "sequence": "cctv_v2_002_224_jpg.rf.d209f3cbf93bce0629d7f49c2d690c57.jpg",
+      "image": "cctv_v2_002_224_jpg.rf.d209f3cbf93bce0629d7f49c2d690c57.jpg",
+      "weapon_box": [
+        252.945152,
+        278.82496000000003,
+        293.53497600000003,
+        311.175168
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected"
+    },
+    {
+      "source": "innovatus_cctv",
+      "sequence": "cctv_v2_041_509_jpg.rf.0b7b74f75012231c43760650d85551ba.jpg",
+      "image": "cctv_v2_041_509_jpg.rf.0b7b74f75012231c43760650d85551ba.jpg",
+      "weapon_box": [
+        329.414912,
+        171.174912,
+        368.825088,
+        287.644672
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected"
+    },
+    {
+      "source": "innovatus_cctv",
+      "sequence": "cctv_v2_050_567_jpg.rf.20d55b5366a14547a4cd8452a38240e8.jpg",
+      "image": "cctv_v2_050_567_jpg.rf.20d55b5366a14547a4cd8452a38240e8.jpg",
+      "weapon_box": [
+        267.650048,
+        314.710272,
+        298.829824,
+        343.53024
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000000_dom_099-Copy_jpeg_jpg.rf.858a920b9b146ed83ab7cd2f5bcf7eed.jpg",
+      "weapon_box": [
+        95.50016000000001,
+        18.50016,
+        414.50048000000004,
+        557.49984
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000001_dom_099-Copy_jpeg_jpg.rf.b23a9514cf91ef48a87eabd0dfd06d0b.jpg",
+      "weapon_box": [
+        224.50016,
+        15.0,
+        543.49984,
+        557.99968
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000002_dom_099-Copy_jpeg_jpg.rf.ec6faad9d19b4c9d71b8b69a1a6c9471.jpg",
+      "weapon_box": [
+        224.50016,
+        17.99999999999997,
+        543.49984,
+        557.00032
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000004_dom_111-Copy_jpeg_jpg.rf.ee1eb58c36213a981a045fd6093c5a09.jpg",
+      "weapon_box": [
+        505.49984,
+        78.50016,
+        575.4998400000001,
+        169.49984
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000004_dom_111-Copy_jpeg_jpg.rf.ee1eb58c36213a981a045fd6093c5a09.jpg",
+      "weapon_box": [
+        111.99968,
+        347.49983999999995,
+        137.99968,
+        397.49983999999995
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000005_dom_114369744-Copy_avif_jpg.rf.70e1cff56a7766e46bdc64c272a05243.jpg",
+      "weapon_box": [
+        0.0,
+        188.75487999999996,
+        251.20000000000002,
+        425.26496000000003
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000014_dom_679-Copy_jpeg_jpg.rf.66ba9eda4f318cca1521e6685761c82a.jpg",
+      "weapon_box": [
+        205.00032,
+        459.50016,
+        277.00032,
+        607.5001599999999
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000015_dom_78-Copy_jpeg_jpg.rf.09c0855dda00eab157664f4406944984.jpg",
+      "weapon_box": [
+        387.49472000000003,
+        173.0752,
+        587.10496,
+        377.50528
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000016_dom_78-Copy_jpeg_jpg.rf.5bdb2bfa21fea5660fa8683a576dafd0.jpg",
+      "weapon_box": [
+        387.50016000000005,
+        169.47487999999998,
+        580.94016,
+        377.50496
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000018_dom_Aruvaaa-Copy_webp_jpg.rf.8e09a0dc1eb08a1a307187638a26ea27.jpg",
+      "weapon_box": [
+        254.50016,
+        39.50015999999998,
+        405.49984,
+        584.49984
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000019_dom_Aruvaaa-Copy_webp_jpg.rf.ac4abc38cf864c1687e63620aba30184.jpg",
+      "weapon_box": [
+        254.0,
+        39.50015999999998,
+        406.0,
+        584.49984
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000020_dom_Aruvaaa-Copy_webp_jpg.rf.b8c54c106508f80d6c91ff5a99219c59.jpg",
+      "weapon_box": [
+        254.50016,
+        39.50015999999998,
+        405.49984,
+        584.49984
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000024_dom_Screenshot-2026-06-06-213209-Copy_png_jpg.rf.18130f03e9552cdf295d3c4f8d4e4bb0.jpg",
+      "weapon_box": [
+        68.50016,
+        171.49984,
+        254.50016000000002,
+        637.49984
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000024_dom_Screenshot-2026-06-06-213209-Copy_png_jpg.rf.18130f03e9552cdf295d3c4f8d4e4bb0.jpg",
+      "weapon_box": [
+        368.00032,
+        147.49983999999998,
+        571.0,
+        569.49984
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000025_dom_Screenshot-2026-06-06-213209-Copy_png_jpg.rf.b9f1d7a721aab7b89bfb642660cdb4c7.jpg",
+      "weapon_box": [
+        385.50016,
+        170.99999999999997,
+        570.49984,
+        637.0
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000025_dom_Screenshot-2026-06-06-213209-Copy_png_jpg.rf.b9f1d7a721aab7b89bfb642660cdb4c7.jpg",
+      "weapon_box": [
+        67.49983999999998,
+        147.0,
+        273.49984,
+        573.0
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000026_dom_Screenshot-2026-06-06-213209-Copy_png_jpg.rf.f808604b3ef0fc687ef2a5cd4bafd73f.jpg",
+      "weapon_box": [
+        385.0,
+        170.99999999999997,
+        571.0,
+        637.0
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000026_dom_Screenshot-2026-06-06-213209-Copy_png_jpg.rf.f808604b3ef0fc687ef2a5cd4bafd73f.jpg",
+      "weapon_box": [
+        67.00031999999999,
+        147.49984,
+        275.00032,
+        576.50016
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000028_dom_Screenshot-2026-06-06-213804-Copy_png_jpg.rf.2bbee17252a64d90e385337f0ed15584.jpg",
+      "weapon_box": [
+        19.00032000000003,
+        123.99999999999999,
+        487.00032,
+        636.0
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000029_dom_Screenshot-2026-06-06-213804-Copy_png_jpg.rf.571ebec1146915d4ca49028e79cc2674.jpg",
+      "weapon_box": [
+        19.499840000000006,
+        125.00000000000003,
+        485.49984,
+        635.99968
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000030_dom_Screenshot-2026-06-06-213804-Copy_png_jpg.rf.7347e7ef24948dc8132ca354807c8210.jpg",
+      "weapon_box": [
+        19.000319999999995,
+        123.99999999999999,
+        488.0,
+        636.0
+      ],
+      "weapon_class": "knife",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000031_dom_Screenshot-2026-06-07-145141-Copy_png_jpg.rf.7149c512806bd127482cf21a5302b8d5.jpg",
+      "weapon_box": [
+        68.0,
+        207.00000000000003,
+        480.99968,
+        377.99968
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000031_dom_Screenshot-2026-06-07-145141-Copy_png_jpg.rf.7149c512806bd127482cf21a5302b8d5.jpg",
+      "weapon_box": [
+        66.49984,
+        206.49984,
+        491.49951999999996,
+        639.49952
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000032_dom_Screenshot-2026-06-07-145141-Copy_png_jpg.rf.efa55b6814caa275040542e7d0c45f8f.jpg",
+      "weapon_box": [
+        151.50016,
+        204.49984000000003,
+        571.50016,
+        639.50016
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000032_dom_Screenshot-2026-06-07-145141-Copy_png_jpg.rf.efa55b6814caa275040542e7d0c45f8f.jpg",
+      "weapon_box": [
+        159.89504,
+        206.32288,
+        571.264,
+        377.50687999999997
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000033_dom_Screenshot-2026-06-07-145141-Copy_png_jpg.rf.f6cf253a09167184cc9d7b67f7622d4d.jpg",
+      "weapon_box": [
+        68.00032000000002,
+        207.99968,
+        482.00032,
+        377.99968
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000033_dom_Screenshot-2026-06-07-145141-Copy_png_jpg.rf.f6cf253a09167184cc9d7b67f7622d4d.jpg",
+      "weapon_box": [
+        28.34816,
+        206.79456,
+        487.744,
+        639.60032
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000050_dom_Screenshot-2026-07-01-at-12-49-58-PM_png_jpg.rf.7621a6b0694f7cc0cc92a93ee6e5ec7b.jpg",
+      "weapon_box": [
+        84.50016,
+        363.50015999999994,
+        355.49984,
+        579.50016
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000051_dom_Screenshot-2026-07-01-at-12-49-58-PM_png_jpg.rf.b54c11205d72128204dc5290023eb370.jpg",
+      "weapon_box": [
+        84.49983999999999,
+        363.00032,
+        319.50016,
+        579.00032
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000057_dom_Screenshot-2026-07-01-at-12-50-39-PM_png_jpg.rf.80abb9c1699c911d1a04d6cdb71900bc.jpg",
+      "weapon_box": [
+        65.50016,
+        232.49983999999998,
+        321.50016,
+        493.49952
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000065_dom_Screenshot-2026-07-01-at-2-25-16-PM_png_jpg.rf.ab44c23939c86e9b72c486ca3af6e649.jpg",
+      "weapon_box": [
+        320.03775999999993,
+        469.9216,
+        384.77888,
+        608.8009599999999
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000078_dom_Screenshot-2026-07-02-at-2-31-31-PM_png_jpg.rf.031612d90fde0774d3c09af16270a10d.jpg",
+      "weapon_box": [
+        229.49984,
+        382.49983999999995,
+        407.49983999999995,
+        443.49952
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000078_dom_Screenshot-2026-07-02-at-2-31-31-PM_png_jpg.rf.031612d90fde0774d3c09af16270a10d.jpg",
+      "weapon_box": [
+        157.99968,
+        335.0,
+        479.99968,
+        445.0
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000078_dom_Screenshot-2026-07-02-at-2-31-31-PM_png_jpg.rf.031612d90fde0774d3c09af16270a10d.jpg",
+      "weapon_box": [
+        223.99968,
+        340.0,
+        385.99967999999996,
+        392.0
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000078_dom_Screenshot-2026-07-02-at-2-31-31-PM_png_jpg.rf.031612d90fde0774d3c09af16270a10d.jpg",
+      "weapon_box": [
+        389.0,
+        361.49951999999996,
+        479.99968,
+        408.49984000000006
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000078_dom_Screenshot-2026-07-02-at-2-31-31-PM_png_jpg.rf.031612d90fde0774d3c09af16270a10d.jpg",
+      "weapon_box": [
+        157.99968,
+        363.00000000000006,
+        239.0,
+        401.0
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    },
+    {
+      "source": "test_domain",
+      "sequence": "test_domain",
+      "image": "cinema_domain_test_000079_dom_Screenshot-2026-07-02-at-2-31-31-PM_png_jpg.rf.d0aad17aee170a71e2bb61830500e75b.jpg",
+      "weapon_box": [
+        229.49984,
+        382.0,
+        407.49983999999995,
+        442.0
+      ],
+      "weapon_class": "handgun",
+      "candidate_count": 0,
+      "link_score": 0.0,
+      "reason": "no candidate persons detected (close-up/still)"
+    }
+  ]
+}
