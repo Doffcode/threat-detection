@@ -1,0 +1,15 @@
+{
+  "dataset": "Innovatus CCTV (72 frames, 3 sequences)",
+  "total_behavior_alerts": 32,
+  "rule_counts": {
+    "running_or_sudden_speed": 17,
+    "abrupt_stop_or_reversal": 15
+  },
+  "demo_video_path": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/behavior_cctv_demo.mp4",
+  "trajectory_plots": {
+    "innovatus_cam_b_seq02": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/trajectories/innovatus_cam_b_seq02_trajectories.png",
+    "innovatus_cam_b_seq07": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/trajectories/innovatus_cam_b_seq07_trajectories.png",
+    "innovatus_cam_b_seq08": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/trajectories/innovatus_cam_b_seq08_trajectories.png"
+  },
+  "rule_firings_csv": "/home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/rule_firings.csv"
+}

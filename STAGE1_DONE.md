@@ -72,8 +72,29 @@
 
 ---
 
-## 4. Open Issues & Future Scope
+---
 
-1. **Small CCTV Object Resolution Limits:** Weapons occupying $<1\%$ frame area ($<25 \times 25$ px) remain challenging under heavy video compression and optical blur.
-2. **Multi-Camera Generalization:** Evaluation is currently on a single CCTV camera (`innovatus_cam_b`). Testing across diverse camera heights and outdoor scenes is needed.
-3. **Stage-2 Crop Verifier:** Pluggable interface is ready in `src/pipeline/config.yaml` to filter out remaining false alarm blips before association.
+## 5. Stage 2 Person Movement & Behavior Analysis Deliverables
+
+### Core Behavior Engine (`src/behavior/`)
+- [`src/behavior/config.yaml`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/src/behavior/config.yaml): YAML configuration for kinematic windows, thresholds, and zones.
+- [`src/behavior/kinematics.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/src/behavior/kinematics.py): Normalized velocity ($v/H$), smoothed heading, direction reversal, path length, and displacement ratio.
+- [`src/behavior/rules.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/src/behavior/rules.py): Rule engines for Loitering, Running, Abrupt Stop/Reversal, and Moving Against Flow. All events stamped `FOR_HUMAN_REVIEW_ONLY`.
+- [`src/behavior/visualizer.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/src/behavior/visualizer.py): 2D trajectory plotting and live video rendering with trails, telemetry overlays, and alert banners.
+
+### Tests & Verification Scripts
+- [`tests/test_behavior_rules.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/tests/test_behavior_rules.py): Deterministic synthetic trajectory test suite (5/5 passed in 0.07s).
+- [`scripts/behavior/run_behavior_analysis.py`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/scripts/behavior/run_behavior_analysis.py): End-to-end CCTV runner for Innovatus sequences.
+
+### Behavioral Outputs (`outputs/behavior/`)
+- **Annotated Demo Video:** [`outputs/behavior/behavior_cctv_demo.mp4`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/behavior_cctv_demo.mp4) (H.264 video with real-time speed, heading, trajectory trails, and alert banner).
+- **Trajectory Maps:**
+  - Sequence 02: [`outputs/behavior/trajectories/innovatus_cam_b_seq02_trajectories.png`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/trajectories/innovatus_cam_b_seq02_trajectories.png)
+  - Sequence 07: [`outputs/behavior/trajectories/innovatus_cam_b_seq07_trajectories.png`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/trajectories/innovatus_cam_b_seq07_trajectories.png)
+  - Sequence 08: [`outputs/behavior/trajectories/innovatus_cam_b_seq08_trajectories.png`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/trajectories/innovatus_cam_b_seq08_trajectories.png)
+- **Rule Firings CSV:** [`outputs/behavior/rule_firings.csv`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/rule_firings.csv) (32 events, each containing track ID, frame, rule, exact numbers, and review flag).
+- **Summary JSON:** [`outputs/behavior/behavior_summary.json`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/behavior_summary.json).
+
+### Stage 2 Documentation
+- [`docs/STAGE2_MOVEMENT.md`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/docs/STAGE2_MOVEMENT.md): Comprehensive documentation covering mathematical formulas, rule definitions, synthetic testing, CCTV results, ethical bias safeguards, and operational limitations.
+

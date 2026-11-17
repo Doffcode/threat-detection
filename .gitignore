@@ -29,6 +29,7 @@ outputs/eval/domain_rifle_fa_overlays/
 outputs/eval/hard_neg_new_v2_overlays/
 outputs/eval/large_box_overlays/
 outputs/eval/error_galleries/
+outputs/eval/**/error_galleries/
 outputs/eval/cctv_test_v2/overlays_*/
 outputs/pipeline/annotated_frames/
 data/processed/
