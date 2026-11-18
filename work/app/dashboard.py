@@ -562,12 +562,30 @@ st.markdown("""
         border-radius: 6px;
     }
 
-    /* Video Player Viewport Normalization */
+    /* Video Player & Inspector Viewport Normalization (Zero-Scroll Sizing) */
+    div[data-testid="stVideo"] {
+        display: flex !important;
+        justify-content: center !important;
+    }
+    div[data-testid="stVideo"] video,
     video {
-        max-height: clamp(240px, 44vh, 420px) !important;
+        max-height: clamp(180px, 32vh, 280px) !important;
         width: auto !important;
-        margin: 0 auto;
-        display: block;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        border-radius: 6px !important;
+    }
+    /* Clamped live inspector stream preview (prevents 714px blowout) */
+    div[data-testid="stImage"] img:not(.crop-box img):not(.trajectory-box img) {
+        max-height: clamp(180px, 32vh, 280px) !important;
+        width: auto !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        display: block !important;
+        object-fit: contain !important;
+        border-radius: 6px !important;
     }
 
     /* Tab 4 Verification Table Polish */
@@ -695,6 +713,36 @@ with tabs[0]:
     # Priority 2: 68% video width / 32% telemetry width
     col_view, col_stats = st.columns([0.68, 0.32])
 
+    with col_stats:
+        # Structured telemetry panel without empty void (instantiated first for scope)
+        st.markdown("<div class='ui-panel'><div class='ui-panel-header'><span>SURVEILLANCE TELEMETRY</span><span>STAGE 1 FEED</span></div>", unsafe_allow_html=True)
+        alert_placeholder = st.empty()
+        alert_placeholder.markdown("<div class='badge-normal'>● Nominal / System Monitored</div>", unsafe_allow_html=True)
+
+        st.markdown("<div style='margin-top:8px;'></div>", unsafe_allow_html=True)
+        metric_col1, metric_col2 = st.columns(2)
+        metric_armed = metric_col1.empty()
+        metric_weapons = metric_col2.empty()
+
+        metric_col3, metric_col4 = st.columns(2)
+        metric_tracks = metric_col3.empty()
+        metric_fps = metric_col4.empty()
+
+        # Nominal telemetry defaults (Real values only)
+        metric_armed.metric("Armed Persons", "0 Tracks")
+        metric_weapons.metric("Active Weapons", "0 Detections")
+        metric_tracks.metric("Tracked Persons", "0 Tracks")
+        metric_fps.metric("Processing Rate", "-- FPS")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+        st.markdown("<div class='ui-panel'><div class='ui-panel-header'><span>THREAT EVENT LOG</span><span>DISPATCH AUDIT</span></div>", unsafe_allow_html=True)
+        log_placeholder = st.empty()
+        log_placeholder.markdown(
+            "<div class='badge-nominal'>● Nominal / No Review Alerts Pending</div>",
+            unsafe_allow_html=True
+        )
+        st.markdown("</div>", unsafe_allow_html=True)
+
     # Video / Image source selection
     with col_view:
         source_mode = st.radio(
@@ -784,36 +832,6 @@ with tabs[0]:
                 img = cv2.imread(str(video_path))
                 if img is not None:
                     media_slot.image(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), use_container_width=True)
-
-    with col_stats:
-        # Structured telemetry panel without empty void
-        st.markdown("<div class='ui-panel'><div class='ui-panel-header'><span>SURVEILLANCE TELEMETRY</span><span>STAGE 1 FEED</span></div>", unsafe_allow_html=True)
-        alert_placeholder = st.empty()
-        alert_placeholder.markdown("<div class='badge-normal'>● Nominal / System Monitored</div>", unsafe_allow_html=True)
-
-        st.markdown("<div style='margin-top:8px;'></div>", unsafe_allow_html=True)
-        metric_col1, metric_col2 = st.columns(2)
-        metric_armed = metric_col1.empty()
-        metric_weapons = metric_col2.empty()
-
-        metric_col3, metric_col4 = st.columns(2)
-        metric_tracks = metric_col3.empty()
-        metric_fps = metric_col4.empty()
-
-        # Nominal telemetry defaults (Real values only)
-        metric_armed.metric("Armed Persons", "0 Tracks")
-        metric_weapons.metric("Active Weapons", "0 Detections")
-        metric_tracks.metric("Tracked Persons", "0 Tracks")
-        metric_fps.metric("Processing Rate", "-- FPS")
-        st.markdown("</div>", unsafe_allow_html=True)
-
-        st.markdown("<div class='ui-panel'><div class='ui-panel-header'><span>THREAT EVENT LOG</span><span>DISPATCH AUDIT</span></div>", unsafe_allow_html=True)
-        log_placeholder = st.empty()
-        log_placeholder.markdown(
-            "<div class='badge-nominal'>● Nominal / No Review Alerts Pending</div>",
-            unsafe_allow_html=True
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
 
 
 # ==============================================================================
@@ -913,6 +931,11 @@ with tabs[1]:
                 else:
                     st.warning(f"Trajectory plot not found at {img_p.name}")
                 st.markdown("</div>", unsafe_allow_html=True)
+
+    demo_kinematic_vid = WORKSPACE_ROOT / "outputs/behavior/behavior_cctv_demo.mp4"
+    if demo_kinematic_vid.exists():
+        with st.expander("▶️ Watch Stage 2 Kinematic CCTV Behavior Video (behavior_cctv_demo.mp4)", expanded=False):
+            st.video(str(demo_kinematic_vid))
 
     st.markdown("<div style='margin-top:6px;'></div>", unsafe_allow_html=True)
     st.subheader("Kinematic Rule Review Events Log (rule_firings.csv)")
