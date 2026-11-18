@@ -81,6 +81,8 @@ def test_b1_and_n1_inspector_real_execution_and_error_handling(sample_video_fixt
     assert meta["n_weapons"] == 2
     assert meta["n_persons"] == 4
     assert meta["n_associated"] == 1
+    assert "detected_frames_summary" in meta
+    assert len(meta["detected_frames_summary"]) == 3
 
     # 2. Failing run (N1 check)
     failing_engine = MagicMock()
@@ -94,6 +96,34 @@ def test_b1_and_n1_inspector_real_execution_and_error_handling(sample_video_fixt
     # N1: Inference failure must result in success=False so st.success is NOT shown
     assert failed_success is False
     assert failed_count == 1  # Aborted on first frame
+
+
+def test_inspector_pacing_and_detected_events(sample_video_fixture):
+    """
+    Test _run_inspector_stream pacing (delay_sec) and detected_frames_summary logging.
+    """
+    import time
+    mock_engine = MagicMock()
+    mock_engine.process_frame.return_value = (
+        np.zeros((64, 64, 3), dtype=np.uint8),
+        {"n_weapons": 1, "n_persons": 1, "n_associated": 1, "active_alert_ids": ["ALERT-0001"]},
+    )
+
+    t0 = time.time()
+    success, count, meta = _run_inspector_stream(
+        video_path=sample_video_fixture,
+        engine=mock_engine,
+        max_inspect_frames=2,
+        delay_sec=0.05,
+    )
+    elapsed = time.time() - t0
+
+    assert success is True
+    assert count == 2
+    assert elapsed >= 0.08  # 2 frames * 0.05s delay
+    assert "detected_frames_summary" in meta
+    assert len(meta["detected_frames_summary"]) == 2
+    assert meta["detected_frames_summary"][0]["alerts"] == ["ALERT-0001"]
 
 
 def test_b2_check_video_decodable_zero_bytes(tmp_path, sample_video_fixture):

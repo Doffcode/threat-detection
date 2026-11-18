@@ -15,6 +15,7 @@ Run:
 import os
 import sys
 import tempfile
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -158,16 +159,19 @@ def _run_inspector_stream(
     metric_fps: Any = None,
     alert_placeholder: Any = None,
     max_inspect_frames: int = 60,
+    delay_sec: float = 0.0,
 ) -> Tuple[bool, int, Dict[str, Any]]:
     """
     B1/N1 helper: Processes video frame-by-frame through Stage1PipelineEngine.
     Returns: (success: bool, frames_count: int, last_meta: dict).
     Guarantees cap.release() in finally block.
+    delay_sec controls playback pacing for human inspection of predictions.
     """
     cap = cv2.VideoCapture(str(video_path))
     stream_failed = False
     frame_idx = 0
     last_meta: Dict[str, Any] = {}
+    detected_frames_summary: List[Dict[str, Any]] = []
     try:
         fps_val = cap.get(cv2.CAP_PROP_FPS) or 25.0
         while cap.isOpened() and frame_idx < max_inspect_frames:
@@ -176,13 +180,16 @@ def _run_inspector_stream(
                 break
             frame_idx += 1
 
+            if delay_sec > 0:
+                time.sleep(delay_sec)
+
             try:
                 annotated_bgr, meta = engine.process_frame(
                     img_bgr=frame,
                     frame_number=float(frame_idx),
                     sequence_id="stream_preview",
                 )
-                last_meta = meta
+                last_meta = dict(meta)
             except Exception as infer_err:
                 st.error(f"Inference error on frame {frame_idx}: {infer_err}")
                 stream_failed = True
@@ -199,6 +206,14 @@ def _run_inspector_stream(
             n_weap = meta.get("n_weapons", 0)
             n_tracks = meta.get("n_persons", 0)
 
+            if n_weap > 0 or n_armed > 0 or meta.get("active_alert_ids"):
+                detected_frames_summary.append({
+                    "frame": frame_idx,
+                    "weapons": n_weap,
+                    "armed": n_armed,
+                    "alerts": list(meta.get("active_alert_ids", [])),
+                })
+
             if metric_armed is not None:
                 metric_armed.metric("Armed Persons Active", n_armed)
             if metric_weapons is not None:
@@ -206,7 +221,8 @@ def _run_inspector_stream(
             if metric_tracks is not None:
                 metric_tracks.metric("Active Tracks", n_tracks)
             if metric_fps is not None:
-                metric_fps.metric("Inference Speed", f"{fps_val:.1f} FPS")
+                effective_fps = 1.0 / (delay_sec + (1.0 / max(fps_val, 1.0))) if delay_sec > 0 else fps_val
+                metric_fps.metric("Inference Speed", f"{effective_fps:.1f} FPS")
 
             if alert_placeholder is not None:
                 if meta.get("active_alert_ids"):
@@ -225,6 +241,7 @@ def _run_inspector_stream(
                         unsafe_allow_html=True,
                     )
 
+        last_meta["detected_frames_summary"] = detected_frames_summary
         return (not stream_failed), frame_idx, last_meta
     finally:
         cap.release()
@@ -780,11 +797,102 @@ with tabs[0]:
                 # Render native video player inside media_slot initially
                 media_slot.video(str(video_path))
 
-                c_btn, c_info = st.columns([0.65, 0.35])
+                c_btn, c_pace, c_info = st.columns([0.48, 0.28, 0.24])
                 with c_btn:
                     run_inspector = st.button("▶️ Run Interactive Stream Inspector", type="primary", use_container_width=True)
+                with c_pace:
+                    pace_mode = st.selectbox(
+                        "Inspection Speed",
+                        options=[
+                            "Slow Review (2.0 FPS)",
+                            "Balanced (4.0 FPS)",
+                            "Real-time (Hardware)",
+                        ],
+                        index=0,
+                        help="Slow down stream processing so you can clearly inspect model predictions, bounding boxes, and links on each frame.",
+                        label_visibility="collapsed",
+                    )
                 with c_info:
                     st.caption(f"`{video_path.name}` ({video_path.stat().st_size / (1024*1024):.1f} MB)")
+
+                pace_map = {
+                    "Slow Review (2.0 FPS)": 0.40,
+                    "Balanced (4.0 FPS)": 0.20,
+                    "Real-time (Hardware)": 0.0,
+                }
+                delay_sec = pace_map.get(pace_mode, 0.40)
+
+                # Frame-by-frame frozen inspector tool
+                with st.expander("🔍 Freeze-Frame Model Prediction Inspector (Examine Any Frame)", expanded=False):
+                    is_valid_f, total_f_cnt, _ = _check_video_decodable(video_path)
+                    if is_valid_f and total_f_cnt > 0:
+                        f_col_ctrl, f_col_act = st.columns([0.70, 0.30])
+                        with f_col_ctrl:
+                            target_f = st.slider(
+                                "Scrub to Frame Index",
+                                min_value=1,
+                                max_value=total_f_cnt,
+                                value=min(10, total_f_cnt),
+                                step=1,
+                                help="Select a frame number to freeze and inspect all model predictions.",
+                                key="freeze_frame_slider",
+                            )
+                        with f_col_act:
+                            st.write("")
+                            inspect_single_btn = st.button("Inspect Frame", key="btn_inspect_single_frame", use_container_width=True)
+
+                        if inspect_single_btn:
+                            cap_freeze = cv2.VideoCapture(str(video_path))
+                            cap_freeze.set(cv2.CAP_PROP_POS_FRAMES, target_f - 1)
+                            ret_f, frame_raw = cap_freeze.read()
+                            cap_freeze.release()
+                            if ret_f and frame_raw is not None:
+                                try:
+                                    scrub_engine = get_pipeline_engine(
+                                        det_weights=det_weights_path,
+                                        enable_verifier=enable_stage2_verifier,
+                                        verifier_weights=verifier_weights_input,
+                                        combine_mode=combine_mode,
+                                        verifier_conf_floor=verifier_conf_floor,
+                                        conf_weapon=conf_weapon,
+                                        conf_person=conf_person,
+                                        conf_pose=conf_pose,
+                                        min_link_score=min_link_score,
+                                        confirm_frames=confirm_frames,
+                                    )
+                                    scrub_bgr, scrub_meta = scrub_engine.process_frame(
+                                        img_bgr=frame_raw,
+                                        frame_number=float(target_f),
+                                        sequence_id="freeze_inspect",
+                                    )
+                                    if isinstance(scrub_bgr, np.ndarray):
+                                        f_view, f_dossier = st.columns([0.65, 0.35])
+                                        with f_view:
+                                            st.image(
+                                                cv2.cvtColor(scrub_bgr, cv2.COLOR_BGR2RGB),
+                                                caption=f"Frame {target_f} / {total_f_cnt} (Model Prediction Overlay)",
+                                                use_container_width=True,
+                                            )
+                                        with f_dossier:
+                                            st.markdown(f"**Frame {target_f} Telemetry**")
+                                            w_list = scrub_meta.get("weapons", [])
+                                            st.write(f"- Weapons Detected: **{len(w_list)}**")
+                                            for w in w_list:
+                                                st.write(f"  • `{w.get('class_name', 'weapon')}` (conf: `{w.get('confidence', 0.0):.2f}`)")
+                                            t_list = scrub_meta.get("tracks", [])
+                                            st.write(f"- Persons Tracked: **{len(t_list)}**")
+                                            st.write(f"- Spatial Associations: **{scrub_meta.get('n_associated', 0)}**")
+                                            if scrub_meta.get("active_alert_ids"):
+                                                st.markdown(
+                                                    f"<div class='badge-critical'>🚨 THREAT ALERT: {', '.join(scrub_meta['active_alert_ids'])}</div>",
+                                                    unsafe_allow_html=True,
+                                                )
+                                            elif len(w_list) > 0:
+                                                st.markdown("<div class='badge-suspicious'>⚠️ Weapon Detected</div>", unsafe_allow_html=True)
+                                            else:
+                                                st.markdown("<div class='badge-normal'>● Nominal / Clear</div>", unsafe_allow_html=True)
+                                except Exception as e_frz:
+                                    st.caption(f"Freeze inspection error: {e_frz}")
 
                 if run_inspector:
                     # B2: Check if video is decodable
@@ -823,11 +931,18 @@ with tabs[0]:
                             metric_fps=metric_fps,
                             alert_placeholder=alert_placeholder,
                             max_inspect_frames=min(total_frames, 60),
+                            delay_sec=delay_sec,
                         )
 
                         # N1: Only show success if inference completed without failure
                         if success:
-                            st.success("Inspector run completed.")
+                            det_summary = last_meta.get("detected_frames_summary", [])
+                            if det_summary:
+                                st.success(
+                                    f"Inspector run completed. Model detected weapons/threats across {len(det_summary)} frames."
+                                )
+                            else:
+                                st.success("Inspector run completed.")
             else:
                 img = cv2.imread(str(video_path))
                 if img is not None:
