@@ -22,7 +22,7 @@ Goals for the night:
 
 ## 2. Why the original numbers were misleading
 
-The notebook `WD_Intern_Proj.ipynb` trained YOLO11s (640 px, 150 epochs, AdamW) on a Roboflow export with three classes. On its own validation split it reported:
+The original notebook (`ae21b0b:WD_Intern_Proj.ipynb` in Git history) trained YOLO11s (640 px, 150 epochs, AdamW) on a Roboflow export with three classes. On its own validation split it reported:
 
 | class | P | R | mAP50 |
 |---|---|---|---|

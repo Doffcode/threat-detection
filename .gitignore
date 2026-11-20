@@ -61,3 +61,8 @@ work/app/_smoke/
 # 4. Pipeline caches and debug output
 outputs/debug/
 outputs/queue/
+
+# Local smoke-test outputs and generated scratch files
+/outputs/test_infer/
+/outputs/eval/tmp_*_gt.json
+/work/scripts/data_v4/_build*.log
