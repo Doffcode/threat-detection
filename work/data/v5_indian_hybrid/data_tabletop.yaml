@@ -1,0 +1,7 @@
+# v5_indian_hybrid: tabletop benchmark
+path: /home/shiva/Desktop/projects/akriti/weapon-detection/work/data/v5_indian_hybrid
+train: train.txt
+val: val_tabletop.txt
+test: val_tabletop.txt
+nc: 3
+names: ['gun', 'knife', 'handheld_object']

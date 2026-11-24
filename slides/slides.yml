@@ -1,0 +1,20 @@
+title: "Surveillance Threat Detection System"
+subtitle: "Phase 3 Review"
+date: "Final review: 4 January"
+theme:
+  style: minimal
+  palette: slate
+  fonts: plain
+cover: theme
+logo: false
+qa: false
+agenda: false
+variety: off
+footer: ""
+talk_minutes: 6
+me:
+  name: "[Student name]"
+  roll: "[Roll number]"
+  guide: {name: "[Guide]", title: ""}
+  department: "[Department]"
+  college: "[Institution]"

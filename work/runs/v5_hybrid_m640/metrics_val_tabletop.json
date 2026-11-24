@@ -1,0 +1,90 @@
+{
+  "weights": "/home/shiva/Desktop/projects/akriti/weapon-detection/work/runs/v5_hybrid_m640/weights/best.pt",
+  "data": "/home/shiva/Desktop/projects/akriti/weapon-detection/work/data/v5_indian_hybrid/data_tabletop.yaml",
+  "split": "val",
+  "tag": "tabletop",
+  "imgsz": 640,
+  "augment": false,
+  "run_dir": "/home/shiva/Desktop/projects/akriti/weapon-detection/work/runs/v5_hybrid_m640",
+  "all": {
+    "class_id": -1,
+    "class": "all",
+    "instances": 40,
+    "precision": 0.8994878611538558,
+    "recall": 0.7934472934472934,
+    "map50": 0.9188353190926719,
+    "map50_95": 0.5049717970519831,
+    "best_f1_conf": NaN,
+    "best_f1": NaN
+  },
+  "weapons": {
+    "class_id": -2,
+    "class": "weapons",
+    "instances": 40,
+    "precision": 0.8994878611538558,
+    "recall": 0.7934472934472934,
+    "map50": 0.9188353190926719,
+    "map50_95": 0.504971797051983,
+    "best_f1_conf": NaN,
+    "best_f1": 0.8552500000000001
+  },
+  "per_class": [
+    {
+      "class_id": 0,
+      "class": "gun",
+      "instances": 13,
+      "precision": 0.8688085672061782,
+      "recall": 0.8461538461538461,
+      "map50": 0.9153039215686272,
+      "map50_95": 0.44022458250105306,
+      "best_f1_conf": 0.4174,
+      "best_f1": 0.867
+    },
+    {
+      "class_id": 1,
+      "class": "knife",
+      "instances": 27,
+      "precision": 0.9301671551015335,
+      "recall": 0.7407407407407407,
+      "map50": 0.9223667166167167,
+      "map50_95": 0.569719011602913,
+      "best_f1_conf": 0.3263,
+      "best_f1": 0.8435
+    },
+    {
+      "class_id": 2,
+      "class": "handheld_object",
+      "instances": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "map50": 0.0,
+      "map50_95": 0.0,
+      "best_f1_conf": NaN,
+      "best_f1": NaN
+    }
+  ],
+  "thresholds": {
+    "gun": {
+      "class_id": 0,
+      "conf": 0.4174,
+      "conf_raw": 0.4174,
+      "f1": 0.867,
+      "precision": 0.8888,
+      "recall": 0.8462
+    },
+    "knife": {
+      "class_id": 1,
+      "conf": 0.3263,
+      "conf_raw": 0.3263,
+      "f1": 0.8435,
+      "precision": 0.8742,
+      "recall": 0.8148
+    }
+  },
+  "speed_ms": {
+    "preprocess": 1.7720298571345796,
+    "inference": 17.3613557428845,
+    "loss": 0.0005131142513294305,
+    "postprocess": 0.3539680000228275
+  }
+}

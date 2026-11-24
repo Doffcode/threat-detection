@@ -1,0 +1,3 @@
+x3d: n=40 F1=0.8421 FN=4 FP=2 median=0.088s p95=0.357s within playback=100.0%
+r2plus1d: n=40 F1=0.8108 FN=5 FP=2 median=0.258s p95=0.561s within playback=100.0%
+Selected: x3d

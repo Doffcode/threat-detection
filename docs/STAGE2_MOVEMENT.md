@@ -172,3 +172,28 @@ Deploying kinematic behavior analysis in real-world surveillance involves fundam
 | Trajectory Plots | 2D path maps with rule trigger markers | **PASSED** | 3 high-res PNG plots in `outputs/behavior/trajectories/` |
 | Demo Video | Real-time speed, heading, trails, alert banner | **PASSED** | [`outputs/behavior/behavior_cctv_demo.mp4`](file:///home/shiva/Desktop/projects/akriti/weapon-detection/outputs/behavior/behavior_cctv_demo.mp4) |
 | Human Review Safeguard | All alerts marked `FOR_HUMAN_REVIEW_ONLY` | **PASSED** | Enforced in code and verified in CSV output |
+
+## Video review in the dashboard
+
+Open **Kinematic Behavior Studio**, select either built-in SCFD example or upload an H.264 MP4, and click **Analyze behavior video**. The dashboard scores consecutive five-second windows, including a final partial window, and shows a video-level fight label from the highest window score at threshold 0.40. Export the timestamped scores as CSV. The separate approach-and-retreat cue lists the trigger time, both track IDs, measured motion, an annotated frame, and playback starting just before the event.
+
+Local runtime assets live in `outputs/runs/behavior_runtime/`. For another checkout, follow the pinned source and dependency instructions in [the baseline report](../outputs/eval/behavior_baseline/README.md). Place the upstream checkout at `source/`, the checkpoint at `final_x3d_realtime.pt`, and install the extra dependencies into `deps/` with pip's `--target`. Copy SCFD `fight/fi001.mp4` and `noFight/nofi003.mp4` to `fight.mp4` and `non_fight.mp4` respectively. The existing person tracker uses the repository-root `yolo11m.pt`.
+
+Streamlit AppTest verified both built-in video classifications. The pairwise movement cue passed controlled positive, parallel motion, stationary person, passing, and tracking-gap checks. The human-labeled movement evaluation remains pending. SCFD fight classification metrics are reported separately.
+
+Selecting a movement cue now plays an annotated H.264 MP4 and offers **Download replay**. FFmpeg with libx264 is used for encoding. If unavailable, the dashboard shows the original video near the cue.
+
+## Evaluation walkthrough
+
+1. In **CCTV Control Room**, play the first recorded Innovatus example and point out a labeled weapon box.
+2. In **Kinematic Behavior Studio**, analyze **Fight example** and **Non-fight example** to show both video classifications.
+3. Analyze **Movement cue example** (SCFD `fight/fi005.mp4`). The example cue occurs about 1.25 seconds in. The displayed gap narrows from 0.78 to 0.47 box heights. Explain the cyan approach and orange retreat, then play the annotated replay.
+4. In **Verification & Gates**, point to the **91.0%** result for 300 labeled SCFD clips and the prediction download.
+
+To restore the movement example in another checkout, copy the source clip to `outputs/runs/behavior_runtime/movement.mp4`. The movement example illustrates a review cue and has no reported movement accuracy.
+
+## Unified video analysis
+
+Open **Analyze Video**, select an example or upload an MP4 up to 60 seconds and 100 MB, and click **Analyze video**. Results from the weapon detector, fight classifier, and movement rule are shown separately for the same clip. Use **Inspect event** to see the exact weapon frame, fight interval, or annotated movement replay. The weapon example is assembled from unannotated sampled frames with synthetic playback timing.
+
+**Evaluation** contains the saved Innovatus weapon and SCFD fight benchmarks and their exports. **Advanced** contains the original inspector, trajectory plots, model settings, association audit, and historical verification records.

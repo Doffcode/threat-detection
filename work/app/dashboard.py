@@ -12,7 +12,9 @@ Run:
   work/.venv/bin/streamlit run work/app/dashboard.py --server.headless true --server.port 8501
 """
 
+import json
 import os
+import subprocess
 import sys
 import tempfile
 import time
@@ -658,70 +660,72 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Top Bar Enterprise Header
-st.title("Threat Detection System: Surveillance & Audit Suite")
-st.caption("Multi-Stage Armed Person Tracking, Behavioral Kinematics & Intent Analysis | Stage 1 Perceptual Pipeline & Stage 2 Kinematics")
+st.title("Threat Detection")
 
-# Sidebar Configuration
-st.sidebar.header("System Pipeline Configuration")
-st.sidebar.markdown(
-    "<div class='badge-frozen'>🔒 Parameters Frozen by Reproducibility Manifest</div>",
-    unsafe_allow_html=True,
-)
-st.sidebar.caption("Sliders configure Stage 1 Live Control Room only. Gates 1-4 and Audit Sheet use frozen manifest hashes.")
+# Dashboard navigation
+from unified_video import render_unified_video
 
-# Model configuration
-default_det_weights = "outputs/runs/baseline_m960_v2/weights/best.pt"
-if not (WORKSPACE_ROOT / default_det_weights).exists():
-    default_det_weights = "work/runs/big_s1_m640/weights/best.pt"
+main_tabs = st.tabs(["Analyze Video", "Evaluation", "Advanced"])
+with main_tabs[0]:
+    render_unified_video(WORKSPACE_ROOT)
 
-det_weights_path = st.sidebar.text_input(
-    "Weapon Detector (.pt)",
-    value=default_det_weights,
-    help="Primary weapon detector: baseline_m960_v2 / big_s1_m640"
-)
+with main_tabs[2], st.expander("Model settings"):
+    st.caption("These settings apply to the Advanced CCTV Control Room.")
 
-# Stage-2 Crop Verifier Toggle (Option 2)
-enable_stage2_verifier = st.sidebar.toggle(
-    "Enable Stage-2 Crop Verifier (YOLO11s-cls)",
-    value=True,
-    help="Activates 224px crop classifier to filter false alarms on phones, tools, and wallets."
-)
+    # Model configuration
+    default_det_weights = "outputs/runs/baseline_m960_v2/weights/best.pt"
+    if not (WORKSPACE_ROOT / default_det_weights).exists():
+        default_det_weights = "work/runs/big_s1_m640/weights/best.pt"
 
-verifier_weights_path = "work/runs/verifier_v5/weights/best.pt"
-if enable_stage2_verifier:
-    verifier_weights_input = st.sidebar.text_input(
-        "Verifier Weights (.pt)",
-        value=verifier_weights_path,
-        help="YOLO11s-cls classifier (gun / knife / not_weapon)"
+    det_weights_path = st.text_input(
+        "Weapon Detector (.pt)",
+        value=default_det_weights,
+        help="Primary weapon detector: baseline_m960_v2 / big_s1_m640"
     )
-    combine_mode = st.sidebar.selectbox(
-        "Score Combination Mode",
-        ["wgeo75", "prod", "geo", "cls", "det"],
-        index=0,
-        help="wgeo75: d^0.25 * p^0.75 | prod: d * p | geo: sqrt(d * p) | det: detector only with filter"
-    )
-    verifier_conf_floor = st.sidebar.slider("Verifier Confidence Floor", 0.05, 0.50, 0.10, 0.05)
-else:
-    verifier_weights_input = ""
-    combine_mode = "det"
-    verifier_conf_floor = 0.10
 
-# Tracking & Pose Settings
-st.sidebar.markdown("---")
-st.sidebar.subheader("Person Tracking & Pose")
-conf_weapon = st.sidebar.slider("Weapon Conf Threshold (conf*)", 0.10, 0.80, 0.30, 0.05)
-conf_person = st.sidebar.slider("Person Track Conf Threshold", 0.20, 0.80, 0.35, 0.05)
-conf_pose = st.sidebar.slider("Wrist Keypoint Conf Threshold", 0.15, 0.60, 0.25, 0.05)
-min_link_score = st.sidebar.slider("Min Weapon-Person Link Score", 0.10, 0.60, 0.25, 0.05)
-confirm_frames = st.sidebar.slider("Temporal Confirmation (Frames N)", 1, 10, 3, 1)
+    # Stage-2 Crop Verifier Toggle (Option 2)
+    enable_stage2_verifier = st.toggle(
+        "Enable Stage-2 Crop Verifier (YOLO11s-cls)",
+        value=True,
+        help="Activates 224px crop classifier to filter false alarms on phones, tools, and wallets."
+    )
+
+    verifier_weights_path = "work/runs/verifier_v5/weights/best.pt"
+    if enable_stage2_verifier:
+        verifier_weights_input = st.text_input(
+            "Verifier Weights (.pt)",
+            value=verifier_weights_path,
+            help="YOLO11s-cls classifier (gun / knife / not_weapon)"
+        )
+        combine_mode = st.selectbox(
+            "Score Combination Mode",
+            ["wgeo75", "prod", "geo", "cls", "det"],
+            index=0,
+            help="wgeo75: d^0.25 * p^0.75 | prod: d * p | geo: sqrt(d * p) | det: detector only with filter"
+        )
+        verifier_conf_floor = st.slider("Verifier Confidence Floor", 0.05, 0.50, 0.10, 0.05)
+    else:
+        verifier_weights_input = ""
+        combine_mode = "det"
+        verifier_conf_floor = 0.10
+
+    # Tracking & Pose Settings
+    st.markdown("---")
+    st.subheader("Person Tracking & Pose")
+    conf_weapon = st.slider("Weapon Conf Threshold (conf*)", 0.10, 0.80, 0.30, 0.05)
+    conf_person = st.slider("Person Track Conf Threshold", 0.20, 0.80, 0.35, 0.05)
+    conf_pose = st.slider("Wrist Keypoint Conf Threshold", 0.15, 0.60, 0.25, 0.05)
+    min_link_score = st.slider("Min Weapon-Person Link Score", 0.10, 0.60, 0.25, 0.05)
+    confirm_frames = st.slider("Temporal Confirmation (Frames N)", 1, 10, 3, 1)
 
 # Tab structure
-tabs = st.tabs([
-    "CCTV Control Room",
-    "Kinematic Behavior Studio",
-    "Association Auditor",
-    "Verification & Gates",
-])
+with main_tabs[2]:
+    tabs = st.tabs([
+        "CCTV Control Room",
+        "Kinematic Behavior Studio",
+        "Association Auditor",
+        "Verification history",
+    ])
 
 # ==============================================================================
 # TAB 1: CCTV Live Control Room
@@ -965,6 +969,90 @@ with tabs[1]:
     else:
         df_rules = pd.DataFrame()
 
+    st.subheader("Video fight detection")
+    runtime = WORKSPACE_ROOT / "outputs/runs/behavior_runtime"
+    sample_names = {"Fight example": "fight.mp4", "Non-fight example": "non_fight.mp4"}
+    if (runtime / "movement.mp4").is_file():
+        sample_names["Movement cue example"] = "movement.mp4"
+    source = st.selectbox("Video source", [*sample_names, "Upload video"])
+    uploaded = st.file_uploader("Upload an MP4", type=["mp4"], key="behavior_upload") if source == "Upload video" else None
+    sample_path = runtime / sample_names.get(source, "")
+    review_key = (source, uploaded.file_id if uploaded else None)
+
+    if st.button("Analyze behavior video", disabled=source == "Upload video" and uploaded is None):
+        st.session_state.pop("behavior_video_result", None)
+        st.session_state.pop("behavior_replays", None)
+        try:
+            import torch
+            from scripts.compare_behavior import load_behavior_model
+            from src.behavior.video_review import review_video
+            from src.pipeline.tracker import PersonTracker
+
+            device = "cuda:0" if torch.cuda.is_available() else "cpu"
+            deps = str(runtime / "deps")
+            if deps not in sys.path:
+                sys.path.append(deps)
+            with st.spinner("Scoring fight windows and tracking movement…"):
+                model = st.cache_resource(load_behavior_model)(
+                    "x3d", runtime / "source", runtime / "final_x3d_realtime.pt", device,
+                )
+                tracker = PersonTracker({"weights": str(WORKSPACE_ROOT / "yolo11m.pt")}, device=device)
+                with tempfile.TemporaryDirectory() as temp:
+                    path = Path(temp) / "upload.mp4" if uploaded else sample_path
+                    video = uploaded.getvalue() if uploaded else path.read_bytes()
+                    if uploaded:
+                        path.write_bytes(video)
+                    windows, events = review_video(path, model, device, tracker)
+                st.session_state["behavior_video_result"] = (review_key, video, windows, events)
+        except (OSError, RuntimeError, ValueError, ImportError) as error:
+            st.error(f"Behavior analysis failed: {error}")
+
+    result = st.session_state.get("behavior_video_result")
+    if result and result[0] == review_key:
+        _, video, windows, events = result
+        peak = max(windows, key=lambda window: window["score"])
+        st.metric("Video classification", peak["label"])
+        st.caption(f"Peak fight score {peak['score']:.3f}. A window is flagged at 0.40 or higher.")
+        st.dataframe(windows, hide_index=True)
+        st.download_button("Download fight scores", pd.DataFrame(windows).to_csv(index=False),
+                           file_name="fight_scores.csv", mime="text/csv")
+        st.subheader("Movement cues for review")
+        if events:
+            event_index = st.selectbox(
+                "Replay movement cue", range(len(events)),
+                format_func=lambda index: f"{events[index][0]['timestamp_s']:.2f} s",
+            )
+            from src.behavior.video_review import encode_cue_replay
+
+            event, still, replay_frames = events[event_index]
+            replays = st.session_state.setdefault("behavior_replays", {})
+            if event_index not in replays:
+                try:
+                    replays[event_index] = encode_cue_replay(video, event, replay_frames)
+                except (OSError, ValueError, subprocess.SubprocessError):
+                    replays[event_index] = None
+            replay = replays[event_index]
+            if replay:
+                st.video(replay, format="video/mp4")
+                st.download_button("Download replay", replay, f"movement-cue-{event_index + 1}.mp4", "video/mp4")
+            else:
+                st.info("Annotated replay unavailable. Showing the original video.")
+                st.video(video, start_time=max(0, int(event["timestamp_s"] - 1)))
+            st.write(
+                f"At {event['timestamp_s']:.2f} s, track {event['approaching']} moved toward "
+                f"track {event['retreating']} while that person moved away."
+            )
+            st.metric("Gap between the two tracks",
+                      f"{event['separation_start']:.2f} → {event['separation_end']:.2f} box heights")
+            st.caption("Distances are scaled by the tracked people’s box height in the camera image.")
+            if still:
+                st.image(still, caption="The cyan path shows approach and the orange path shows retreat.")
+            st.download_button("Download movement cues", pd.DataFrame([row for row, _, _ in events]).to_csv(index=False),
+                               file_name="movement_cues.csv", mime="text/csv")
+        else:
+            st.info("No movement cues detected.")
+            st.video(video)
+
     # B5: Compute metric summaries dynamically from df_rules helper
     rule_summary = _compute_rule_summary(df_rules)
     sum_col1, sum_col2, sum_col3, sum_col4 = st.columns(4)
@@ -975,77 +1063,83 @@ with tabs[1]:
 
     st.markdown("<div style='margin-top:8px;'></div>", unsafe_allow_html=True)
     
-    # Priority 3: Large Primary Trajectory View + Intuitive Sequence Selector + Multi-Sequence Comparison Option
-    traj_dir = TRAJECTORIES_DIR
-    seqs = [
-        ("Sequence 02", traj_dir / "innovatus_cam_b_seq02_trajectories.png", "20 frames · 2 tracked subjects · Cam B", "innovatus_cam_b_seq02"),
-        ("Sequence 07", traj_dir / "innovatus_cam_b_seq07_trajectories.png", "26 frames · 3 tracked subjects · Cam B", "innovatus_cam_b_seq07"),
-        ("Sequence 08", traj_dir / "innovatus_cam_b_seq08_trajectories.png", "26 frames · 2 tracked subjects · Cam B", "innovatus_cam_b_seq08"),
-    ]
-
-    t_mode_col1, t_mode_col2 = st.columns([0.60, 0.40])
-    with t_mode_col1:
-        st.subheader("2D Multi-Track Trajectory Heatmaps")
-    with t_mode_col2:
-        traj_view_mode = st.radio(
-            "Visualization Layout",
-            ["Focused Sequence Analysis", "Multi-Sequence Comparison"],
-            horizontal=True,
-            label_visibility="collapsed",
+    with st.expander("View all tracks"):
+        st.caption(
+            "Each colored line follows one tracked person. "
+            "A green triangle marks the first tracked position and a red square marks the last. "
+            "Dashed blue outlines mark configured monitoring zones."
         )
+        # Priority 3: Large Primary Trajectory View + Intuitive Sequence Selector + Multi-Sequence Comparison Option
+        traj_dir = TRAJECTORIES_DIR
+        seqs = [
+            ("Sequence 02", traj_dir / "innovatus_cam_b_seq02_trajectories.png", "20 frames · 2 tracked subjects · Cam B", "innovatus_cam_b_seq02"),
+            ("Sequence 07", traj_dir / "innovatus_cam_b_seq07_trajectories.png", "26 frames · 3 tracked subjects · Cam B", "innovatus_cam_b_seq07"),
+            ("Sequence 08", traj_dir / "innovatus_cam_b_seq08_trajectories.png", "26 frames · 2 tracked subjects · Cam B", "innovatus_cam_b_seq08"),
+        ]
 
-    if traj_view_mode == "Focused Sequence Analysis":
-        seq_dict = {s[0]: s for s in seqs}
-        selected_seq_name = st.selectbox(
-            "Select CCTV Sequence to Inspect",
-            list(seq_dict.keys()),
-            format_func=lambda k: f"{k} — {seq_dict[k][2]}",
-            label_visibility="collapsed",
-        )
-        _, f_img_p, f_info, f_seq_id = seq_dict[selected_seq_name]
+        t_mode_col1, t_mode_col2 = st.columns([0.60, 0.40])
+        with t_mode_col1:
+            st.subheader("Person paths in the camera view")
+        with t_mode_col2:
+            traj_view_mode = st.radio(
+                "Visualization Layout",
+                ["Focused Sequence Analysis", "Multi-Sequence Comparison"],
+                horizontal=True,
+                label_visibility="collapsed",
+            )
 
-        col_traj_main, col_traj_side = st.columns([0.72, 0.28])
-        with col_traj_main:
-            st.markdown(f"<div class='ui-panel'><div class='ui-panel-header'><span>{selected_seq_name} TRAJECTORY VIEW</span><span>{f_info}</span></div>", unsafe_allow_html=True)
-            if f_img_p.exists():
-                st.markdown("<div class='trajectory-box'>", unsafe_allow_html=True)
-                st.image(str(f_img_p), use_container_width=True)
-                st.markdown("</div>", unsafe_allow_html=True)
-            else:
-                st.warning(f"Trajectory plot not found at {f_img_p.name}")
-            st.markdown("</div>", unsafe_allow_html=True)
+        if traj_view_mode == "Focused Sequence Analysis":
+            seq_dict = {s[0]: s for s in seqs}
+            selected_seq_name = st.selectbox(
+                "Select CCTV Sequence to Inspect",
+                list(seq_dict.keys()),
+                format_func=lambda k: f"{k} — {seq_dict[k][2]}",
+                label_visibility="collapsed",
+            )
+            _, f_img_p, f_info, f_seq_id = seq_dict[selected_seq_name]
 
-        with col_traj_side:
-            st.markdown(f"<div class='ui-panel'><div class='ui-panel-header'><span>SEQUENCE DOSSIER</span><span>{selected_seq_name}</span></div>", unsafe_allow_html=True)
-            seq_firings = df_rules[df_rules["sequence_id"] == f_seq_id] if not df_rules.empty and "sequence_id" in df_rules.columns else pd.DataFrame()
-            st.markdown(f"""
-            <div class='kv-table'>
-                <div class='kv-row'><span class='kv-label'>Sequence ID</span><span class='kv-value'>{f_seq_id}</span></div>
-                <div class='kv-row'><span class='kv-label'>Camera Source</span><span class='kv-value'>Innovatus Cam B</span></div>
-                <div class='kv-row'><span class='kv-label'>Track Count</span><span class='kv-value'>{f_info.split('·')[1].strip()}</span></div>
-                <div class='kv-row'><span class='kv-label'>Duration</span><span class='kv-value'>{f_info.split('·')[0].strip()}</span></div>
-                <div class='kv-row'><span class='kv-label'>Kinematic Alerts</span><span class='kv-value'>{len(seq_firings)} Events</span></div>
-            </div>
-            """, unsafe_allow_html=True)
-
-            st.markdown("<div style='font-size:0.72rem; font-weight:600; color:#94a3b8; text-transform:uppercase; margin-bottom:4px;'>Behavior Alerts Breakdown</div>", unsafe_allow_html=True)
-            if not seq_firings.empty:
-                for r_name, r_cnt in seq_firings["rule_name"].value_counts().items():
-                    st.markdown(f"<div class='badge-suspicious' style='margin-bottom:4px;'>⚠️ {r_name} ({r_cnt})</div>", unsafe_allow_html=True)
-            else:
-                st.markdown("<div class='badge-normal'>● Nominal / No Alerts in Sequence</div>", unsafe_allow_html=True)
-            st.markdown("</div>", unsafe_allow_html=True)
-    else:
-        # Multi-sequence comparison view
-        traj_cols = st.columns(3)
-        for col, (seq_name, img_p, seq_info, _) in zip(traj_cols, seqs):
-            with col:
-                st.markdown(f"<div class='ui-panel'><div class='ui-panel-header'><span>{seq_name}</span><span>{seq_info}</span></div>", unsafe_allow_html=True)
-                if img_p.exists():
-                    st.image(str(img_p), use_container_width=True)
+            col_traj_main, col_traj_side = st.columns([0.72, 0.28])
+            with col_traj_main:
+                st.markdown(f"<div class='ui-panel'><div class='ui-panel-header'><span>{selected_seq_name} TRAJECTORY VIEW</span><span>{f_info}</span></div>", unsafe_allow_html=True)
+                if f_img_p.exists():
+                    st.markdown("<div class='trajectory-box'>", unsafe_allow_html=True)
+                    st.image(str(f_img_p), use_container_width=True)
+                    st.markdown("</div>", unsafe_allow_html=True)
                 else:
-                    st.warning(f"Trajectory plot not found at {img_p.name}")
+                    st.warning(f"Trajectory plot not found at {f_img_p.name}")
                 st.markdown("</div>", unsafe_allow_html=True)
+
+            with col_traj_side:
+                st.markdown(f"<div class='ui-panel'><div class='ui-panel-header'><span>SEQUENCE DOSSIER</span><span>{selected_seq_name}</span></div>", unsafe_allow_html=True)
+                seq_firings = df_rules[df_rules["sequence_id"] == f_seq_id] if not df_rules.empty and "sequence_id" in df_rules.columns else pd.DataFrame()
+                st.markdown(f"""
+                <div class='kv-table'>
+                    <div class='kv-row'><span class='kv-label'>Sequence ID</span><span class='kv-value'>{f_seq_id}</span></div>
+                    <div class='kv-row'><span class='kv-label'>Camera Source</span><span class='kv-value'>Innovatus Cam B</span></div>
+                    <div class='kv-row'><span class='kv-label'>Track Count</span><span class='kv-value'>{f_info.split('·')[1].strip()}</span></div>
+                    <div class='kv-row'><span class='kv-label'>Duration</span><span class='kv-value'>{f_info.split('·')[0].strip()}</span></div>
+                    <div class='kv-row'><span class='kv-label'>Kinematic Alerts</span><span class='kv-value'>{len(seq_firings)} Events</span></div>
+                </div>
+                """, unsafe_allow_html=True)
+
+                st.markdown("<div style='font-size:0.72rem; font-weight:600; color:#94a3b8; text-transform:uppercase; margin-bottom:4px;'>Behavior Alerts Breakdown</div>", unsafe_allow_html=True)
+                if not seq_firings.empty:
+                    for r_name, r_cnt in seq_firings["rule_name"].value_counts().items():
+                        st.markdown(f"<div class='badge-suspicious' style='margin-bottom:4px;'>⚠️ {r_name} ({r_cnt})</div>", unsafe_allow_html=True)
+                else:
+                    st.markdown("<div class='badge-normal'>● Nominal / No Alerts in Sequence</div>", unsafe_allow_html=True)
+                st.markdown("</div>", unsafe_allow_html=True)
+        else:
+            # Multi-sequence comparison view
+            traj_cols = st.columns(3)
+            for col, (seq_name, img_p, seq_info, _) in zip(traj_cols, seqs):
+                with col:
+                    st.markdown(f"<div class='ui-panel'><div class='ui-panel-header'><span>{seq_name}</span><span>{seq_info}</span></div>", unsafe_allow_html=True)
+                    if img_p.exists():
+                        st.image(str(img_p), use_container_width=True)
+                    else:
+                        st.warning(f"Trajectory plot not found at {img_p.name}")
+                    st.markdown("</div>", unsafe_allow_html=True)
 
     demo_kinematic_vid = WORKSPACE_ROOT / "outputs/behavior/behavior_cctv_demo.mp4"
     if demo_kinematic_vid.exists():
@@ -1251,33 +1345,64 @@ with tabs[2]:
 # ==============================================================================
 # TAB 4: System Verification & Gates Status
 # ==============================================================================
+with main_tabs[1]:
+    st.subheader("Weapon evaluation")
+    benchmark_path = WORKSPACE_ROOT / "outputs/eval/cctv_test_v2/cctv_test_v2_metrics.json"
+    try:
+        full_results = benchmark_path.read_bytes()
+        benchmark = json.loads(full_results)["v2"]["innovatus_rob"]
+        operating_point = benchmark["pr_at_conf_star"]
+        row = {
+            "Test split": "Innovatus CCTV",
+            "Frames": int(benchmark["n_images"]),
+            "Annotated weapons": int(benchmark["n_annotations"]),
+            "mAP@0.50": f"{benchmark['mAP50']:.4f}",
+            "Precision": f"{operating_point['precision']:.4f}",
+            "Recall": f"{operating_point['recall']:.4f}",
+            "F1": f"{operating_point['f1']:.4f}",
+        }
+        confidence = f"{benchmark['conf_star']:.2f}"
+    except (OSError, ValueError, KeyError, TypeError):
+        st.info("Saved weapon benchmark results are unavailable.")
+    else:
+        st.caption(
+            f"Saved benchmark for baseline_m960_v2. "
+            f"Precision, recall, and F1 use a confidence threshold of {confidence}."
+        )
+        st.dataframe([row], hide_index=True)
+        st.download_button(
+            "Download full weapon evaluation (JSON)",
+            data=full_results,
+            file_name=benchmark_path.name,
+            mime="application/json",
+        )
+
+    st.subheader("Fight classification evaluation")
+    fight_benchmark = WORKSPACE_ROOT / "outputs/eval/behavior_scfd"
+    try:
+        fight_metrics = json.loads((fight_benchmark / "v100_metrics.json").read_bytes())
+        st.metric("SCFD accuracy", f"{fight_metrics['accuracy']:.1%}")
+        st.caption(f"X3D-M scored {fight_metrics['scored']} labeled CCTV clips at a threshold of 0.40.")
+        st.dataframe([
+            {"Class": label, "Precision": f"{values['precision']:.1%}",
+             "Recall": f"{values['recall']:.1%}", "F1": f"{values['f1']:.1%}",
+             "Clips": values["support"]}
+            for label, values in fight_metrics["per_class"].items()
+        ], hide_index=True)
+        st.caption("Confusion matrix · rows are actual labels and columns are predictions.")
+        st.table(pd.DataFrame(fight_metrics["confusion_matrix"],
+                              index=fight_metrics["confusion_matrix_labels"],
+                              columns=fight_metrics["confusion_matrix_labels"]))
+        st.download_button("Download SCFD predictions", (fight_benchmark / "v100_predictions.csv").read_bytes(),
+                           "scfd_predictions.csv", "text/csv")
+    except (OSError, ValueError, KeyError, TypeError):
+        st.info("Saved fight benchmark results are unavailable.")
+
+    st.caption("Movement cues are for review. See Analyze Video for an annotated example.")
+
 with tabs[3]:
-    # Top-line verification KPI cards
-    gcol1, gcol2, gcol3 = st.columns(3)
-    gcol1.markdown(
-        "<div class='ui-panel'>"
-        "<div class='ui-panel-header'><span>CONFIG SHA-256 HASH</span><span class='badge-pass'>FROZEN</span></div>"
-        "<div class='kv-value' style='font-size:1.05rem;'>038f8469...13ef</div>"
-        "<div style='font-size:0.75rem; color:#10b981; margin-top:4px;'>● Reproducibility Manifest Certified</div>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
-    gcol2.markdown(
-        "<div class='ui-panel'>"
-        "<div class='ui-panel-header'><span>TARGET VERIFICATION</span><span class='badge-pass'>PASS</span></div>"
-        "<div class='kv-value' style='font-size:1.05rem;'>F1 ≥ 0.300 | Actual: 0.300</div>"
-        "<div style='font-size:0.75rem; color:#10b981; margin-top:4px;'>● Gate 3 Baseline Precision: 89.9%</div>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
-    gcol3.markdown(
-        "<div class='ui-panel'>"
-        "<div class='ui-panel-header'><span>REGRESSION UNIT TESTS</span><span class='badge-pass'>30 / 30 PASS</span></div>"
-        "<div class='kv-value' style='font-size:1.05rem;'>100% Passing (0 Failures)</div>"
-        "<div style='font-size:0.75rem; color:#10b981; margin-top:4px;'>● End-to-End Suite Deterministic</div>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
+    st.subheader("Historical verification records")
+    st.caption("This status report records the original verification runs.")
 
     status_file = WORKSPACE_ROOT / "outputs/status/status.md"
     if status_file.exists():

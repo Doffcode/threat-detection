@@ -1,0 +1,173 @@
+{
+  "1": {
+    "label": "No cue",
+    "intervals": []
+  },
+  "2": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "3": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "4": {
+    "label": "No cue",
+    "intervals": []
+  },
+  "5": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "6": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "7": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "8": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "9": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "10": {
+    "label": "No cue",
+    "intervals": []
+  },
+  "11": {
+    "label": "Unclear",
+    "intervals": []
+  },
+  "12": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "13": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "14": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "15": {
+    "label": "Unclear",
+    "intervals": []
+  },
+  "16": {
+    "label": "No cue",
+    "intervals": []
+  },
+  "17": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "18": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "19": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "20": {
+    "label": "No cue",
+    "intervals": []
+  },
+  "21": {
+    "label": "Unclear",
+    "intervals": []
+  },
+  "22": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  },
+  "23": {
+    "label": "No cue",
+    "intervals": []
+  },
+  "24": {
+    "label": "Cue present",
+    "intervals": [
+      [
+        0.0,
+        0.02
+      ]
+    ]
+  }
+}
